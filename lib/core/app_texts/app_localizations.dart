@@ -1,0 +1,819 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations_ar.dart';
+import 'app_localizations_en.dart';
+
+// ignore_for_file: type=lint
+
+/// Callers can lookup localized strings with an instance of AppLocalizations
+/// returned by `AppLocalizations.of(context)`.
+///
+/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// `localizationDelegates` list, and the locales they support in the app's
+/// `supportedLocales` list. For example:
+///
+/// ```dart
+/// import 'app_texts/app_localizations.dart';
+///
+/// return MaterialApp(
+///   localizationsDelegates: AppLocalizations.localizationsDelegates,
+///   supportedLocales: AppLocalizations.supportedLocales,
+///   home: MyApplicationHome(),
+/// );
+/// ```
+///
+/// ## Update pubspec.yaml
+///
+/// Please make sure to update your pubspec.yaml to include the following
+/// packages:
+///
+/// ```yaml
+/// dependencies:
+///   # Internationalization support.
+///   flutter_localizations:
+///     sdk: flutter
+///   intl: any # Use the pinned version from flutter_localizations
+///
+///   # Rest of dependencies
+/// ```
+///
+/// ## iOS Applications
+///
+/// iOS applications define key application metadata, including supported
+/// locales, in an Info.plist file that is built into the application bundle.
+/// To configure the locales supported by your app, you’ll need to edit this
+/// file.
+///
+/// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
+/// Then, in the Project Navigator, open the Info.plist file under the Runner
+/// project’s Runner folder.
+///
+/// Next, select the Information Property List item, select Add Item from the
+/// Editor menu, then select Localizations from the pop-up menu.
+///
+/// Select and expand the newly-created Localizations item then, for each
+/// locale your application supports, add a new item and select the locale
+/// you wish to add from the pop-up menu in the Value field. This list should
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// property.
+abstract class AppLocalizations {
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+
+  final String localeName;
+
+  static AppLocalizations of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
+  }
+
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+
+  /// A list of this localizations delegate along with the default localizations
+  /// delegates.
+  ///
+  /// Returns a list of localizations delegates containing this delegate along with
+  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
+  /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
+
+  /// A list of this localizations delegate's supported locales.
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('ar'),
+    Locale('en')
+  ];
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @areYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you'**
+  String get areYou;
+
+  /// No description provided for @person.
+  ///
+  /// In en, this message translates to:
+  /// **'Person'**
+  String get person;
+
+  /// No description provided for @business.
+  ///
+  /// In en, this message translates to:
+  /// **'Company'**
+  String get business;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get signIn;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// No description provided for @dontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get dontHaveAccount;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @guestLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Guest Login'**
+  String get guestLogin;
+
+  /// No description provided for @guest.
+  ///
+  /// In en, this message translates to:
+  /// **'Guest'**
+  String get guest;
+
+  /// No description provided for @forgetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password?'**
+  String get forgetPassword;
+
+  /// No description provided for @areYouLokingFor.
+  ///
+  /// In en, this message translates to:
+  /// **'What are you looking for? '**
+  String get areYouLokingFor;
+
+  /// No description provided for @sortBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort By'**
+  String get sortBy;
+
+  /// No description provided for @daysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'days ago'**
+  String get daysAgo;
+
+  /// No description provided for @hoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'hours ago'**
+  String get hoursAgo;
+
+  /// No description provided for @minutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'minutes ago'**
+  String get minutesAgo;
+
+  /// No description provided for @secondsAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'seconds ago'**
+  String get secondsAgo;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @searchResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Result'**
+  String get searchResult;
+
+  /// No description provided for @noResult.
+  ///
+  /// In en, this message translates to:
+  /// **'No Result'**
+  String get noResult;
+
+  /// No description provided for @noInternetConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'No Internet Connection'**
+  String get noInternetConnection;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'or'**
+  String get or;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @continuee.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continuee;
+
+  /// No description provided for @pleaseWait.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Wait'**
+  String get pleaseWait;
+
+  /// No description provided for @date.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get date;
+
+  /// No description provided for @time.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get time;
+
+  /// No description provided for @location.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get location;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @price.
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get price;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// No description provided for @nameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Name Required'**
+  String get nameRequired;
+
+  /// No description provided for @passwordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Required'**
+  String get passwordRequired;
+
+  /// No description provided for @confirmPasswordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password Required'**
+  String get confirmPasswordRequired;
+
+  /// No description provided for @passwordNotMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Not Match'**
+  String get passwordNotMatch;
+
+  /// No description provided for @emailRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Required'**
+  String get emailRequired;
+
+  /// No description provided for @emailNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Not Valid'**
+  String get emailNotValid;
+
+  /// No description provided for @phoneRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Required'**
+  String get phoneRequired;
+
+  /// No description provided for @phoneNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Not Valid'**
+  String get phoneNotValid;
+
+  /// No description provided for @addressRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Address Required'**
+  String get addressRequired;
+
+  /// No description provided for @descriptionRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Description Required'**
+  String get descriptionRequired;
+
+  /// No description provided for @locationRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Required'**
+  String get locationRequired;
+
+  /// No description provided for @dateRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Date Required'**
+  String get dateRequired;
+
+  /// No description provided for @timeRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Time Required'**
+  String get timeRequired;
+
+  /// No description provided for @priceRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Price Required'**
+  String get priceRequired;
+
+  /// No description provided for @priceNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Price Not Valid'**
+  String get priceNotValid;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something Went Wrong'**
+  String get somethingWentWrong;
+
+  /// No description provided for @tryAgainLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again Later'**
+  String get tryAgainLater;
+
+  /// No description provided for @somethingWentWrongPleaseTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Something Went Wrong, Please Try Again'**
+  String get somethingWentWrongPleaseTryAgain;
+
+  /// No description provided for @noInternetConnectionPleaseTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'No Internet Connection, Please Try Again'**
+  String get noInternetConnectionPleaseTryAgain;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @noData.
+  ///
+  /// In en, this message translates to:
+  /// **'No Data'**
+  String get noData;
+
+  /// No description provided for @noDataAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No Data Available'**
+  String get noDataAvailable;
+
+  /// No description provided for @noDataFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No Data Found'**
+  String get noDataFound;
+
+  /// No description provided for @noDataFoundPleaseTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'No Data Found, Please Try Again'**
+  String get noDataFoundPleaseTryAgain;
+
+  /// No description provided for @noDataFoundPleaseTryAgainLater.
+  ///
+  /// In en, this message translates to:
+  /// **'No Data Found, Please Try Again Later'**
+  String get noDataFoundPleaseTryAgainLater;
+
+  /// No description provided for @workType.
+  ///
+  /// In en, this message translates to:
+  /// **'Work Type'**
+  String get workType;
+
+  /// No description provided for @workTypeRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Work Type Required'**
+  String get workTypeRequired;
+
+  /// No description provided for @workTypeNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Work Type Not Valid'**
+  String get workTypeNotValid;
+
+  /// No description provided for @partTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Part Time'**
+  String get partTime;
+
+  /// No description provided for @fullTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Time'**
+  String get fullTime;
+
+  /// No description provided for @hourly.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourly'**
+  String get hourly;
+
+  /// No description provided for @daily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get daily;
+
+  /// No description provided for @weekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get weekly;
+
+  /// No description provided for @remote.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote'**
+  String get remote;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
+
+  /// No description provided for @hybrid.
+  ///
+  /// In en, this message translates to:
+  /// **'Hybrid'**
+  String get hybrid;
+
+  /// No description provided for @gender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get gender;
+
+  /// No description provided for @genderRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender Required'**
+  String get genderRequired;
+
+  /// No description provided for @genderNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender Not Valid'**
+  String get genderNotValid;
+
+  /// No description provided for @male.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
+  String get male;
+
+  /// No description provided for @female.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
+  String get female;
+
+  /// No description provided for @age.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get age;
+
+  /// No description provided for @ageRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Age Required'**
+  String get ageRequired;
+
+  /// No description provided for @ageNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Age Not Valid'**
+  String get ageNotValid;
+
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get status;
+
+  /// No description provided for @statusRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Status Required'**
+  String get statusRequired;
+
+  /// No description provided for @single.
+  ///
+  /// In en, this message translates to:
+  /// **'Single'**
+  String get single;
+
+  /// No description provided for @married.
+  ///
+  /// In en, this message translates to:
+  /// **'Married'**
+  String get married;
+
+  /// No description provided for @divorced.
+  ///
+  /// In en, this message translates to:
+  /// **'Divorced'**
+  String get divorced;
+
+  /// No description provided for @widowed.
+  ///
+  /// In en, this message translates to:
+  /// **'Widowed'**
+  String get widowed;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @languageRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Language Required'**
+  String get languageRequired;
+
+  /// No description provided for @languageNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Language Not Valid'**
+  String get languageNotValid;
+
+  /// No description provided for @otpVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'OTP Verification'**
+  String get otpVerification;
+
+  /// No description provided for @hello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello'**
+  String get hello;
+
+  /// No description provided for @thanksRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Thanks for registering,please Type your OTP for verification your mobiele number'**
+  String get thanksRegister;
+
+  /// No description provided for @didntReceiveOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Didn\'t receive OTP?'**
+  String get didntReceiveOtp;
+
+  /// No description provided for @resend.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend'**
+  String get resend;
+
+  /// No description provided for @forma.
+  ///
+  /// In en, this message translates to:
+  /// **'Forma'**
+  String get forma;
+
+  /// No description provided for @experience.
+  ///
+  /// In en, this message translates to:
+  /// **'Experience'**
+  String get experience;
+
+  /// No description provided for @experienceRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Experience Required'**
+  String get experienceRequired;
+
+  /// No description provided for @ads.
+  ///
+  /// In en, this message translates to:
+  /// **'Ads'**
+  String get ads;
+
+  /// No description provided for @paswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Min . 8 Character'**
+  String get paswordHint;
+}
+
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+  const _AppLocalizationsDelegate();
+
+  @override
+  Future<AppLocalizations> load(Locale locale) {
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  }
+
+  @override
+  bool isSupported(Locale locale) => <String>['ar', 'en'].contains(locale.languageCode);
+
+  @override
+  bool shouldReload(_AppLocalizationsDelegate old) => false;
+}
+
+AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
+  // Lookup logic when only language code is specified.
+  switch (locale.languageCode) {
+    case 'ar': return AppLocalizationsAr();
+    case 'en': return AppLocalizationsEn();
+  }
+
+  throw FlutterError(
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
+  );
+}
