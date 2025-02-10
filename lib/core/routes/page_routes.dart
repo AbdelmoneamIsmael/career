@@ -1,6 +1,7 @@
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/features/business_login/presentation/pages/login_as_company.dart';
 import 'package:career/features/person_login/presentation/pages/login_as_person.dart';
+import 'package:career/features/register_as_person/presentation/pages/register_as_person.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:career/core/const/app_const.dart';
@@ -24,12 +25,20 @@ class PageRoutes {
         },
         routes: [
           GoRoute(
-            name: PagesKeys.loginAsPerson,
-            path: "/${PagesKeys.loginAsPerson}",
-            builder: (context, state) {
-              return const LoginAsPerson();
-            },
-          ),
+              name: PagesKeys.loginAsPerson,
+              path: "/${PagesKeys.loginAsPerson}",
+              builder: (context, state) {
+                return const LoginAsPerson();
+              },
+              routes: [
+                GoRoute(
+                  name: PagesKeys.registerAsPersonPage,
+                  path: "/${PagesKeys.registerAsPersonPage}",
+                  builder: (context, state) {
+                    return const RegisterAsPerson();
+                  },
+                ),
+              ]),
           GoRoute(
             name: PagesKeys.loginAsCompany,
             path: "/${PagesKeys.loginAsCompany}",

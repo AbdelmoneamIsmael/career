@@ -35,7 +35,7 @@ class ScreenWrapper extends StatelessWidget {
   final PreferredSizeWidget? appBar;
   final Widget? bottomNavigationBar;
   final void Function(bool)? onPopInvoked;
-  final AssetImage? backgroundImage;
+  final DecorationImage? backgroundImage;
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +54,14 @@ class ScreenWrapper extends StatelessWidget {
               ),
               child: Container(
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: backgroundImage ??
-                        AssetImage(
+                  image: backgroundImage ??
+                      DecorationImage(
+                        image: AssetImage(
                           Assets.images.backgroundImage.path,
                         ),
-                    fit: BoxFit.cover,
-                    alignment: Alignment(lerpDouble(.6, -.5, .07)!, 0),
-                  ),
+                        fit: BoxFit.cover,
+                        alignment: Alignment(lerpDouble(.6, -.5, .07)!, 0),
+                      ),
                 ),
                 child: Scaffold(
                   drawer: drawer,
