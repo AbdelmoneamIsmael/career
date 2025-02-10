@@ -4,7 +4,12 @@
     "person": "شخص",
     "business": "شركة",
     "login": "تسجيل الدخول",
+    "dateOfBirth": "تاريخ الميلاد",
+    "begainDate": "تاريخ البدء",
+    "endDate": "تاريخ الانتهاء",
         "signIn" : "سجل",
+        "jopTitle" : "المسمي الوظيفي",
+        "nationality": "الجنسية",
     "dontHaveAccount" : "لا تملك حساب؟",
     "alreadyHaveAccount" : "تملك حساب بالفعل؟",
     "register" : "انشاء حساب",
@@ -48,6 +53,7 @@
     "email": "البريد الإلكتروني",
     "address": "عنوان",
     "name": "اسم",
+    "fullName": "الاسم الكامل",
     "password": "كلمة المرور",
     "confirmPassword": "تأكيد كلمة المرور",
     "nameRequired": "اسم مطلوب",
@@ -114,5 +120,7 @@
     "experienceRequired": "الخبرة مطلوبة",
     "ads": "إعلانات",
      "paswordHint": "حد اقل 8 حرف",
-     "profileImage": "صورة الملف الشخصي"
+     "profileImage": "صورة الملف الشخصي",
+     "coreInfo": "معلومات اساسية",
+     "cvInfo": "معلومات السيرة الذاتية"
 }

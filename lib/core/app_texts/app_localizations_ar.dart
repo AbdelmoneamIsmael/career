@@ -22,7 +22,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get login => 'تسجيل الدخول';
 
   @override
+  String get dateOfBirth => 'تاريخ الميلاد';
+
+  @override
+  String get begainDate => 'تاريخ البدء';
+
+  @override
+  String get endDate => 'تاريخ الانتهاء';
+
+  @override
   String get signIn => 'سجل';
+
+  @override
+  String get jopTitle => 'المسمي الوظيفي';
+
+  @override
+  String get nationality => 'الجنسية';
 
   @override
   String get register => 'انشاء حساب';
@@ -152,6 +167,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get name => 'اسم';
+
+  @override
+  String get fullName => 'الاسم الكامل';
 
   @override
   String get password => 'كلمة المرور';
@@ -353,4 +371,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get profileImage => 'صورة الملف الشخصي';
+
+  @override
+  String get coreInfo => 'معلومات اساسية';
+
+  @override
+  String get cvInfo => 'معلومات السيرة الذاتية';
 }

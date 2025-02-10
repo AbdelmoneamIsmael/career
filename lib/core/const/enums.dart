@@ -38,3 +38,13 @@ enum VisitorType {
   business,
   guest,
 }
+
+enum PaymentMethod {
+  cash,
+  credit,
+  bank,
+}
+enum Gender {
+  male,
+  female,
+}

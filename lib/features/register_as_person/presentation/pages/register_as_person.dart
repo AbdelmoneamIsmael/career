@@ -65,6 +65,7 @@ class RegisterAsPerson extends StatelessWidget {
                   child: ExpandablePageView(
                     onPageChanged: cubit.setVAlue,
                     controller: cubit.pageController,
+                    physics: const NeverScrollableScrollPhysics(),
                     children: [
                       const ProfileImage(),
                       const CoreInformation(),

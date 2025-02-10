@@ -22,7 +22,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
+  String get dateOfBirth => 'Date of Birth';
+
+  @override
+  String get begainDate => 'Begin Date';
+
+  @override
+  String get endDate => 'End Date';
+
+  @override
   String get signIn => 'Sign In';
+
+  @override
+  String get jopTitle => 'Job Title';
+
+  @override
+  String get nationality => 'Nationality';
 
   @override
   String get register => 'Register';
@@ -152,6 +167,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get name => 'Name';
+
+  @override
+  String get fullName => 'Full Name';
 
   @override
   String get password => 'Password';
@@ -353,4 +371,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileImage => 'Profile Image';
+
+  @override
+  String get coreInfo => 'Personal Information';
+
+  @override
+  String get cvInfo => 'CV Information';
 }

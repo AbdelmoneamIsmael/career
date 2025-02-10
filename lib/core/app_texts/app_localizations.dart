@@ -125,11 +125,41 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
+  /// No description provided for @dateOfBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Birth'**
+  String get dateOfBirth;
+
+  /// No description provided for @begainDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Begin Date'**
+  String get begainDate;
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDate;
+
   /// No description provided for @signIn.
   ///
   /// In en, this message translates to:
   /// **'Sign In'**
   String get signIn;
+
+  /// No description provided for @jopTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Job Title'**
+  String get jopTitle;
+
+  /// No description provided for @nationality.
+  ///
+  /// In en, this message translates to:
+  /// **'Nationality'**
+  String get nationality;
 
   /// No description provided for @register.
   ///
@@ -388,6 +418,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Name'**
   String get name;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
 
   /// No description provided for @password.
   ///
@@ -790,6 +826,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile Image'**
   String get profileImage;
+
+  /// No description provided for @coreInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Information'**
+  String get coreInfo;
+
+  /// No description provided for @cvInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'CV Information'**
+  String get cvInfo;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

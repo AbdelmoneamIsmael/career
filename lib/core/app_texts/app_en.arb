@@ -4,7 +4,12 @@
     "person" : "Person",
     "business" : "Company",
     "login" : "Login",
+    "dateOfBirth" : "Date of Birth",
+    "begainDate" : "Begin Date",
+    "endDate" : "End Date",
     "signIn" : "Sign In",
+    "jopTitle" : "Job Title",
+    "nationality": "Nationality",
     "register" : "Register",
     "dontHaveAccount": "Don't have an account?",
     "alreadyHaveAccount": "Already have an account?",
@@ -43,11 +48,13 @@
     "time" : "Time",
     "location" : "Location",
     "description" : "Description",
+
     "price" : "Price",
     "phone" : "Phone",
     "email" : "Email",
     "address" : "Address",
     "name" : "Name",
+    "fullName" : "Full Name",
     "password" : "Password",
     "confirmPassword" : "Confirm Password",
     "nameRequired" : "Name Required",
@@ -114,7 +121,9 @@
     "experienceRequired" : "Experience Required",
     "ads" : "Ads",
     "paswordHint": "Min . 8 Character",
-    "profileImage": "Profile Image"
+    "profileImage": "Profile Image",
+    "coreInfo": "Personal Information",
+    "cvInfo": "CV Information"
 
 
 }

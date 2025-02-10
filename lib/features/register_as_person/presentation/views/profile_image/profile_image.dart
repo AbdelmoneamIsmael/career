@@ -2,6 +2,8 @@ import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
+import 'package:career/features/register_as_person/presentation/widgets/forward_widget.dart';
+import 'package:career/features/register_as_person/presentation/widgets/title_widget.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,24 +20,8 @@ class ProfileImage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 16.h,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              IconButton(
-                onPressed: () {
-                  context.read<RegisterAsPersonCubit>().previous();
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios_rounded,
-                  color: Theme.of(context).textTheme.bodyMedium!.color,
-                ),
-              ),
-              Text(
-                AppLocalizations.of(context).profileImage,
-                style: AppTextStyle.simiBold20(context),
-              ),
-            ],
+          TitleWidget(
+            title: AppLocalizations.of(context).profileImage,
           ),
           const SizedBox(),
           const SizedBox(),
@@ -56,20 +42,7 @@ class ProfileImage extends StatelessWidget {
           ),
           const SizedBox(),
           const SizedBox(),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-              shape: const CircleBorder(),
-              onPressed: () {
-                context.read<RegisterAsPersonCubit>().next();
-              },
-              backgroundColor: Theme.of(context).textTheme.bodyMedium!.color,
-              child: Icon(
-                Icons.arrow_forward_ios_rounded,
-                color: Theme.of(context).colorScheme.primaryContainer,
-              ),
-            ),
-          ),
+          const ForwardWidget(),
         ],
       ),
     );
