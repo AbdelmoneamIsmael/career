@@ -7,13 +7,20 @@ part 'register_as_person_state.dart';
 
 class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   RegisterAsPersonCubit() : super(RegisterAsPersonInitial());
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+  //global variabels
+  PageController controller = PageController(
+    initialPage: 0,
+  );
+  int currentPage = 0;
 
-  void register() {
-    if (formKey.currentState!.validate()) {
-      print('register');
-    }
+  @override
+  Future<void> close() {
+    controller.dispose();
+    return super.close();
+  }
+
+  void setVAlue(int value) {
+    currentPage = value;
+    emit(ChangePageView());
   }
 }

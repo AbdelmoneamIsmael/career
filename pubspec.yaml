@@ -1,5 +1,6 @@
 name: career
-description: "A new project for helping you find a job,or company to find suitable candidates."
+description: "A new project for helping you find a job,or company to find
+  suitable candidates."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'every one' # Remove this line if you wish to publish to pub.dev
@@ -34,16 +35,17 @@ dependencies:
   cached_network_image: ^3.4.1
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
-  
   device_preview: ^1.2.0
   dio: ^5.8.0+1
   equatable: ^2.0.7
+  expandable_page_view: ^1.0.17
   fl_chart: ^0.70.2
   flutter:
     sdk: flutter
   flutter_bloc: ^9.0.0
   flutter_blurhash: ^0.8.2
   flutter_localization: ^0.3.1
+  flutter_native_splash: ^2.4.4
   flutter_screenutil: ^5.9.3
   flutter_secure_storage: ^9.2.4
   flutter_spinkit: ^5.2.1
@@ -57,9 +59,8 @@ dependencies:
   motion_toast: ^2.11.0
   pretty_dio_logger: ^1.4.0
   shared_preferences: ^2.5.1
+  smooth_page_indicator: ^1.2.0+3
   url_launcher: ^6.3.1
-  flutter_native_splash: ^2.4.4
-
 
 dev_dependencies:
   build_runner: null
@@ -103,7 +104,7 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   fonts:
-   
+
     - family: Tajawal
       fonts:
         - asset: assets/fonts/Tajawal-Regular.ttf

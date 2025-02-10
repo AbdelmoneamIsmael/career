@@ -8,3 +8,4 @@ abstract class RegisterAsPersonState extends Equatable {
 }
 
 class RegisterAsPersonInitial extends RegisterAsPersonState {}
+class ChangePageView extends RegisterAsPersonState {}
