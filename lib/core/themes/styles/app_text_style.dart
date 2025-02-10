@@ -119,8 +119,8 @@ abstract class AppTextStyle {
   static TextStyle simiBold20(BuildContext context) => TextStyle(
         fontFamily: Theme.of(context).textTheme.bodyMedium!.fontFamily,
         fontSize: 20.sp,
+        height: 1,
         fontWeight: FontWeight.w600,
-        height: getTextHeight(20, 24.2),
         color: Theme.of(context).textTheme.bodyMedium!.color,
       );
   static TextStyle simiBold18(BuildContext context) => TextStyle(
@@ -143,6 +143,13 @@ abstract class AppTextStyle {
         fontSize: 30.sp,
         fontWeight: FontWeight.w700,
         height: getTextHeight(30, 45.4),
+        color: Theme.of(context).textTheme.bodyMedium!.color,
+      );
+  static TextStyle bold24h27(BuildContext context) => TextStyle(
+        fontFamily: Theme.of(context).textTheme.bodyMedium!.fontFamily,
+        fontSize: 30.sp,
+        fontWeight: FontWeight.w700,
+        height: getTextHeight(24, 27),
         color: Theme.of(context).textTheme.bodyMedium!.color,
       );
   static TextStyle bold36h56(BuildContext context) => TextStyle(

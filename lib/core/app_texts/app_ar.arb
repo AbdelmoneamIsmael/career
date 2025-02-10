@@ -113,5 +113,6 @@
     "experience": "خبرة",
     "experienceRequired": "الخبرة مطلوبة",
     "ads": "إعلانات",
-     "paswordHint": "حد اقل 8 حرف"
+     "paswordHint": "حد اقل 8 حرف",
+     "profileImage": "صورة الملف الشخصي"
 }

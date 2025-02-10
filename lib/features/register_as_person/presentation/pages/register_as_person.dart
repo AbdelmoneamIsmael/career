@@ -8,6 +8,14 @@ import 'package:career/core/widgets/primary_button.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
+import 'package:career/features/register_as_person/presentation/views/cirtifications/cirtifications.dart';
+import 'package:career/features/register_as_person/presentation/views/core_information/core_information.dart';
+import 'package:career/features/register_as_person/presentation/views/cv_info/cv_view_info.dart';
+import 'package:career/features/register_as_person/presentation/views/language/user_language.dart';
+import 'package:career/features/register_as_person/presentation/views/profile_image/profile_image.dart';
+import 'package:career/features/register_as_person/presentation/views/studies/studies.dart';
+import 'package:career/features/register_as_person/presentation/views/user_skills.dart/user_skills.dart';
+import 'package:career/features/register_as_person/presentation/views/works/work_experiances.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/gestures.dart';
@@ -24,6 +32,18 @@ class RegisterAsPerson extends StatelessWidget {
     return BlocProvider(
       create: (context) => RegisterAsPersonCubit(),
       child: ScreenWrapper(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.close,
+              color: Colors.white,
+            ),
+            onPressed: () => context.pop(),
+          ),
+        ),
         backgroundImage: DecorationImage(
           image: AssetImage(
             Assets.images.signIn.path,
@@ -44,9 +64,16 @@ class RegisterAsPerson extends StatelessWidget {
                   hasScrollBody: false,
                   child: ExpandablePageView(
                     onPageChanged: cubit.setVAlue,
-                    controller: cubit.controller,
+                    controller: cubit.pageController,
                     children: [
-                      
+                      const ProfileImage(),
+                      const CoreInformation(),
+                      const CvViewInfo(),
+                      const Studies(),
+                      const WorkExperiances(),
+                      const UserSkills(),
+                      const Cirtifications(),
+                      const UserLanguage(),
                     ],
                   ),
                 ),

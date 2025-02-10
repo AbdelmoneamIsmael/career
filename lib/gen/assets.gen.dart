@@ -75,6 +75,10 @@ class $AssetsImagesGen {
   AssetGenImage get homeScreen =>
       const AssetGenImage('assets/images/home_screen.jpg');
 
+  /// File path: assets/images/profile.webp
+  AssetGenImage get profile =>
+      const AssetGenImage('assets/images/profile.webp');
+
   /// File path: assets/images/sign_in.jpg
   AssetGenImage get signIn => const AssetGenImage('assets/images/sign_in.jpg');
 
@@ -89,6 +93,7 @@ class $AssetsImagesGen {
     applyJop,
     backgroundImage,
     homeScreen,
+    profile,
     signIn,
     splashScreen,
   ];

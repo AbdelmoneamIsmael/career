@@ -350,4 +350,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get paswordHint => 'Min . 8 Character';
+
+  @override
+  String get profileImage => 'Profile Image';
 }

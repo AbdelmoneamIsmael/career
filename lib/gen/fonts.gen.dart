@@ -10,6 +10,6 @@
 class FontFamily {
   FontFamily._();
 
-  /// Font family: Cairo
-  static const String cairo = 'Cairo';
+  /// Font family: Tajawal
+  static const String tajawal = 'Tajawal';
 }

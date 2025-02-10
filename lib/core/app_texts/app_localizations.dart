@@ -784,6 +784,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Min . 8 Character'**
   String get paswordHint;
+
+  /// No description provided for @profileImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Image'**
+  String get profileImage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

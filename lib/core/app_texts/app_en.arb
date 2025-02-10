@@ -113,7 +113,8 @@
     "experience" : "Experience",    
     "experienceRequired" : "Experience Required",
     "ads" : "Ads",
-    "paswordHint": "Min . 8 Character"
+    "paswordHint": "Min . 8 Character",
+    "profileImage": "Profile Image"
 
 
 }

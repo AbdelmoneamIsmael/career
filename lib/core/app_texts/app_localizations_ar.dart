@@ -350,4 +350,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get paswordHint => 'حد اقل 8 حرف';
+
+  @override
+  String get profileImage => 'صورة الملف الشخصي';
 }
