@@ -33,6 +33,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
 
+  /// File path: assets/icons/pdf.svg
+  String get pdf => 'assets/icons/pdf.svg';
+
   /// File path: assets/icons/profile.svg
   String get profile => 'assets/icons/profile.svg';
 
@@ -51,6 +54,7 @@ class $AssetsIconsGen {
     info,
     logout,
     notification,
+    pdf,
     profile,
     searchIcon,
     tabels,

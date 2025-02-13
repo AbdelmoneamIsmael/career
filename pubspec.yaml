@@ -39,9 +39,11 @@ dependencies:
   dartz: ^0.10.1
   device_preview: ^1.2.0
   dio: ^5.8.0+1
+  dotted_border: ^2.1.0
   dropdown_button2: ^2.3.9
   equatable: ^2.0.7
   expandable_page_view: ^1.0.17
+  file_picker: ^8.3.5
   fl_chart: ^0.70.2
   flutter:
     sdk: flutter
@@ -60,6 +62,7 @@ dependencies:
   html: ^0.15.5
   intl: any
   motion_toast: ^2.11.0
+  pdf: ^3.11.3
   pretty_dio_logger: ^1.4.0
   shared_preferences: ^2.5.1
   smooth_page_indicator: ^1.2.0+3

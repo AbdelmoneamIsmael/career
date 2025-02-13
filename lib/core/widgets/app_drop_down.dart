@@ -11,11 +11,13 @@ class AppDropdown extends StatelessWidget {
       required this.items,
       required this.onChanged,
       required this.hint,
-      this.prefixIcon});
+      this.prefixIcon,
+      this.value});
   final List<DropdownMenuItem> items;
   final void Function(dynamic) onChanged;
   final String hint;
   final Widget? prefixIcon;
+  final value;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,6 @@ class AppDropdown extends StatelessWidget {
               width: .8, color: Theme.of(context).textTheme.bodyMedium!.color!),
         ),
         filled: true,
-
         fillColor: Colors.transparent,
         enabledBorder: UnderlineInputBorder(
           borderRadius: BorderRadius.circular(0),
@@ -78,7 +79,6 @@ class AppDropdown extends StatelessWidget {
         ),
       ),
       dropdownStyleData: DropdownStyleData(
-        
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           color: Theme.of(context).colorScheme.primaryContainer,
@@ -89,6 +89,7 @@ class AppDropdown extends StatelessWidget {
       ),
       validator: (value) => value == null ? 'Please enter $hint' : null,
       isDense: false,
+      value: value,
       items: items,
       onChanged: onChanged,
     );

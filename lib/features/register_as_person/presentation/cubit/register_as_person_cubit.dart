@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -39,6 +42,21 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInCirc,
       );
+    }
+  }
+
+  ///cv preview
+  ///
+  PlatformFile? cv;
+  Future<void> pdfPicker() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['jpg', 'pdf', 'doc'],
+    );
+
+    if (result != null) {
+      cv = result.files.first;
+      emit(PdfPicked());
     }
   }
 }

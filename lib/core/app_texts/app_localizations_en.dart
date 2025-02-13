@@ -28,6 +28,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get begainDate => 'Begin Date';
 
   @override
+  String get languageOfCV => 'Language of CV';
+
+  @override
+  String get uploadCV => 'Upload CV';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get state => 'State';
+
+  @override
   String get endDate => 'End Date';
 
   @override

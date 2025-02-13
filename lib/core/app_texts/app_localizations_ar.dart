@@ -28,6 +28,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get begainDate => 'تاريخ البدء';
 
   @override
+  String get languageOfCV => 'اللغة في السيرة الذاتية';
+
+  @override
+  String get uploadCV => ' تحميل سيرة ذاتية';
+
+  @override
+  String get city => 'مدينة';
+
+  @override
+  String get state => 'ولاية/محافظة/قضاء';
+
+  @override
   String get endDate => 'تاريخ الانتهاء';
 
   @override

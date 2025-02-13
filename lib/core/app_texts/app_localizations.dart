@@ -137,6 +137,30 @@ abstract class AppLocalizations {
   /// **'Begin Date'**
   String get begainDate;
 
+  /// No description provided for @languageOfCV.
+  ///
+  /// In en, this message translates to:
+  /// **'Language of CV'**
+  String get languageOfCV;
+
+  /// No description provided for @uploadCV.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload CV'**
+  String get uploadCV;
+
+  /// No description provided for @city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// No description provided for @state.
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get state;
+
   /// No description provided for @endDate.
   ///
   /// In en, this message translates to:
