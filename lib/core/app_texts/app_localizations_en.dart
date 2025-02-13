@@ -34,10 +34,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get uploadCV => 'Upload CV';
 
   @override
+  String get workExperiances => 'Work Experiances';
+
+  @override
   String get city => 'City';
 
   @override
   String get state => 'State';
+
+  @override
+  String get studies => 'Studies';
+
+  @override
+  String get university => 'University';
+
+  @override
+  String get degree => 'Degree';
+
+  @override
+  String get year => 'Year ';
+
+  @override
+  String get department => 'Department';
 
   @override
   String get endDate => 'End Date';

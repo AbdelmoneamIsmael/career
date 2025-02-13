@@ -34,10 +34,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get uploadCV => ' تحميل سيرة ذاتية';
 
   @override
+  String get workExperiances => 'خبرات العمل';
+
+  @override
   String get city => 'مدينة';
 
   @override
   String get state => 'ولاية/محافظة/قضاء';
+
+  @override
+  String get studies => 'المؤهلات';
+
+  @override
+  String get university => 'الجامعة';
+
+  @override
+  String get degree => 'الدرجة';
+
+  @override
+  String get year => 'سنة';
+
+  @override
+  String get department => 'القسم';
 
   @override
   String get endDate => 'تاريخ الانتهاء';

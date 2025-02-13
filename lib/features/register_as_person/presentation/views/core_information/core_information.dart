@@ -87,6 +87,7 @@ class CoreInformation extends StatelessWidget {
             hint: AppLocalizations.of(context).nationality,
           ),
           const SizedBox(),
+          const SizedBox(),
           const ForwardWidget(),
         ],
       ),

@@ -149,6 +149,12 @@ abstract class AppLocalizations {
   /// **'Upload CV'**
   String get uploadCV;
 
+  /// No description provided for @workExperiances.
+  ///
+  /// In en, this message translates to:
+  /// **'Work Experiances'**
+  String get workExperiances;
+
   /// No description provided for @city.
   ///
   /// In en, this message translates to:
@@ -160,6 +166,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'State'**
   String get state;
+
+  /// No description provided for @studies.
+  ///
+  /// In en, this message translates to:
+  /// **'Studies'**
+  String get studies;
+
+  /// No description provided for @university.
+  ///
+  /// In en, this message translates to:
+  /// **'University'**
+  String get university;
+
+  /// No description provided for @degree.
+  ///
+  /// In en, this message translates to:
+  /// **'Degree'**
+  String get degree;
+
+  /// No description provided for @year.
+  ///
+  /// In en, this message translates to:
+  /// **'Year '**
+  String get year;
+
+  /// No description provided for @department.
+  ///
+  /// In en, this message translates to:
+  /// **'Department'**
+  String get department;
 
   /// No description provided for @endDate.
   ///
