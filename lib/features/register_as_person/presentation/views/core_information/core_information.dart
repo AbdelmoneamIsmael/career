@@ -6,7 +6,6 @@ import 'package:career/core/widgets/app_text_field.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/features/register_as_person/presentation/widgets/forward_widget.dart';
 import 'package:career/features/register_as_person/presentation/widgets/title_widget.dart';
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -57,6 +56,9 @@ class CoreInformation extends StatelessWidget {
             children: [
               Expanded(
                 child: AppDropdown(
+                  prefixIcon: const Icon(
+                    Icons.male_outlined,
+                  ),
                   items: Gender.values.map((e) {
                     print(e);
                     return DropdownMenuItem(
@@ -75,6 +77,14 @@ class CoreInformation extends StatelessWidget {
             prefixIcon: const Icon(
               Icons.date_range_outlined,
             ),
+          ),
+          AppDropdown(
+            prefixIcon: const Icon(
+              Icons.flag,
+            ),
+            items: [],
+            onChanged: (value) {},
+            hint: AppLocalizations.of(context).nationality,
           ),
           const SizedBox(),
           const ForwardWidget(),

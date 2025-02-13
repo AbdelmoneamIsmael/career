@@ -10,18 +10,20 @@ class AppDropdown extends StatelessWidget {
       {super.key,
       required this.items,
       required this.onChanged,
-      required this.hint});
+      required this.hint,
+      this.prefixIcon});
   final List<DropdownMenuItem> items;
   final void Function(dynamic) onChanged;
   final String hint;
+  final Widget? prefixIcon;
 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField2(
       isExpanded: true,
+      alignment: AlignmentDirectional.centerStart,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
-          horizontal: 8.w,
           vertical: 1.h,
         ),
         isDense: false,
@@ -34,6 +36,7 @@ class AppDropdown extends StatelessWidget {
               width: .8, color: Theme.of(context).textTheme.bodyMedium!.color!),
         ),
         filled: true,
+
         fillColor: Colors.transparent,
         enabledBorder: UnderlineInputBorder(
           borderRadius: BorderRadius.circular(0),
@@ -57,6 +60,7 @@ class AppDropdown extends StatelessWidget {
             color: Theme.of(context).colorScheme.error,
           ),
         ),
+        prefixIcon: prefixIcon,
       ),
       hint: Text(
         hint,
@@ -74,6 +78,7 @@ class AppDropdown extends StatelessWidget {
         ),
       ),
       dropdownStyleData: DropdownStyleData(
+        
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           color: Theme.of(context).colorScheme.primaryContainer,
@@ -83,7 +88,7 @@ class AppDropdown extends StatelessWidget {
         height: 1,
       ),
       validator: (value) => value == null ? 'Please enter $hint' : null,
-      isDense: true,
+      isDense: false,
       items: items,
       onChanged: onChanged,
     );
