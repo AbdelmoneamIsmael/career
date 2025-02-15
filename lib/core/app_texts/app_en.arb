@@ -133,7 +133,13 @@
     "paswordHint": "Min . 8 Character",
     "profileImage": "Profile Image",
     "coreInfo": "Personal Information",
-    "cvInfo": "CV Information"
+    "cvInfo": "CV Information",
+    "apply": "Apply",
+    "applySuccessfully": "Apply Successfully",
+    "applySuccessfullyMessage": "Apply Successfully, please wait until the request is accepted",
+    "applySuccessfullyMessageLater": "Apply Successfully, please wait until the request is accepted later",
+    "applyNow": "Apply Now"
+
 
 
 }

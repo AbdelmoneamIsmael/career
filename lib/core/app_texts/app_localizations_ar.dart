@@ -409,4 +409,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cvInfo => 'معلومات السيرة الذاتية';
+
+  @override
+  String get apply => 'تقدم';
+
+  @override
+  String get applySuccessfully => 'تقدم بنجاح';
+
+  @override
+  String get applySuccessfullyMessage => 'تقدم بنجاح، يرجى الانتظار حتى يتم قبول الطلب';
+
+  @override
+  String get applySuccessfullyMessageLater => 'تقدم بنجاح، يرجى الانتظار حتى يتم قبول الطلب لاحقاً';
+
+  @override
+  String get applyNow => 'تقدم الان';
 }

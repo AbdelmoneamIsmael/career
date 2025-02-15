@@ -409,4 +409,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cvInfo => 'CV Information';
+
+  @override
+  String get apply => 'Apply';
+
+  @override
+  String get applySuccessfully => 'Apply Successfully';
+
+  @override
+  String get applySuccessfullyMessage => 'Apply Successfully, please wait until the request is accepted';
+
+  @override
+  String get applySuccessfullyMessageLater => 'Apply Successfully, please wait until the request is accepted later';
+
+  @override
+  String get applyNow => 'Apply Now';
 }

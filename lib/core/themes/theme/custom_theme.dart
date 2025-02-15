@@ -30,12 +30,12 @@ ThemeData lightTheme = ThemeData(
   ),
   appBarTheme: AppBarTheme(
     centerTitle: false,
+    backgroundColor: Colors.transparent,
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: LightColors.backgroundColor,
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness: Brightness.light,
     ),
-    backgroundColor: LightColors.backgroundColor,
     elevation: 0,
     titleTextStyle: TextStyle(
       color: LightColors.textColor,
@@ -106,7 +106,7 @@ ThemeData darkTheme = ThemeData(
       statusBarIconBrightness: Brightness.light,
       statusBarBrightness: Brightness.dark,
     ),
-    backgroundColor: DarkColors.backgroundColor,
+    backgroundColor: Colors.transparent,
     elevation: 0,
     titleTextStyle: TextStyle(
       fontFamily: kFontFamily,

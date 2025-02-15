@@ -4,4 +4,10 @@ class PagesKeys {
   static const loginAsCompany = 'loginAsCompany';
   static const registerAsPersonPage = 'registerAsPersonPage';
   static const registerAsCompanyPage = 'registerAsCompanyPage';
+  static const mainScreen = 'mainScreen';
+  static const homeScreen = 'home';
+  static const profileScreen = 'profile'; 
+  static const settingsScreen = 'settings';
+  static const notificationsScreen = 'notifications';
+
 }

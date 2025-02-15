@@ -898,6 +898,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'CV Information'**
   String get cvInfo;
+
+  /// No description provided for @apply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get apply;
+
+  /// No description provided for @applySuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply Successfully'**
+  String get applySuccessfully;
+
+  /// No description provided for @applySuccessfullyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply Successfully, please wait until the request is accepted'**
+  String get applySuccessfullyMessage;
+
+  /// No description provided for @applySuccessfullyMessageLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply Successfully, please wait until the request is accepted later'**
+  String get applySuccessfullyMessageLater;
+
+  /// No description provided for @applyNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply Now'**
+  String get applyNow;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

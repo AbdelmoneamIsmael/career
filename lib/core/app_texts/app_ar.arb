@@ -132,5 +132,10 @@
      "paswordHint": "حد اقل 8 حرف",
      "profileImage": "صورة الملف الشخصي",
      "coreInfo": "معلومات اساسية",
-     "cvInfo": "معلومات السيرة الذاتية"
+     "cvInfo": "معلومات السيرة الذاتية",
+     "apply": "تقدم",
+     "applySuccessfully": "تقدم بنجاح",
+     "applySuccessfullyMessage": "تقدم بنجاح، يرجى الانتظار حتى يتم قبول الطلب",
+     "applySuccessfullyMessageLater": "تقدم بنجاح، يرجى الانتظار حتى يتم قبول الطلب لاحقاً",
+     "applyNow": "تقدم الان"
 }

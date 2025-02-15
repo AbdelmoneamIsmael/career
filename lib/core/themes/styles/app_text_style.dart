@@ -46,7 +46,7 @@ abstract class AppTextStyle {
       );
   static TextStyle regular12(BuildContext context) => TextStyle(
         fontFamily: Theme.of(context).textTheme.bodyMedium!.fontFamily,
-        fontSize: 10.sp,
+        fontSize: 12.sp,
         fontWeight: FontWeight.w400,
         height: getTextHeight(12, 14.52),
         color: Theme.of(context).textTheme.bodyMedium!.color,
