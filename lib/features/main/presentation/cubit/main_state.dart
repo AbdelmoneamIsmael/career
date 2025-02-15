@@ -10,3 +10,5 @@ abstract class MainState extends Equatable {
 class MainInitial extends MainState {}
 
 class ChangeIndex extends MainState {}
+
+class CheekingIndex extends MainState {}

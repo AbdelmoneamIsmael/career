@@ -11,7 +11,7 @@ class MainCubit extends Cubit<MainState> {
     required this.context,
     required this.path,
   }) : super(MainInitial()) {
-     currentIndex = 0;
+    currentIndex = 0;
   }
   String path = "";
   int currentIndex = 0;
@@ -21,7 +21,7 @@ class MainCubit extends Cubit<MainState> {
       currentIndex = index;
       switch (index) {
         case 0:
-          path ="/${PagesKeys.mainScreen}/${PagesKeys.homeScreen}";
+          path = "/${PagesKeys.mainScreen}/${PagesKeys.homeScreen}";
           context.go(
             path,
           );
@@ -29,7 +29,7 @@ class MainCubit extends Cubit<MainState> {
           getIndex(pagePath: path);
           break;
         case 1:
-          path ="/${PagesKeys.mainScreen}/${PagesKeys.profileScreen}";
+          path = "/${PagesKeys.mainScreen}/${PagesKeys.profileScreen}";
           // js.context
           //       .callMethod('open', ['https://stackoverflow.com/questions/ask']);
           context.go(
@@ -59,13 +59,17 @@ class MainCubit extends Cubit<MainState> {
   }
 
   getIndex({required String pagePath}) {
+    emit(CheekingIndex());
     if (pagePath == "/${PagesKeys.mainScreen}/${PagesKeys.homeScreen}") {
       currentIndex = 0;
-    } else if (pagePath == "/${PagesKeys.mainScreen}/${PagesKeys.profileScreen}") {
+    } else if (pagePath ==
+        "/${PagesKeys.mainScreen}/${PagesKeys.profileScreen}") {
       currentIndex = 1;
-    } else if (pagePath == "/${PagesKeys.mainScreen}/${PagesKeys.notificationsScreen}") {
+    } else if (pagePath ==
+        "/${PagesKeys.mainScreen}/${PagesKeys.notificationsScreen}") {
       currentIndex = 2;
-    } else if (pagePath == "/${PagesKeys.mainScreen}/${PagesKeys.settingsScreen}") {
+    } else if (pagePath ==
+        "/${PagesKeys.mainScreen}/${PagesKeys.settingsScreen}") {
       currentIndex = 3;
     } else {
       currentIndex = 0;

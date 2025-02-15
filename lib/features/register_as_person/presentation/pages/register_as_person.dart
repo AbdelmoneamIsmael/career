@@ -1,11 +1,5 @@
 import 'dart:ui';
 
-import 'package:career/core/app_texts/app_localizations.dart';
-import 'package:career/core/routes/pages_keys.dart';
-import 'package:career/core/themes/styles/app_text_style.dart';
-import 'package:career/core/widgets/app_text_field.dart';
-import 'package:career/core/widgets/primary_button.dart';
-import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
 import 'package:career/features/register_as_person/presentation/views/cirtifications/cirtifications.dart';
@@ -18,10 +12,8 @@ import 'package:career/features/register_as_person/presentation/views/user_skill
 import 'package:career/features/register_as_person/presentation/views/works/work_experiances.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class RegisterAsPerson extends StatelessWidget {
