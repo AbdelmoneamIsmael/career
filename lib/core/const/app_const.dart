@@ -1,6 +1,4 @@
-import 'package:career/core/routes/page_routes.dart';
 import 'package:career/core/routes/pages_keys.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 
 const String kAppName = "Career";

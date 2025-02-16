@@ -39,7 +39,7 @@ class MainCubit extends Cubit<MainState> {
           getIndex(pagePath: path);
           break;
         case 2:
-          path = "/${PagesKeys.mainScreen}/${PagesKeys.notificationsScreen}";
+          path = "/${PagesKeys.mainScreen}/${PagesKeys.notificationspage}";
           context.go(
             path,
           );
@@ -66,7 +66,7 @@ class MainCubit extends Cubit<MainState> {
         "/${PagesKeys.mainScreen}/${PagesKeys.profileScreen}") {
       currentIndex = 1;
     } else if (pagePath ==
-        "/${PagesKeys.mainScreen}/${PagesKeys.notificationsScreen}") {
+        "/${PagesKeys.mainScreen}/${PagesKeys.notificationspage}") {
       currentIndex = 2;
     } else if (pagePath ==
         "/${PagesKeys.mainScreen}/${PagesKeys.settingsScreen}") {

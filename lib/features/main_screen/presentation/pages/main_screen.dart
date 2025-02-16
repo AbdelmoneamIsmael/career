@@ -4,7 +4,6 @@ import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:career/features/main_screen/presentation/widgets/main_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 

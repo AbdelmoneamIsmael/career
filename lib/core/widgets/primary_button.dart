@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/loading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

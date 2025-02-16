@@ -1,10 +1,6 @@
 import 'dart:ui';
-
-import 'package:career/core/widgets/primary_container.dart';
-import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/features/main/presentation/cubit/main_cubit.dart';
 import 'package:career/features/main/presentation/pages/widgets/career_nav_bar.dart';
-import 'package:career/features/main_screen/presentation/cubit/main_screen_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,12 +1,9 @@
 import 'package:career/core/app_texts/app_localizations.dart';
-import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/primary_container.dart';
-import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
 import 'package:career/features/register_as_person/presentation/widgets/forward_widget.dart';
 import 'package:career/features/register_as_person/presentation/widgets/title_widget.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileImage extends StatelessWidget {
