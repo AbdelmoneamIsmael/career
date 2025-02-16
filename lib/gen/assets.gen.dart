@@ -50,6 +50,7 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/tabels.svg
   String get tabels => 'assets/icons/tabels.svg';
+  String get notificationIcon => 'assets/icons/notificationIcon.svg';
 
   /// List of all assets
   List<String> get values => [
