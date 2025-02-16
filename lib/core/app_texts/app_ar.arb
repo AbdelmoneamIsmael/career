@@ -39,6 +39,9 @@
     "noInternetConnection": "لا توجد اتصال بالإنترنت",
     "tryAgain": "حاول مرة أخرى",
     "ok": "حسناً",
+
+    "skills":"المهارات",
+    "aboutMe": "نبذة عني",
     "or": "أو",
     "confirm": "تأكيد",
     "cancel": "إلغاء",

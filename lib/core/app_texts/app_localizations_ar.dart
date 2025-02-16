@@ -58,6 +58,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get year => 'سنة';
 
   @override
+  String get skills => 'المهارات';
+
+  @override
+  String get aboutMe => 'نبذة عني';
+
+  @override
   String get department => 'القسم';
 
   @override

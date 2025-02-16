@@ -58,6 +58,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get year => 'Year ';
 
   @override
+  String get skills => 'Skills';
+
+  @override
+  String get aboutMe => 'About Me';
+
+  @override
   String get department => 'Department';
 
   @override

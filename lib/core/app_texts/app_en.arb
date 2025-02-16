@@ -16,6 +16,8 @@
     "university" : "University",
     "degree" : "Degree",
     "year" : "Year ",
+    "skills":"Skills",
+    "aboutMe" : "About Me",
     "department" : "Department",
     "endDate" : "End Date",
     "signIn" : "Sign In",

@@ -34,7 +34,7 @@ abstract class AppTextStyle {
         fontFamily: Theme.of(context).textTheme.bodyMedium!.fontFamily,
         fontSize: 14.sp,
         fontWeight: FontWeight.w500,
-        height: getTextHeight(14, 16.94),
+        height: getTextHeight(14, 14),
         color: Theme.of(context).textTheme.bodyMedium!.color,
       );
   static TextStyle regular14h21(BuildContext context) => TextStyle(
@@ -150,6 +150,13 @@ abstract class AppTextStyle {
         fontSize: 30.sp,
         fontWeight: FontWeight.w700,
         height: getTextHeight(24, 27),
+        color: Theme.of(context).textTheme.bodyMedium!.color,
+      );
+  static TextStyle bold18(BuildContext context) => TextStyle(
+        fontFamily: Theme.of(context).textTheme.bodyMedium!.fontFamily,
+        fontSize: 18.sp,
+        fontWeight: FontWeight.w700,
+        height: getTextHeight(18, 20),
         color: Theme.of(context).textTheme.bodyMedium!.color,
       );
   static TextStyle bold36h56(BuildContext context) => TextStyle(

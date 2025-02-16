@@ -197,6 +197,18 @@ abstract class AppLocalizations {
   /// **'Year '**
   String get year;
 
+  /// No description provided for @skills.
+  ///
+  /// In en, this message translates to:
+  /// **'Skills'**
+  String get skills;
+
+  /// No description provided for @aboutMe.
+  ///
+  /// In en, this message translates to:
+  /// **'About Me'**
+  String get aboutMe;
+
   /// No description provided for @department.
   ///
   /// In en, this message translates to:

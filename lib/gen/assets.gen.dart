@@ -21,6 +21,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/chevron-down.svg
   String get chevronDown => 'assets/icons/chevron-down.svg';
 
+  /// File path: assets/icons/cv_icon.svg
+  String get cvIcon => 'assets/icons/cv_icon.svg';
+
   /// File path: assets/icons/fillter_icon.svg
   String get fillterIcon => 'assets/icons/fillter_icon.svg';
 
@@ -53,6 +56,7 @@ class $AssetsIconsGen {
     asset1,
     cartIcon,
     chevronDown,
+    cvIcon,
     fillterIcon,
     googleLogo,
     info,
