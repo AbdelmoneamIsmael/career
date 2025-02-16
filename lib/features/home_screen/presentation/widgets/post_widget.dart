@@ -81,9 +81,10 @@ class PostWidget extends StatelessWidget {
               const Spacer(),
               Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.favorite,
                     size: 16,
+                    color: Theme.of(context).primaryColor,
                   ),
                   const SizedBox(width: 5),
                   Text("1222",

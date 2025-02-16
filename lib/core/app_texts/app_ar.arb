@@ -28,6 +28,7 @@
     "city": "مدينة",
     "state" : "ولاية/محافظة/قضاء",
     "workExperiances": "خبرات العمل",
+    "searchHint": "ما الذي تفكر به؟",
     "studies":"المؤهلات",
     "year":"سنة",
     "university":"الجامعة",

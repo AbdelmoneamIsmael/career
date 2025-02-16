@@ -23,13 +23,14 @@ class ScreenWrapper extends StatelessWidget {
     this.onPopInvoked,
     this.drawer,
     this.backgroundImage,
+    this.topSafeArea,
   });
 
   final Widget body;
   final Color? statusAppBarColor;
   final Color? backGroundColor;
   final bool? resizeToAvoidBottomInset;
-  final bool? extendBodyBehindAppBar;
+  final bool? extendBodyBehindAppBar, topSafeArea;
   final Widget? floatingActionButton, drawer;
   final bool? onWillPop, applayAnotation;
   final PreferredSizeWidget? appBar;
@@ -66,7 +67,7 @@ class ScreenWrapper extends StatelessWidget {
                 child: Scaffold(
                   drawer: drawer,
                   bottomNavigationBar: bottomNavigationBar,
-                  appBar: appBar ,
+                  appBar: appBar,
                   floatingActionButton: floatingActionButton,
                   extendBodyBehindAppBar: extendBodyBehindAppBar ?? false,
                   resizeToAvoidBottomInset: resizeToAvoidBottomInset ?? false,
@@ -77,6 +78,7 @@ class ScreenWrapper extends StatelessWidget {
                             statusBarIconBrightness: Brightness.light,
                           ),
                           child: SafeArea(
+                            top: topSafeArea ?? false,
                             left: false,
                             bottom: false,
                             right: false,

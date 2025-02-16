@@ -155,6 +155,12 @@ abstract class AppLocalizations {
   /// **'Work Experiances'**
   String get workExperiances;
 
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'What are you looking for?'**
+  String get searchHint;
+
   /// No description provided for @city.
   ///
   /// In en, this message translates to:

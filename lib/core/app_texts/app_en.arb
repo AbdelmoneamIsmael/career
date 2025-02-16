@@ -9,6 +9,7 @@
     "languageOfCV" : "Language of CV",
     "uploadCV" : "Upload CV",
     "workExperiances" : "Work Experiances",
+    "searchHint" : "What are you looking for?",
     "city": "City",
     "state" : "State",
     "studies" : "Studies",
