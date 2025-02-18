@@ -8,13 +8,16 @@ class PrimaryContainer extends StatelessWidget {
     this.padding,
     this.margin,
     this.borderRadius,
-    this.color, this.hight, this.width,
+    this.color,
+    this.hight,
+    this.width, this.boxShadow,
   });
   final Widget child;
   final EdgeInsetsGeometry? padding, margin;
   final BorderRadiusGeometry? borderRadius;
   final Color? color;
   final double? hight, width;
+  final List<BoxShadow>? boxShadow;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,6 +28,7 @@ class PrimaryContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(20.r),
         color: color ?? Theme.of(context).colorScheme.primaryContainer,
+        boxShadow: boxShadow,
       ),
       child: child,
     );

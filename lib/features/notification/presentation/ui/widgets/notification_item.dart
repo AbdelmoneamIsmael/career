@@ -1,4 +1,5 @@
 import 'package:career/core/themes/styles/app_text_style.dart';
+import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,18 +13,28 @@ class NotificationItem extends StatelessWidget {
   final String notifyData;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 16),
-      padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 17.h),
-      decoration: ShapeDecoration(
-        color: Theme.of(context).textTheme.bodySmall!.color,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+    return PrimaryContainer(
+      margin: const EdgeInsets.symmetric(horizontal: 15).copyWith(top: 15),
+      padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withValues(alpha: 0.25),
+          blurRadius: 4,
+          offset: const Offset(0, 4),
         ),
-      ),
+      ],
       child: Row(
         children: [
-          SvgPicture.asset(Assets.icons.notification, fit: BoxFit.scaleDown),
+          Stack(
+            children: [
+              SvgPicture.asset(Assets.icons.notification,
+                  fit: BoxFit.scaleDown),
+              const CircleAvatar(
+                radius: 5,
+                backgroundColor: Colors.green,
+              )
+            ],
+          ),
           15.horizontalSpace,
           Text(
             notifyData,
