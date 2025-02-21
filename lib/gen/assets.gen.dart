@@ -39,6 +39,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
 
+  /// File path: assets/icons/notificationIcon.svg
+  String get notificationIcon => 'assets/icons/notificationIcon.svg';
+
   /// File path: assets/icons/pdf.svg
   String get pdf => 'assets/icons/pdf.svg';
 
@@ -50,7 +53,6 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/tabels.svg
   String get tabels => 'assets/icons/tabels.svg';
-  String get notificationIcon => 'assets/icons/notificationIcon.svg';
 
   /// List of all assets
   List<String> get values => [
@@ -63,6 +65,7 @@ class $AssetsIconsGen {
     info,
     logout,
     notification,
+    notificationIcon,
     pdf,
     profile,
     searchIcon,
@@ -79,6 +82,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/applogo.png
   AssetGenImage get applogo => const AssetGenImage('assets/images/applogo.png');
+
+  /// File path: assets/images/apply_image.png
+  AssetGenImage get applyImage =>
+      const AssetGenImage('assets/images/apply_image.png');
 
   /// File path: assets/images/apply_jop.jpg
   AssetGenImage get applyJop =>
@@ -107,6 +114,7 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
     elipse5,
     applogo,
+    applyImage,
     applyJop,
     backgroundImage,
     homeScreen,

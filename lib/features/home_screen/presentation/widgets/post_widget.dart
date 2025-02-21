@@ -1,9 +1,11 @@
 import 'package:career/core/app_texts/app_localizations.dart';
+import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class PostWidget extends StatelessWidget {
   const PostWidget({super.key});
@@ -11,6 +13,10 @@ class PostWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PrimaryContainer(
+      onPress: () {
+        GoRouter.of(context).pushNamed(PagesKeys.postDetails);
+      }
+      ,
       margin: EdgeInsets.zero,
       child: Column(
         children: [

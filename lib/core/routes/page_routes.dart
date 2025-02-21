@@ -5,6 +5,7 @@ import 'package:career/features/main/presentation/cubit/main_cubit.dart';
 import 'package:career/features/main/presentation/pages/screen/main_screen.dart';
 import 'package:career/features/notification/presentation/ui/pages/notifications_page.dart';
 import 'package:career/features/person_login/presentation/pages/login_as_person.dart';
+import 'package:career/features/post_details/presentation/pages/post_details.dart';
 import 'package:career/features/profile_screen/presentation/pages/profile_screen.dart';
 import 'package:career/features/register_as_person/presentation/pages/register_as_person.dart';
 import 'package:career/features/setting_screen/presentation/pages/settings_screen.dart';
@@ -116,6 +117,13 @@ class PageRoutes {
             ],
           ),
         ],
+      ),
+      GoRoute(
+        name: PagesKeys.postDetails,
+        path: "/${PagesKeys.postDetails}",
+        builder: (context, state) {
+          return const PostDetails();
+        },
       ),
     ],
   );

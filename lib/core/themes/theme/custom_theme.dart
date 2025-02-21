@@ -29,6 +29,7 @@ ThemeData lightTheme = ThemeData(
     color: LightColors.textColor,
   ),
   appBarTheme: AppBarTheme(
+    scrolledUnderElevation: 0,
     centerTitle: false,
     backgroundColor: Colors.transparent,
     systemOverlayStyle: SystemUiOverlayStyle(
@@ -100,6 +101,7 @@ ThemeData darkTheme = ThemeData(
     ),
   ),
   appBarTheme: AppBarTheme(
+    scrolledUnderElevation: 0,
     centerTitle: false,
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: DarkColors.backgroundColor,
