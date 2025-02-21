@@ -39,6 +39,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
 
+  /// File path: assets/icons/notificationIcon.svg
+  String get notificationIcon => 'assets/icons/notificationIcon.svg';
+
   /// File path: assets/icons/pdf.svg
   String get pdf => 'assets/icons/pdf.svg';
 
@@ -50,7 +53,6 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/tabels.svg
   String get tabels => 'assets/icons/tabels.svg';
-  String get notificationIcon => 'assets/icons/notificationIcon.svg';
 
   /// List of all assets
   List<String> get values => [
@@ -63,6 +65,7 @@ class $AssetsIconsGen {
     info,
     logout,
     notification,
+    notificationIcon,
     pdf,
     profile,
     searchIcon,
@@ -80,6 +83,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/applogo.png
   AssetGenImage get applogo => const AssetGenImage('assets/images/applogo.png');
 
+  /// File path: assets/images/apply_image.png
+  AssetGenImage get applyImage =>
+      const AssetGenImage('assets/images/apply_image.png');
+
   /// File path: assets/images/apply_jop.jpg
   AssetGenImage get applyJop =>
       const AssetGenImage('assets/images/apply_jop.jpg');
@@ -95,6 +102,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/profile.webp
   AssetGenImage get profile =>
       const AssetGenImage('assets/images/profile.webp');
+
+  /// File path: assets/images/search.jpeg
+  AssetGenImage get search => const AssetGenImage('assets/images/search.jpeg');
 
   /// File path: assets/images/sign_in.jpg
   AssetGenImage get signIn => const AssetGenImage('assets/images/sign_in.jpg');
@@ -127,10 +137,12 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
     elipse5,
     applogo,
+    applyImage,
     applyJop,
     backgroundImage,
     homeScreen,
     profile,
+    search,
     signIn,
     splashScreen,
   ];

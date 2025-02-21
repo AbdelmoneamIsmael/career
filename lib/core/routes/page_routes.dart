@@ -1,10 +1,13 @@
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/features/business_login/presentation/pages/login_as_company.dart';
+import 'package:career/features/home_screen/presentation/cubit/home_screen_cubit.dart';
 import 'package:career/features/home_screen/presentation/pages/home_screen.dart';
+import 'package:career/features/home_screen/presentation/views/fillter_sheet.dart';
 import 'package:career/features/main/presentation/cubit/main_cubit.dart';
 import 'package:career/features/main/presentation/pages/screen/main_screen.dart';
 import 'package:career/features/notification/presentation/ui/pages/notifications_page.dart';
 import 'package:career/features/person_login/presentation/pages/login_as_person.dart';
+import 'package:career/features/post_details/presentation/pages/post_details.dart';
 import 'package:career/features/profile_screen/presentation/pages/profile_screen.dart';
 import 'package:career/features/register_as_person/presentation/pages/register_as_person.dart';
 import 'package:career/features/setting_screen/presentation/pages/settings_screen.dart';
@@ -116,6 +119,23 @@ class PageRoutes {
             ],
           ),
         ],
+      ),
+      GoRoute(
+        name: PagesKeys.postDetails,
+        path: "/${PagesKeys.postDetails}",
+        builder: (context, state) {
+          return const PostDetails();
+        },
+      ),
+      GoRoute(
+        name: PagesKeys.fillterPage,
+        path: "/${PagesKeys.fillterPage}",
+        builder: (context, state) {
+          return BlocProvider.value(
+            value: state.extra as HomeScreenCubit,
+            child: const FillterPage(),
+          );
+        },
       ),
     ],
   );

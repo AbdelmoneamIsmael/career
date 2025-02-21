@@ -203,6 +203,12 @@ abstract class AppLocalizations {
   /// **'Skills'**
   String get skills;
 
+  /// No description provided for @fillterPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Filter'**
+  String get fillterPage;
+
   /// No description provided for @aboutMe.
   ///
   /// In en, this message translates to:
@@ -946,6 +952,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Apply Now'**
   String get applyNow;
+
+  /// No description provided for @jopkind.
+  ///
+  /// In en, this message translates to:
+  /// **'Job '**
+  String get jopkind;
+
+  /// No description provided for @searchFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Search For'**
+  String get searchFor;
+
+  /// No description provided for @company.
+  ///
+  /// In en, this message translates to:
+  /// **'Company'**
+  String get company;
+
+  /// No description provided for @post.
+  ///
+  /// In en, this message translates to:
+  /// **'Post'**
+  String get post;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

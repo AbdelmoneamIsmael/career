@@ -10,7 +10,8 @@ class PrimaryContainer extends StatelessWidget {
     this.borderRadius,
     this.color,
     this.hight,
-    this.width, this.boxShadow,
+    this.width,
+    this.boxShadow, this.onPress,
   });
   final Widget child;
   final EdgeInsetsGeometry? padding, margin;
@@ -18,19 +19,23 @@ class PrimaryContainer extends StatelessWidget {
   final Color? color;
   final double? hight, width;
   final List<BoxShadow>? boxShadow;
+  final VoidCallback? onPress;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding ?? const EdgeInsets.all(20).w,
-      margin: margin ?? const EdgeInsets.all(22).w,
-      height: hight,
-      width: width,
-      decoration: BoxDecoration(
-        borderRadius: borderRadius ?? BorderRadius.circular(20.r),
-        color: color ?? Theme.of(context).colorScheme.primaryContainer,
-        boxShadow: boxShadow,
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        padding: padding ?? const EdgeInsets.all(20).w,
+        margin: margin ?? const EdgeInsets.all(22).w,
+        height: hight,
+        width: width,
+        decoration: BoxDecoration(
+          borderRadius: borderRadius ?? BorderRadius.circular(20.r),
+          color: color ?? Theme.of(context).colorScheme.primaryContainer,
+          boxShadow: boxShadow,
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }
