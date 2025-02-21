@@ -61,6 +61,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get skills => 'Skills';
 
   @override
+  String get fillterPage => 'Search Filter';
+
+  @override
   String get aboutMe => 'About Me';
 
   @override
@@ -431,4 +434,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get applyNow => 'Apply Now';
+
+  @override
+  String get jopkind => 'Job ';
+
+  @override
+  String get searchFor => 'Search For';
+
+  @override
+  String get company => 'Company';
+
+  @override
+  String get post => 'Post';
 }

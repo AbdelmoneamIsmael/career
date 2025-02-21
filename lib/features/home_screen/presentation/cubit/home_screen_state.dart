@@ -1,10 +1,7 @@
-part of 'home_screen_cubit.dart';
-
-abstract class HomeScreenState extends Equatable {
-  const HomeScreenState();
-
-  @override
-  List<Object> get props => [];
-}
+abstract class HomeScreenState {}
 
 class HomeScreenInitial extends HomeScreenState {}
+
+class ChangeJopKind extends HomeScreenState {}
+
+class ChangeSearchFor extends HomeScreenState {}

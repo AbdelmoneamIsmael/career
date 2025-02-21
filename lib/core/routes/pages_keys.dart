@@ -9,6 +9,6 @@ class PagesKeys {
   static const profileScreen = 'profile';
   static const settingsScreen = 'settings';
   static const notificationspage = 'notifications';
-
+  static const fillterPage = 'fillterPage';
   static const postDetails = 'postDetails';
 }

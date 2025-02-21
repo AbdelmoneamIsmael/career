@@ -39,7 +39,7 @@
     "noInternetConnection": "لا توجد اتصال بالإنترنت",
     "tryAgain": "حاول مرة أخرى",
     "ok": "حسناً",
-
+    "fillterPage": "فلتر البحث",
     "skills":"المهارات",
     "aboutMe": "نبذة عني",
     "or": "أو",
@@ -141,5 +141,10 @@
      "applySuccessfully": "تقدم بنجاح",
      "applySuccessfullyMessage": "تقدم بنجاح، يرجى الانتظار حتى يتم قبول الطلب",
      "applySuccessfullyMessageLater": "تقدم بنجاح، يرجى الانتظار حتى يتم قبول الطلب لاحقاً",
-     "applyNow": "تقدم الان"
+     "applyNow": "تقدم الان",
+     "jopkind": "نوع الوظيفة",
+     "searchFor": "ابحث عن",
+     "company": "شركة",
+     "post": "منشور"
+     
 }

@@ -1,6 +1,8 @@
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/features/business_login/presentation/pages/login_as_company.dart';
+import 'package:career/features/home_screen/presentation/cubit/home_screen_cubit.dart';
 import 'package:career/features/home_screen/presentation/pages/home_screen.dart';
+import 'package:career/features/home_screen/presentation/views/fillter_sheet.dart';
 import 'package:career/features/main/presentation/cubit/main_cubit.dart';
 import 'package:career/features/main/presentation/pages/screen/main_screen.dart';
 import 'package:career/features/notification/presentation/ui/pages/notifications_page.dart';
@@ -123,6 +125,16 @@ class PageRoutes {
         path: "/${PagesKeys.postDetails}",
         builder: (context, state) {
           return const PostDetails();
+        },
+      ),
+      GoRoute(
+        name: PagesKeys.fillterPage,
+        path: "/${PagesKeys.fillterPage}",
+        builder: (context, state) {
+          return BlocProvider.value(
+            value: state.extra as HomeScreenCubit,
+            child: const FillterPage(),
+          );
         },
       ),
     ],

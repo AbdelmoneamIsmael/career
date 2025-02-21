@@ -103,6 +103,9 @@ class $AssetsImagesGen {
   AssetGenImage get profile =>
       const AssetGenImage('assets/images/profile.webp');
 
+  /// File path: assets/images/search.jpeg
+  AssetGenImage get search => const AssetGenImage('assets/images/search.jpeg');
+
   /// File path: assets/images/sign_in.jpg
   AssetGenImage get signIn => const AssetGenImage('assets/images/sign_in.jpg');
 
@@ -119,6 +122,7 @@ class $AssetsImagesGen {
     backgroundImage,
     homeScreen,
     profile,
+    search,
     signIn,
     splashScreen,
   ];

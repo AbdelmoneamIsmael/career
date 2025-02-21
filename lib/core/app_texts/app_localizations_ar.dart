@@ -61,6 +61,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get skills => 'المهارات';
 
   @override
+  String get fillterPage => 'فلتر البحث';
+
+  @override
   String get aboutMe => 'نبذة عني';
 
   @override
@@ -431,4 +434,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get applyNow => 'تقدم الان';
+
+  @override
+  String get jopkind => 'نوع الوظيفة';
+
+  @override
+  String get searchFor => 'ابحث عن';
+
+  @override
+  String get company => 'شركة';
+
+  @override
+  String get post => 'منشور';
 }
