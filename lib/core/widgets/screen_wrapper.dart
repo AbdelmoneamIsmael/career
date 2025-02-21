@@ -65,6 +65,7 @@ class ScreenWrapper extends StatelessWidget {
                       ),
                 ),
                 child: Scaffold(
+                  backgroundColor: backGroundColor,
                   drawer: drawer,
                   bottomNavigationBar: bottomNavigationBar,
                   appBar: appBar,

@@ -102,6 +102,26 @@ class $AssetsImagesGen {
   /// File path: assets/images/splash_screen.png
   AssetGenImage get splashScreen =>
       const AssetGenImage('assets/images/splash_screen.png');
+  AssetGenImage get about =>
+      const AssetGenImage('assets/images/about.png');
+  AssetGenImage get logout =>
+      const AssetGenImage('assets/images/logout.png');
+  AssetGenImage get notification =>
+      const AssetGenImage('assets/images/notification.png');
+  AssetGenImage get privacy =>
+      const AssetGenImage('assets/images/privacy.png');
+  AssetGenImage get profileImage =>
+      const AssetGenImage('assets/images/profileImage.jpg');
+  AssetGenImage get question =>
+      const AssetGenImage('assets/images/question.png');
+  AssetGenImage get user =>
+      const AssetGenImage('assets/images/user.png');
+  AssetGenImage get verified =>
+      const AssetGenImage('assets/images/verified.png');
+  AssetGenImage get language =>
+      const AssetGenImage('assets/images/language.png');
+  AssetGenImage get mode =>
+      const AssetGenImage('assets/images/mode.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [

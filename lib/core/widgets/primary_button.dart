@@ -9,12 +9,13 @@ class PrimaryButton extends StatelessWidget {
     required this.onPressed,
     this.loading = false,
     this.onSecondaryTap,
-    this.fixedSize = true,
+    this.fixedSize = true, this.backgroundColor,
   });
   final String text;
   final VoidCallback? onPressed, onSecondaryTap;
   final bool loading;
   final bool fixedSize;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,7 @@ class PrimaryButton extends StatelessWidget {
             onSecondaryTap: onSecondaryTap,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: backgroundColor ,
                 fixedSize: fixedSize ? Size.fromHeight(49.h) : null,
               ),
               onPressed: onPressed,
