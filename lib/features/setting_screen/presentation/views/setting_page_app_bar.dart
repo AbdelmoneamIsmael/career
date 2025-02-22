@@ -1,6 +1,7 @@
 import 'package:career/core/themes/colors/colors.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/primary_button.dart';
+import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,8 +33,8 @@ class SettingPageAppBar extends StatelessWidget {
           StretchMode.blurBackground,
           StretchMode.zoomBackground
         ],
-        background: Container(
-          color: LightColors.containerColor,
+        background: PrimaryContainer(
+          margin: EdgeInsets.zero,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

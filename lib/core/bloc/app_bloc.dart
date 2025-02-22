@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:ui';
-
 import 'package:bloc/bloc.dart';
 import 'package:career/core/bloc/app_event.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +37,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         ? appModel = appModel
             .fromJson(jsonDecode(CacheHelper.getData(key: 'applicationModel')))
         : appModel = ApplicationModel(
-            theme: ApplicationTheme.dark,
+            theme: ApplicationTheme.light,
             language: window.locale.languageCode == 'ar'
                 ? ApplicationLanguage.ar
                 : ApplicationLanguage.en,

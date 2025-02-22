@@ -11,7 +11,7 @@ class PrimaryContainer extends StatelessWidget {
     this.color,
     this.hight,
     this.width,
-    this.boxShadow, this.onPress,
+    this.boxShadow, this.onPress, this.border,
   });
   final Widget child;
   final EdgeInsetsGeometry? padding, margin;
@@ -20,6 +20,7 @@ class PrimaryContainer extends StatelessWidget {
   final double? hight, width;
   final List<BoxShadow>? boxShadow;
   final VoidCallback? onPress;
+  final BoxBorder? border;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -32,6 +33,7 @@ class PrimaryContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: borderRadius ?? BorderRadius.circular(20.r),
           color: color ?? Theme.of(context).colorScheme.primaryContainer,
+          border: border,
           boxShadow: boxShadow,
         ),
         child: child,

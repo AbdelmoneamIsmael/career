@@ -31,9 +31,10 @@ class NotificationsPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverList.builder(
-            itemBuilder: (context, index) => const NotificationItem(
+            itemBuilder: (context, index) => NotificationItem(
+              isFirst: index == 0,
               notifyData:
-                  'العطر ليس زجاجة في اليد، بل رسالة تكتبها دون أن تَشهد.',
+                  'العطر ليس زجاجة في اليد،\nبل رسالة تكتبها دون أن تَشهد.',
             ),
           ),
         ],

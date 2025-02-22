@@ -113,8 +113,8 @@ class SettingPageItem extends StatelessWidget {
               Image.asset(
                 path,
                 fit: BoxFit.scaleDown,
-                width: 30.w,
-                height: 30.h,
+                width: 20.w,
+                height: 20.h,
               ),
               10.horizontalSpace,
               Text(title, style: AppTextStyle.bold16(context)),
