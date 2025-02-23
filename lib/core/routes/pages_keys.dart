@@ -11,4 +11,5 @@ class PagesKeys {
   static const notificationspage = 'notifications';
   static const fillterPage = 'fillterPage';
   static const postDetails = 'postDetails';
+  static const companyPage = 'companyPage';
 }

@@ -1,9 +1,11 @@
+import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/colors/colors.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class NotificationItem extends StatefulWidget {
   const NotificationItem({
@@ -26,6 +28,7 @@ class _NotificationItemState extends State<NotificationItem> {
       onTap: () {
         color = null;
         setState(() {});
+        GoRouter.of(context).goNamed(PagesKeys.companyPage);
       },
       child: PrimaryContainer(
         color: color,

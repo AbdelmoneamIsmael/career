@@ -132,6 +132,12 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/language.png');
   AssetGenImage get mode =>
       const AssetGenImage('assets/images/mode.png');
+  AssetGenImage get companyBackground =>
+      const AssetGenImage('assets/images/companyBackground.jpeg');
+  AssetGenImage get companyImage =>
+      const AssetGenImage('assets/images/companyImage.jpeg');
+  AssetGenImage get exit =>
+      const AssetGenImage('assets/images/exit.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
