@@ -28,7 +28,7 @@ class _NotificationItemState extends State<NotificationItem> {
       onTap: () {
         color = null;
         setState(() {});
-        GoRouter.of(context).goNamed(PagesKeys.companyPage);
+        GoRouter.of(context).pushNamed(PagesKeys.companyPage);
       },
       child: PrimaryContainer(
         color: color,

@@ -11,7 +11,9 @@ class PrimaryContainer extends StatelessWidget {
     this.color,
     this.hight,
     this.width,
-    this.boxShadow, this.onPress, this.border,
+    this.boxShadow,
+    this.onPress,
+    this.border,
   });
   final Widget child;
   final EdgeInsetsGeometry? padding, margin;
@@ -26,6 +28,7 @@ class PrimaryContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
+        clipBehavior: Clip.antiAlias,
         padding: padding ?? const EdgeInsets.all(20).w,
         margin: margin ?? const EdgeInsets.all(22).w,
         height: hight,
