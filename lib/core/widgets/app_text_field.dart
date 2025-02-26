@@ -16,7 +16,7 @@ class AppTextFieldWithTitle extends StatelessWidget {
       this.autofillHints,
       this.inputFormatters,
       this.keyboardType,
-      this.maxLines,
+      this.maxLines = 1,
       this.fillColor,
       this.prefixIcon,
       this.suffixIcon});
@@ -28,7 +28,7 @@ class AppTextFieldWithTitle extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final Color? fillColor;
   final TextInputType? keyboardType;
-  final int? maxLines;
+  final int maxLines;
   final Widget? prefixIcon, suffixIcon;
 
   @override
@@ -81,12 +81,13 @@ class AppTextField extends StatelessWidget {
     this.autofillHints,
     this.inputFormatters,
     this.keyboardType,
-    this.maxLines,
+    this.maxLines = 1,
     this.fillColor,
     this.prefixIcon,
     this.suffixIcon,
     this.withBorder = true,
     this.borderRadius,
+    this.focusedBorder,
   });
   final String hint;
   final bool scure, enabeld, readOnly, withBorder;
@@ -95,10 +96,11 @@ class AppTextField extends StatelessWidget {
   final Iterable<String>? autofillHints;
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
-  final int? maxLines;
+  final int maxLines;
   final Color? fillColor;
   final Widget? prefixIcon, suffixIcon;
   final BorderRadius? borderRadius;
+  final InputBorder? focusedBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +115,7 @@ class AppTextField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       inputFormatters: inputFormatters,
       keyboardType: keyboardType,
-      minLines: maxLines,
+      maxLines: maxLines,
       textAlignVertical: TextAlignVertical.center,
       style: AppTextStyle.medium16h24(context).copyWith(
         height: 1,
@@ -121,57 +123,62 @@ class AppTextField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
           horizontal: 8.w,
-          vertical: 1.h,
+          vertical: 6.h,
         ),
         isDense: false,
         hintStyle: AppTextStyle.regular14(context).copyWith(
           color: Theme.of(context).textTheme.bodySmall!.color,
         ),
         hintText: hint,
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            width: .8,
-            color: withBorder
-                ? Theme.of(context).textTheme.bodyMedium!.color!
-                : Colors.transparent,
-          ),
-        ),
+        focusedBorder: focusedBorder ??
+            UnderlineInputBorder(
+              borderSide: BorderSide(
+                width: .8,
+                color: withBorder
+                    ? Theme.of(context).textTheme.bodyMedium!.color!
+                    : Colors.transparent,
+              ),
+            ),
         filled: true,
         fillColor: fillColor ?? Colors.transparent,
-        enabledBorder: UnderlineInputBorder(
-          borderRadius: borderRadius ?? BorderRadius.circular(0),
-          borderSide: BorderSide(
-            width: .8,
-            color: withBorder
-                ? Theme.of(context).textTheme.bodySmall!.color!
-                : Colors.transparent,
-          ),
-        ),
-        disabledBorder: UnderlineInputBorder(
-          borderRadius: borderRadius ?? BorderRadius.circular(0),
-          borderSide: BorderSide(
-            width: .8,
-            color: withBorder
-                ? Theme.of(context).textTheme.bodySmall!.color!
-                : Colors.transparent,
-          ),
-        ),
-        border: UnderlineInputBorder(
-          borderRadius: borderRadius ?? BorderRadius.circular(0),
-          borderSide: BorderSide(
-            width: .8,
-            color: withBorder
-                ? Theme.of(context).textTheme.bodySmall!.color!
-                : Colors.transparent,
-          ),
-        ),
-        errorBorder: UnderlineInputBorder(
-          borderRadius: borderRadius ?? BorderRadius.circular(0),
-          borderSide: BorderSide(
-            width: .8,
-            color: Theme.of(context).colorScheme.error,
-          ),
-        ),
+        enabledBorder: focusedBorder ??
+            UnderlineInputBorder(
+              borderRadius: borderRadius ?? BorderRadius.circular(0),
+              borderSide: BorderSide(
+                width: .8,
+                color: withBorder
+                    ? Theme.of(context).textTheme.bodySmall!.color!
+                    : Colors.transparent,
+              ),
+            ),
+        disabledBorder: focusedBorder ??
+            UnderlineInputBorder(
+              borderRadius: borderRadius ?? BorderRadius.circular(0),
+              borderSide: BorderSide(
+                width: .8,
+                color: withBorder
+                    ? Theme.of(context).textTheme.bodySmall!.color!
+                    : Colors.transparent,
+              ),
+            ),
+        border: focusedBorder ??
+            UnderlineInputBorder(
+              borderRadius: borderRadius ?? BorderRadius.circular(0),
+              borderSide: BorderSide(
+                width: .8,
+                color: withBorder
+                    ? Theme.of(context).textTheme.bodySmall!.color!
+                    : Colors.transparent,
+              ),
+            ),
+        errorBorder: focusedBorder ??
+            UnderlineInputBorder(
+              borderRadius: borderRadius ?? BorderRadius.circular(0),
+              borderSide: BorderSide(
+                width: .8,
+                color: Theme.of(context).colorScheme.error,
+              ),
+            ),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
       ),

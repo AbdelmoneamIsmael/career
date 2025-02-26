@@ -1,38 +1,64 @@
 import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/app_drop_down.dart';
+import 'package:career/core/widgets/app_text_field.dart';
+import 'package:career/core/widgets/primary_button.dart';
+import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
-import 'package:career/features/home_screen/presentation/cubit/home_screen_cubit.dart';
-import 'package:career/features/home_screen/presentation/cubit/home_screen_state.dart';
+import 'package:career/features/create_post/presentation/cubit/create_post_cubit.dart';
+import 'package:career/features/create_post/presentation/cubit/create_post_state.dart';
+import 'package:career/features/home_screen/presentation/views/fillter_sheet.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FillterPage extends StatelessWidget {
-  const FillterPage({super.key});
+class CreatePostScreen extends StatelessWidget {
+  const CreatePostScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeScreenCubit, HomeScreenState>(
+    return BlocBuilder<CreatePostCubit, CreatePostState>(
       builder: (context, state) {
-        final cubit = BlocProvider.of<HomeScreenCubit>(context);
+        var cubit = BlocProvider.of<CreatePostCubit>(context);
+        cubit.onInit();
         return ScreenWrapper(
+          bottomNavigationBar: PrimaryContainer(
+            margin: const EdgeInsets.all(0),
+            padding: const EdgeInsets.all(28).w,
+            child: PrimaryButton(
+                text: AppLocalizations.of(context).post, onPressed: () {}),
+          ),
           backgroundImage: DecorationImage(
             image: AssetImage(
-              Assets.images.search.path,
+              Assets.images.createPost.path,
             ),
             fit: BoxFit.cover,
           ),
           appBar: AppBar(
-            title: Text(AppLocalizations.of(context).fillterPage),
+            title: Text(AppLocalizations.of(context).createJopPost),
           ),
-          body: Padding(
-            padding: const EdgeInsets.all(22.0),
+          body: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(22),
             child: Column(
-              spacing: 20.h,
               crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 12,
               children: [
+                SizedBox(
+                    width: MediaQuery.of(context).size.width * .5,
+                    child: AppTextField(
+                        hint: AppLocalizations.of(context).postTitle)),
+                AppTextField(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).textTheme.bodySmall!.color!,
+                      width: .8,
+                    ),
+                  ),
+                  hint: AppLocalizations.of(context).postDescription,
+                  maxLines: 12,
+                ),
                 Text(
                   AppLocalizations.of(context).salary,
                   style: AppTextStyle.medium18(context),
@@ -81,30 +107,7 @@ class FillterPage extends StatelessWidget {
                     value: cubit.jobs[index],
                     groupValue: cubit.selectedJob,
                     onChanged: (value) {
-                      context.read<HomeScreenCubit>().changeJopKind(value);
-                    },
-                  ),
-                ),
-                Text(
-                  AppLocalizations.of(context).searchFor,
-                  style: AppTextStyle.medium18(context),
-                ),
-                GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10.w,
-                    mainAxisSpacing: 10.h,
-                    childAspectRatio: 7,
-                  ),
-                  shrinkWrap: true,
-                  itemCount: cubit.jobs.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => AppRadioButton(
-                    title: cubit.searchFor[index],
-                    value: cubit.searchFor[index],
-                    groupValue: cubit.selectedSearchFor,
-                    onChanged: (value) {
-                      context.read<HomeScreenCubit>().changeSearchFor(value);
+                      context.read<CreatePostCubit>().changeJopKind(value);
                     },
                   ),
                 ),
@@ -127,7 +130,7 @@ class FillterPage extends StatelessWidget {
                     value: cubit.experience[index],
                     groupValue: cubit.selectedExperience,
                     onChanged: (value) {
-                      context.read<HomeScreenCubit>().changeExperience(value);
+                      context.read<CreatePostCubit>().changeExperience(value);
                     },
                   ),
                 ),
@@ -136,32 +139,6 @@ class FillterPage extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class AppRadioButton extends StatelessWidget {
-  const AppRadioButton({
-    super.key,
-    required this.title,
-    required this.value,
-    required this.groupValue,
-    this.onChanged,
-  });
-  final String title, value, groupValue;
-  final ValueChanged<String?>? onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Radio(
-          value: value,
-          groupValue: groupValue,
-          onChanged: onChanged,
-        ),
-        Text(title),
-      ],
     );
   }
 }

@@ -976,6 +976,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Post'**
   String get post;
+
+  /// No description provided for @noExperience.
+  ///
+  /// In en, this message translates to:
+  /// **'No Experience'**
+  String get noExperience;
+
+  /// No description provided for @noForma.
+  ///
+  /// In en, this message translates to:
+  /// **'No Forma'**
+  String get noForma;
+
+  /// No description provided for @noAds.
+  ///
+  /// In en, this message translates to:
+  /// **'No Ads'**
+  String get noAds;
+
+  /// No description provided for @noSavedPosts.
+  ///
+  /// In en, this message translates to:
+  /// **'No Saved Posts'**
+  String get noSavedPosts;
+
+  /// No description provided for @junior.
+  ///
+  /// In en, this message translates to:
+  /// **'Junior'**
+  String get junior;
+
+  /// No description provided for @middle.
+  ///
+  /// In en, this message translates to:
+  /// **'Middle'**
+  String get middle;
+
+  /// No description provided for @senior.
+  ///
+  /// In en, this message translates to:
+  /// **'Senior'**
+  String get senior;
+
+  /// No description provided for @entryLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Level'**
+  String get entryLevel;
+
+  /// No description provided for @salary.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary'**
+  String get salary;
+
+  /// No description provided for @salaryRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary from'**
+  String get salaryRequired;
+
+  /// No description provided for @salaryFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary From'**
+  String get salaryFrom;
+
+  /// No description provided for @salaryTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary To'**
+  String get salaryTo;
+
+  /// No description provided for @createPost.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Post'**
+  String get createPost;
+
+  /// No description provided for @updatePost.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Post'**
+  String get updatePost;
+
+  /// No description provided for @deletePost.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Post'**
+  String get deletePost;
+
+  /// No description provided for @createPostSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Post Successfully'**
+  String get createPostSuccessfully;
+
+  /// No description provided for @createPostSuccessfullyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Created Successfully, please wait until the request is accepted'**
+  String get createPostSuccessfullyMessage;
+
+  /// No description provided for @createPostSuccessfullyMessageLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Created Successfully, please wait until the request is accepted later'**
+  String get createPostSuccessfullyMessageLater;
+
+  /// No description provided for @createPostNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Post Now'**
+  String get createPostNow;
+
+  /// No description provided for @createJopPost.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Jop Post'**
+  String get createJopPost;
+
+  /// No description provided for @postTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Title'**
+  String get postTitle;
+
+  /// No description provided for @postTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Title Required'**
+  String get postTitleRequired;
+
+  /// No description provided for @postTitleNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Title Not Valid'**
+  String get postTitleNotValid;
+
+  /// No description provided for @postDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Description'**
+  String get postDescription;
+
+  /// No description provided for @postDescriptionRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Description Required'**
+  String get postDescriptionRequired;
+
+  /// No description provided for @postDescriptionNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Description Not Valid'**
+  String get postDescriptionNotValid;
+
+  /// No description provided for @postImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Image'**
+  String get postImage;
+
+  /// No description provided for @postImageRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Image Required'**
+  String get postImageRequired;
+
+  /// No description provided for @postImageNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Image Not Valid'**
+  String get postImageNotValid;
+
+  /// No description provided for @postType.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Type'**
+  String get postType;
+
+  /// No description provided for @postTypeRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Type Required'**
+  String get postTypeRequired;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

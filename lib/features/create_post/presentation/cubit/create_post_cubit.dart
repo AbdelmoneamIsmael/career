@@ -1,16 +1,18 @@
 import 'package:bloc/bloc.dart';
 import 'package:career/core/app_texts/app_localizations.dart';
-import 'package:career/features/home_screen/presentation/cubit/home_screen_state.dart';
+import 'package:career/features/create_post/presentation/cubit/create_post_state.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreenCubit extends Cubit<HomeScreenState> {
-  HomeScreenCubit({required this.context}) : super(HomeScreenInitial());
-
+class CreatePostCubit extends Cubit<CreatePostState> {
+  CreatePostCubit(
+    {
+      required this.context,
+    }
+  ) : super(CreatePostInitial());
   final BuildContext context;
   List<String> jobs = [];
   late String selectedJob;
-  List<String> searchFor = [];
-  late String selectedSearchFor;
+  
   List<String> experience = [];
   late String selectedExperience;
   List<double> sallary = [
@@ -40,11 +42,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
       AppLocalizations.of(context).remote,
       AppLocalizations.of(context).partTime,
     ];
-    searchFor = [
-      AppLocalizations.of(context).post,
-      AppLocalizations.of(context).company,
-      AppLocalizations.of(context).person,
-    ];
+   
     experience = [
       AppLocalizations.of(context).noExperience,
       AppLocalizations.of(context).entryLevel,
@@ -52,23 +50,20 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
       AppLocalizations.of(context).middle,
       AppLocalizations.of(context).senior,
     ];
-    selectedSearchFor = searchFor[0];
+   
     selectedJob = jobs[0];
     selectedExperience = experience[0];
   }
 
   void changeJopKind(String? value) {
     selectedJob = value!;
-    emit(ChangeJopKind());
+    emit(ChangePostJopKind());
   }
 
-  void changeSearchFor(String? value) {
-    selectedSearchFor = value!;
-    emit(ChangeSearchFor());
-  }
+ 
 
   void changeExperience(String? value) {
     selectedExperience = value!;
-    emit(ChangeSearchFor());
+    emit(ChangePostExperience());
   }
 }

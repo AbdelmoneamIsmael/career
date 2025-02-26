@@ -37,7 +37,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         ? appModel = appModel
             .fromJson(jsonDecode(CacheHelper.getData(key: 'applicationModel')))
         : appModel = ApplicationModel(
-            theme: ApplicationTheme.light,
+            theme: ApplicationTheme.dark,
             language: window.locale.languageCode == 'ar'
                 ? ApplicationLanguage.ar
                 : ApplicationLanguage.en,
