@@ -12,4 +12,5 @@ class PagesKeys {
   static const fillterPage = 'fillterPage';
   static const postDetails = 'postDetails';
   static const companyPage = 'companyPage';
+  static const createPost="createPost";
 }

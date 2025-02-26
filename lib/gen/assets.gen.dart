@@ -80,6 +80,9 @@ class $AssetsImagesGen {
   AssetGenImage get elipse5 =>
       const AssetGenImage('assets/images/Elipse 5.png');
 
+  /// File path: assets/images/about.png
+  AssetGenImage get about => const AssetGenImage('assets/images/about.png');
+
   /// File path: assets/images/applogo.png
   AssetGenImage get applogo => const AssetGenImage('assets/images/applogo.png');
 
@@ -95,13 +98,53 @@ class $AssetsImagesGen {
   AssetGenImage get backgroundImage =>
       const AssetGenImage('assets/images/background_image.png');
 
+  /// File path: assets/images/companyBackground.jpeg
+  AssetGenImage get companyBackground =>
+      const AssetGenImage('assets/images/companyBackground.jpeg');
+
+  /// File path: assets/images/companyImage.jpeg
+  AssetGenImage get companyImage =>
+      const AssetGenImage('assets/images/companyImage.jpeg');
+
+  /// File path: assets/images/create_post.jpg
+  AssetGenImage get createPost =>
+      const AssetGenImage('assets/images/create_post.jpg');
+
+  /// File path: assets/images/exit.png
+  AssetGenImage get exit => const AssetGenImage('assets/images/exit.png');
+
   /// File path: assets/images/home_screen.jpg
   AssetGenImage get homeScreen =>
       const AssetGenImage('assets/images/home_screen.jpg');
 
+  /// File path: assets/images/language.png
+  AssetGenImage get language =>
+      const AssetGenImage('assets/images/language.png');
+
+  /// File path: assets/images/logout.png
+  AssetGenImage get logout => const AssetGenImage('assets/images/logout.png');
+
+  /// File path: assets/images/mode.png
+  AssetGenImage get mode => const AssetGenImage('assets/images/mode.png');
+
+  /// File path: assets/images/notification.png
+  AssetGenImage get notification =>
+      const AssetGenImage('assets/images/notification.png');
+
+  /// File path: assets/images/privacy.png
+  AssetGenImage get privacy => const AssetGenImage('assets/images/privacy.png');
+
   /// File path: assets/images/profile.webp
   AssetGenImage get profile =>
       const AssetGenImage('assets/images/profile.webp');
+
+  /// File path: assets/images/profileImage.jpg
+  AssetGenImage get profileImage =>
+      const AssetGenImage('assets/images/profileImage.jpg');
+
+  /// File path: assets/images/question.png
+  AssetGenImage get question =>
+      const AssetGenImage('assets/images/question.png');
 
   /// File path: assets/images/search.jpeg
   AssetGenImage get search => const AssetGenImage('assets/images/search.jpeg');
@@ -112,45 +155,40 @@ class $AssetsImagesGen {
   /// File path: assets/images/splash_screen.png
   AssetGenImage get splashScreen =>
       const AssetGenImage('assets/images/splash_screen.png');
-  AssetGenImage get about =>
-      const AssetGenImage('assets/images/about.png');
-  AssetGenImage get logout =>
-      const AssetGenImage('assets/images/logout.png');
-  AssetGenImage get notification =>
-      const AssetGenImage('assets/images/notification.png');
-  AssetGenImage get privacy =>
-      const AssetGenImage('assets/images/privacy.png');
-  AssetGenImage get profileImage =>
-      const AssetGenImage('assets/images/profileImage.jpg');
-  AssetGenImage get question =>
-      const AssetGenImage('assets/images/question.png');
-  AssetGenImage get user =>
-      const AssetGenImage('assets/images/user.png');
+
+  /// File path: assets/images/user.png
+  AssetGenImage get user => const AssetGenImage('assets/images/user.png');
+
+  /// File path: assets/images/verified.png
   AssetGenImage get verified =>
       const AssetGenImage('assets/images/verified.png');
-  AssetGenImage get language =>
-      const AssetGenImage('assets/images/language.png');
-  AssetGenImage get mode =>
-      const AssetGenImage('assets/images/mode.png');
-  AssetGenImage get companyBackground =>
-      const AssetGenImage('assets/images/companyBackground.jpeg');
-  AssetGenImage get companyImage =>
-      const AssetGenImage('assets/images/companyImage.jpeg');
-  AssetGenImage get exit =>
-      const AssetGenImage('assets/images/exit.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     elipse5,
+    about,
     applogo,
     applyImage,
     applyJop,
     backgroundImage,
+    companyBackground,
+    companyImage,
+    createPost,
+    exit,
     homeScreen,
+    language,
+    logout,
+    mode,
+    notification,
+    privacy,
     profile,
+    profileImage,
+    question,
     search,
     signIn,
     splashScreen,
+    user,
+    verified,
   ];
 }
 

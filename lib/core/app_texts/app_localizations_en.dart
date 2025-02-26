@@ -482,4 +482,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get salaryTo => 'Salary To';
+
+  @override
+  String get createPost => 'Create Post';
+
+  @override
+  String get updatePost => 'Update Post';
+
+  @override
+  String get deletePost => 'Delete Post';
+
+  @override
+  String get createPostSuccessfully => 'Create Post Successfully';
+
+  @override
+  String get createPostSuccessfullyMessage => 'Post Created Successfully, please wait until the request is accepted';
+
+  @override
+  String get createPostSuccessfullyMessageLater => 'Post Created Successfully, please wait until the request is accepted later';
+
+  @override
+  String get createPostNow => 'Create Post Now';
+
+  @override
+  String get createJopPost => 'Create Jop Post';
+
+  @override
+  String get postTitle => 'Post Title';
+
+  @override
+  String get postTitleRequired => 'Post Title Required';
+
+  @override
+  String get postTitleNotValid => 'Post Title Not Valid';
+
+  @override
+  String get postDescription => 'Post Description';
+
+  @override
+  String get postDescriptionRequired => 'Post Description Required';
+
+  @override
+  String get postDescriptionNotValid => 'Post Description Not Valid';
+
+  @override
+  String get postImage => 'Post Image';
+
+  @override
+  String get postImageRequired => 'Post Image Required';
+
+  @override
+  String get postImageNotValid => 'Post Image Not Valid';
+
+  @override
+  String get postType => 'Post Type';
+
+  @override
+  String get postTypeRequired => 'Post Type Required';
 }

@@ -482,4 +482,61 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get salaryTo => 'الحد الاعلى للراتب';
+
+  @override
+  String get createPost => 'انشاء منشور';
+
+  @override
+  String get updatePost => 'تحديث منشور';
+
+  @override
+  String get deletePost => 'حذف منشور';
+
+  @override
+  String get createPostSuccessfully => 'انشاء منشور بنجاح';
+
+  @override
+  String get createPostSuccessfullyMessage => 'انشاء منشور بنجاح، يرجى الانتظار حتى يتم قبول الطلب';
+
+  @override
+  String get createPostSuccessfullyMessageLater => 'انشاء منشور بنجاح، يرجى الانتظار حتى يتم قبول الطلب لاحقاً';
+
+  @override
+  String get createPostNow => 'انشاء منشور الان';
+
+  @override
+  String get createJopPost => 'انشاء منشور وظيفي';
+
+  @override
+  String get postTitle => 'عنوان المنشور';
+
+  @override
+  String get postTitleRequired => 'عنوان المنشور مطلوب';
+
+  @override
+  String get postTitleNotValid => 'عنوان المنشور غير صالح';
+
+  @override
+  String get postDescription => 'وصف المنشور';
+
+  @override
+  String get postDescriptionRequired => 'وصف المنشور مطلوب';
+
+  @override
+  String get postDescriptionNotValid => 'وصف المنشور غير صالح';
+
+  @override
+  String get postImage => 'صورة المنشور';
+
+  @override
+  String get postImageRequired => 'صورة المنشور مطلوبة';
+
+  @override
+  String get postImageNotValid => 'صورة المنشور غير صالحة';
+
+  @override
+  String get postType => 'نوع المنشور';
+
+  @override
+  String get postTypeRequired => 'نوع المنشور مطلوب';
 }

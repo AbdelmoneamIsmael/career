@@ -158,5 +158,25 @@
     "salary": "Salary",
     "salaryRequired": "Salary from",
     "salaryFrom": "Salary From",
-    "salaryTo": "Salary To"
+    "salaryTo": "Salary To",
+    "createPost": "Create Post",
+    "updatePost": "Update Post",
+    "deletePost": "Delete Post",
+    "createPostSuccessfully": "Create Post Successfully",
+     "createPostSuccessfullyMessage": "Post Created Successfully, please wait until the request is accepted",
+     "createPostSuccessfullyMessageLater": "Post Created Successfully, please wait until the request is accepted later",
+     "createPostNow": "Create Post Now",
+     "createJopPost": "Create Jop Post",
+         
+     "postTitle":"Post Title",
+     "postTitleRequired": "Post Title Required",
+     "postTitleNotValid": "Post Title Not Valid",
+     "postDescription": "Post Description",
+     "postDescriptionRequired": "Post Description Required",
+     "postDescriptionNotValid": "Post Description Not Valid",
+     "postImage": "Post Image",
+     "postImageRequired": "Post Image Required",
+     "postImageNotValid": "Post Image Not Valid",
+     "postType": "Post Type",
+     "postTypeRequired": "Post Type Required"
 }
