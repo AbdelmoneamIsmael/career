@@ -7,34 +7,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class NotificationItem extends StatefulWidget {
+class NotificationItem extends StatelessWidget {
   const NotificationItem({
     super.key,
     required this.notifyData,
     this.isFirst = true,
+    required this.isRead,
   });
   final String notifyData;
   final bool isFirst;
+  final bool isRead;
 
-  @override
-  State<NotificationItem> createState() => _NotificationItemState();
-}
-
-class _NotificationItemState extends State<NotificationItem> {
-  Color? color = Colors.indigo.withValues(alpha: 0.8);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        color = null;
-        setState(() {});
         GoRouter.of(context).pushNamed(PagesKeys.companyPage);
       },
       child: PrimaryContainer(
-        color: color,
+        color: isRead
+            ? Colors.transparent
+            // .withValues(alpha: 0.8)
+            : null,
         margin: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 0),
         padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
-        borderRadius: widget.isFirst
+        borderRadius: isFirst
             ? const BorderRadius.only(
                 topLeft: Radius.circular(16), topRight: Radius.circular(16))
             : const BorderRadius.all(Radius.circular(0)),
@@ -68,7 +65,7 @@ class _NotificationItemState extends State<NotificationItem> {
                 ),
                 15.horizontalSpace,
                 Text(
-                  widget.notifyData,
+                  notifyData,
                   style: AppTextStyle.regular12(context),
                 ),
               ],

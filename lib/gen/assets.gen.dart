@@ -138,6 +138,8 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/companyImage.jpeg');
   AssetGenImage get exit =>
       const AssetGenImage('assets/images/exit.png');
+  AssetGenImage get aramedia =>
+      const AssetGenImage('assets/images/aramedia.jpeg');
 
   /// List of all assets
   List<AssetGenImage> get values => [

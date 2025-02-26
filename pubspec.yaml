@@ -31,8 +31,9 @@ environment:
 dependencies:
   animated_theme_switcher: ^2.0.10
   bloc: ^9.0.0
-  blurhash: ^1.1.1
+  # blurhash: ^1.1.1
   cached_network_image: ^3.4.1
+  # carousel_slider: ^5.0.0
   country_code_picker:
     git: https://github.com/AbdelmoneamIsmael/CountryCodeAddSomeOptions
   cupertino_icons: ^1.0.8

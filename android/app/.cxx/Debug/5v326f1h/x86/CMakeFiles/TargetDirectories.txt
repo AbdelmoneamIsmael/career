@@ -1,0 +1,2 @@
+F:/freelance/carer/career/android/app/.cxx/Debug/5v326f1h/x86/CMakeFiles/edit_cache.dir
+F:/freelance/carer/career/android/app/.cxx/Debug/5v326f1h/x86/CMakeFiles/rebuild_cache.dir
