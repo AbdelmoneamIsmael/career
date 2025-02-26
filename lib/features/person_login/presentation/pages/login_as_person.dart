@@ -25,6 +25,7 @@ class LoginAsPerson extends StatelessWidget {
         builder: (context, state) {
           final cubit = BlocProvider.of<PersonLoginCubit>(context);
           return ScreenWrapper(
+            appBar: AppBar(),
             body: CustomScrollView(
               physics: const ClampingScrollPhysics(),
               slivers: [
@@ -104,7 +105,8 @@ class LoginAsPerson extends StatelessWidget {
                                 const SizedBox(),
                                 Center(
                                   child: PrimaryButton(
-                                    onPressed: cubit.login,
+                                    onPressed: () =>
+                                        cubit.login(context: context),
                                     fixedSize: false,
                                     loading: false,
                                     text: AppLocalizations.of(context).signIn,
@@ -130,7 +132,7 @@ class LoginAsPerson extends StatelessWidget {
                                           ..onTap = () {
                                             GoRouter.of(context).pushNamed(
                                                 PagesKeys.registerAsPersonPage);
-                                        },
+                                          },
                                         text: AppLocalizations.of(context)
                                             .register,
                                         style: AppTextStyle.regular14(context)
