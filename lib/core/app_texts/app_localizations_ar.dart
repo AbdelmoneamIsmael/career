@@ -1,5 +1,3 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -448,4 +446,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get post => 'منشور';
+
+  @override
+  String get noExperience => 'لا يوجد خبرة';
+
+  @override
+  String get noForma => 'لا يوجد شكل';
+
+  @override
+  String get noAds => 'لا يوجد اعلانات';
+
+  @override
+  String get noSavedPosts => 'لا يوجد منشورات محفوظة';
+
+  @override
+  String get junior => 'خبره بسيطه';
+
+  @override
+  String get middle => 'متوسط';
+
+  @override
+  String get senior => 'عالي';
+
+  @override
+  String get entryLevel => 'مبتدء';
+
+  @override
+  String get salary => 'الراتب';
+
+  @override
+  String get salaryRequired => 'الراتب مطلوب';
+
+  @override
+  String get salaryFrom => 'الحد الادني للراتب';
+
+  @override
+  String get salaryTo => 'الحد الاعلى للراتب';
 }

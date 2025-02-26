@@ -145,6 +145,18 @@
      "jopkind": "نوع الوظيفة",
      "searchFor": "ابحث عن",
      "company": "شركة",
-     "post": "منشور"
-     
+     "post": "منشور",
+     "noExperience": "لا يوجد خبرة",
+     "noForma": "لا يوجد شكل",
+     "noAds": "لا يوجد اعلانات",
+     "noSavedPosts": "لا يوجد منشورات محفوظة",
+     "junior": "خبره بسيطه",
+     "middle": "متوسط",
+     "senior": "عالي",
+     "entryLevel": "مبتدء",
+     "noSavedPostsMessage": "لا يوجد منشورات محفوظة، يرجى التقدم للحصول على منشورات محفوظة",
+     "salary": "الراتب",
+     "salaryRequired": "الراتب مطلوب",
+     "salaryFrom": "الحد الادني للراتب",
+     "salaryTo": "الحد الاعلى للراتب"  
 }

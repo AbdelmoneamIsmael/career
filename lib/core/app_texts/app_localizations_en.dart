@@ -1,5 +1,3 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -448,4 +446,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get post => 'Post';
+
+  @override
+  String get noExperience => 'No Experience';
+
+  @override
+  String get noForma => 'No Forma';
+
+  @override
+  String get noAds => 'No Ads';
+
+  @override
+  String get noSavedPosts => 'No Saved Posts';
+
+  @override
+  String get junior => 'Junior';
+
+  @override
+  String get middle => 'Middle';
+
+  @override
+  String get senior => 'Senior';
+
+  @override
+  String get entryLevel => 'Entry Level';
+
+  @override
+  String get salary => 'Salary';
+
+  @override
+  String get salaryRequired => 'Salary from';
+
+  @override
+  String get salaryFrom => 'Salary From';
+
+  @override
+  String get salaryTo => 'Salary To';
 }

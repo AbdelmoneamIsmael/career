@@ -976,6 +976,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Post'**
   String get post;
+
+  /// No description provided for @noExperience.
+  ///
+  /// In en, this message translates to:
+  /// **'No Experience'**
+  String get noExperience;
+
+  /// No description provided for @noForma.
+  ///
+  /// In en, this message translates to:
+  /// **'No Forma'**
+  String get noForma;
+
+  /// No description provided for @noAds.
+  ///
+  /// In en, this message translates to:
+  /// **'No Ads'**
+  String get noAds;
+
+  /// No description provided for @noSavedPosts.
+  ///
+  /// In en, this message translates to:
+  /// **'No Saved Posts'**
+  String get noSavedPosts;
+
+  /// No description provided for @junior.
+  ///
+  /// In en, this message translates to:
+  /// **'Junior'**
+  String get junior;
+
+  /// No description provided for @middle.
+  ///
+  /// In en, this message translates to:
+  /// **'Middle'**
+  String get middle;
+
+  /// No description provided for @senior.
+  ///
+  /// In en, this message translates to:
+  /// **'Senior'**
+  String get senior;
+
+  /// No description provided for @entryLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Level'**
+  String get entryLevel;
+
+  /// No description provided for @salary.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary'**
+  String get salary;
+
+  /// No description provided for @salaryRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary from'**
+  String get salaryRequired;
+
+  /// No description provided for @salaryFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary From'**
+  String get salaryFrom;
+
+  /// No description provided for @salaryTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary To'**
+  String get salaryTo;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

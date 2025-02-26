@@ -146,8 +146,17 @@
     "jopkind": "Job ",
     "searchFor": "Search For",
     "company": "Company",
-    "post": "Post"
-
-
-
+    "post": "Post",
+    "noExperience": "No Experience",
+    "noForma": "No Forma",
+    "noAds": "No Ads",
+    "noSavedPosts": "No Saved Posts",
+    "junior": "Junior",
+    "middle": "Middle",
+    "senior": "Senior",
+    "entryLevel": "Entry Level",
+    "salary": "Salary",
+    "salaryRequired": "Salary from",
+    "salaryFrom": "Salary From",
+    "salaryTo": "Salary To"
 }

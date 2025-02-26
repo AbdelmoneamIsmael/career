@@ -1,5 +1,6 @@
 import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
+import 'package:career/core/widgets/app_drop_down.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/features/home_screen/presentation/cubit/home_screen_cubit.dart';
 import 'package:career/features/home_screen/presentation/cubit/home_screen_state.dart';
@@ -32,6 +33,35 @@ class FillterPage extends StatelessWidget {
               spacing: 20.h,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  AppLocalizations.of(context).salary,
+                  style: AppTextStyle.medium18(context),
+                ),
+                Row(
+                  spacing: 10,
+                  children: [
+                    Expanded(
+                        child: AppDropdown(
+                            items: cubit.sallary
+                                .map((value) => DropdownMenuItem(
+                                    value: value, child: Text("$value \$")))
+                                .toList(),
+                            onChanged: (value) {},
+                            hint: AppLocalizations.of(context).salaryFrom)),
+                    Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Theme.of(context).textTheme.bodySmall!.color,
+                    ),
+                    Expanded(
+                        child: AppDropdown(
+                            items: cubit.sallary
+                                .map((value) => DropdownMenuItem(
+                                    value: value, child: Text("$value \$")))
+                                .toList(),
+                            onChanged: (value) {},
+                            hint: AppLocalizations.of(context).salaryFrom)),
+                  ],
+                ),
                 Text(
                   AppLocalizations.of(context).jopkind,
                   style: AppTextStyle.medium18(context),
@@ -75,6 +105,29 @@ class FillterPage extends StatelessWidget {
                     groupValue: cubit.selectedSearchFor,
                     onChanged: (value) {
                       context.read<HomeScreenCubit>().changeSearchFor(value);
+                    },
+                  ),
+                ),
+                Text(
+                  AppLocalizations.of(context).experience,
+                  style: AppTextStyle.medium18(context),
+                ),
+                GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10.w,
+                    mainAxisSpacing: 10.h,
+                    childAspectRatio: 7,
+                  ),
+                  shrinkWrap: true,
+                  itemCount: cubit.experience.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => AppRadioButton(
+                    title: cubit.experience[index],
+                    value: cubit.experience[index],
+                    groupValue: cubit.selectedExperience,
+                    onChanged: (value) {
+                      context.read<HomeScreenCubit>().changeExperience(value);
                     },
                   ),
                 ),
