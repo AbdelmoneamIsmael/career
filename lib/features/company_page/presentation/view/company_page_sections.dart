@@ -25,7 +25,10 @@ class CompanyPageSections extends StatelessWidget {
                   topRight: Radius.circular(16.r)),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.1), // Shadow color
+                  color: Theme.of(context)
+                      .colorScheme
+                      .primary
+                      .withValues(alpha: 0.1), // Shadow color
                   spreadRadius: 2, // Spread radius
                   blurRadius: 8, // Blur radius
                   offset:
