@@ -13,6 +13,7 @@ abstract class LightColors {
   static const Color orangeColor = Color(0xFFFFB547);
   static const Color greenColor = Color(0xFF01B574);
   static const Color greyColor = Color(0xFFEAE8E9);
+  static const Color blueColor = Color(0xFFD7E9FB);
 }
 
 abstract class DarkColors {
@@ -28,4 +29,5 @@ abstract class DarkColors {
   static const Color orangeColor = Color(0xFFFFB547);
   static const Color greenColor = Color(0xFF01B574);
   static const Color greyColor = Color(0xFFEAE8E9);
+  static const Color blueColor = Color(0xFF254668);
 }

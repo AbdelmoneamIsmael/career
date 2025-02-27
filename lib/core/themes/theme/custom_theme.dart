@@ -14,6 +14,7 @@ ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   colorScheme: const ColorScheme.light().copyWith(
     primaryContainer: LightColors.containerColor,
+    secondary: DarkColors.blueColor,
   ),
   textTheme: const TextTheme(
     bodyMedium: TextStyle(
@@ -89,6 +90,7 @@ ThemeData darkTheme = ThemeData(
   useMaterial3: true,
   colorScheme: const ColorScheme.dark().copyWith(
     primaryContainer: DarkColors.containerColor,
+    secondary: DarkColors.blueColor,
   ),
   textTheme: const TextTheme(
     bodyMedium: TextStyle(
