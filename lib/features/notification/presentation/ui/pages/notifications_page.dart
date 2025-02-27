@@ -32,10 +32,9 @@ class NotificationsPage extends StatelessWidget {
         slivers: [
           SliverList.builder(
             itemBuilder: (context, index) => NotificationItem(
-              isRead: index==5 || index==2,
+              isRead: index == 5 || index == 2,
               isFirst: index == 0,
-              notifyData:
-                  'العطر ليس زجاجة في اليد،\nبل رسالة تكتبها دون أن تَشهد.',
+              notifyData: 'Mohamed loay is our pop،\n We are pleased for you.',
             ),
           ),
         ],

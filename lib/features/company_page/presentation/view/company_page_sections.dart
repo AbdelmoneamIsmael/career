@@ -2,8 +2,9 @@ import 'package:career/core/widgets/custom_tap_container_button.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/features/company_page/presentation/manager/company_cubit.dart';
 import 'package:career/features/company_page/presentation/manager/company_state.dart';
-import 'package:career/features/company_page/presentation/widget/company_page_home_item.dart';
-import 'package:career/gen/assets.gen.dart';
+import 'package:career/features/company_page/presentation/view/about_view.dart';
+import 'package:career/features/company_page/presentation/view/company_jobs_view.dart';
+import 'package:career/features/company_page/presentation/view/company_page_home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,51 +48,16 @@ class CompanyPageSections extends StatelessWidget {
               ),
             ),
             // 33.verticalSpace,
-            Expanded(
+            const Expanded(
               child: TabBarView(
-                physics: const NeverScrollableScrollPhysics(),
+                physics: NeverScrollableScrollPhysics(),
                 children: [
                   // Home
-                  SingleChildScrollView(
-                    child: Column(
-                      children: List.generate(
-                        10,
-                        (index) {
-                          return CompanyPageHomeItem(
-                            path: Assets.images.aramedia.path,
-                            description:
-                                'Aramco Digital, Armada, and Microsoft Collaborate to Deploy World’s First Industrial Distributed Cloud to Accelerate Digital Transformation',
-                          );
-                        },
-                      ),
-                    ),
-                  ),
+                  CompanyPageHomeView(),
                   // About
-                  const Column(
-                    children: [
-                      // CarouselSlider(
-                      //   options: CarouselOptions(height: 400.0),
-                      //   items: [1, 2, 3, 4, 5].map((i) {
-                      //     return Builder(
-                      //       builder: (BuildContext context) {
-                      //         return Container(
-                      //             width: MediaQuery.of(context).size.width,
-                      //             margin: const EdgeInsets.symmetric(
-                      //                 horizontal: 5.0),
-                      //             decoration:
-                      //                 const BoxDecoration(color: Colors.amber),
-                      //             child: Text(
-                      //               'text $i',
-                      //               style: const TextStyle(fontSize: 16.0),
-                      //             ));
-                      //       },
-                      //     );
-                      //   }).toList(),
-                      // ),
-                    ],
-                  ),
+                  ApoutView(),
                   // Jobs
-                  Container(child: const Text('data3')),
+                  CompanyJobsView(),
                 ],
               ),
             ),
