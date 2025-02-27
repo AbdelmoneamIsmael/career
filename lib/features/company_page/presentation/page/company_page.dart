@@ -31,11 +31,6 @@ class CompanyPage extends StatelessWidget {
             10.verticalSpace,
             const ViewSite(),
             45.verticalSpace,
-            // Divider(
-            //   color: Theme.of(context).textTheme.bodySmall!.color,
-            //   thickness: 3,
-            //   height: 3,
-            // ),
             5.verticalSpace,
             Expanded(
               child: BlocProvider(
