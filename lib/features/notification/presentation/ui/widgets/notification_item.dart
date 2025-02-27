@@ -69,7 +69,10 @@ class NotificationItem extends StatelessWidget {
                 ),
               ],
             ),
-            const Text('1d'),
+            Text(
+              '1d',
+              style: AppTextStyle.regular12(context),
+            ),
           ],
         ),
       ),
