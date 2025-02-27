@@ -7,7 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CandidateItem extends StatelessWidget {
   const CandidateItem({
     super.key,
-    this.isPremium = false, required this.name, required this.jobDescription,
+    this.isPremium = false,
+    required this.name,
+    required this.jobDescription,
   });
   final bool isPremium;
   final String name, jobDescription;
@@ -15,7 +17,7 @@ class CandidateItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return PrimaryContainer(
       margin: EdgeInsets.zero,
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
