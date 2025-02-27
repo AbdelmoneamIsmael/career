@@ -15,20 +15,20 @@ class CompanyPageImageAndBackground extends StatelessWidget {
           child: Image.asset(
             Assets.images.companyBackground.path,
             width: double.infinity,
-            height: 80,
+            height: 150,
             fit: BoxFit.cover,
           ),
         ),
         Positioned(
-          top: 50,
+          top: 115,
           left: 16,
           child: Container(
             padding: const EdgeInsets.all(3),
             color: Colors.white,
             child: Image.asset(
               Assets.images.companyImage.path,
-              width: 70,
-              height: 70,
+              width: 75,
+              height: 75,
             ),
           ),
         ),

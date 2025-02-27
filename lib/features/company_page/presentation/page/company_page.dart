@@ -15,7 +15,10 @@ class CompanyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenWrapper(
-      topSafeArea: true,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: PrimaryContainer(
         margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
         padding: const EdgeInsets.all(0),
