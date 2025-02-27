@@ -8,7 +8,7 @@ import 'package:career/features/company_page/presentation/manager/company_state.
 import 'package:career/features/company_page/presentation/widget/company_page_descriptive_data.dart';
 import 'package:career/features/company_page/presentation/widget/company_page_image_and_background.dart';
 import 'package:career/features/company_page/presentation/widget/view_site.dart';
-import 'package:career/gen/assets.gen.dart'; 
+import 'package:career/gen/assets.gen.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +35,13 @@ class CompanyPage extends StatelessWidget {
             const CompanyPageDescriptiveData(),
             10.verticalSpace,
             const ViewSite(),
-            50.verticalSpace,
+            45.verticalSpace,
+            Divider(
+              color: Theme.of(context).textTheme.bodySmall!.color,
+              thickness: 3,
+              height: 3,
+            ),
+            5.verticalSpace,
             Expanded(
               child: BlocProvider(
                 create: (context) => CompanyCubit(),
