@@ -92,12 +92,23 @@ class SettingPageAppBar extends StatelessWidget {
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(25),
         child: Container(
-          decoration: const BoxDecoration(
-            color: Color(0xffEAE8E9),
-            borderRadius: BorderRadiusDirectional.only(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primaryContainer,
+            borderRadius: const BorderRadiusDirectional.only(
               topEnd: Radius.circular(24),
               topStart: Radius.circular(24),
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context)
+                    .colorScheme
+                    .shadow
+                    .withValues(alpha: 0.06), // Shadow color
+                spreadRadius: -5, // Spread radius
+                blurRadius: 12, // Blur radius
+                offset: const Offset(0, -6), // Offset to create a shadow below
+              ),
+            ],
           ),
           height: 25,
         ),

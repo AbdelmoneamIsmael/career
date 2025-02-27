@@ -10,9 +10,9 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScreenWrapper(
-      backGroundColor: Color(0xffEAE8E9),
-      body: CustomScrollView(
+    return ScreenWrapper(
+      backGroundColor: Theme.of(context).colorScheme.primaryContainer,
+      body: const CustomScrollView(
         slivers: [
           SettingPageAppBar(),
           SettingPageBody(),
@@ -55,7 +55,10 @@ class SettingPageBody extends StatelessWidget {
                     'on',
                     style: AppTextStyle.bold16(context),
                   ),
-                  const Icon(Icons.arrow_forward_ios),
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 15,
+                  ),
                 ],
               ),
             ),
@@ -115,12 +118,17 @@ class SettingPageItem extends StatelessWidget {
                 fit: BoxFit.scaleDown,
                 width: 20.w,
                 height: 20.h,
+                color: Theme.of(context).colorScheme.shadow,
               ),
-              10.horizontalSpace,
+              15.horizontalSpace,
               Text(title, style: AppTextStyle.bold16(context)),
             ],
           ),
-          child ?? const Icon(Icons.arrow_forward_ios),
+          child ??
+              const Icon(
+                Icons.arrow_forward_ios,
+                size: 15,
+              ),
         ],
       ),
     );

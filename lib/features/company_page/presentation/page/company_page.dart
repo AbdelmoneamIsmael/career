@@ -19,8 +19,8 @@ class CompanyPage extends StatelessWidget {
       body: PrimaryContainer(
         margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
         padding: const EdgeInsets.all(0),
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16.r), topRight: Radius.circular(16.r)),
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(0), topRight: Radius.circular(0)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
