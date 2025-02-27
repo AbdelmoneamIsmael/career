@@ -27,12 +27,12 @@ class CompanyPageSections extends StatelessWidget {
                 BoxShadow(
                   color: Theme.of(context)
                       .colorScheme
-                      .primary
-                      .withValues(alpha: 0.1), // Shadow color
-                  spreadRadius: 2, // Spread radius
-                  blurRadius: 8, // Blur radius
+                      .shadow
+                      .withValues(alpha: 0.06), // Shadow color
+                  spreadRadius: -5, // Spread radius
+                  blurRadius: 12, // Blur radius
                   offset:
-                      const Offset(0, -2), // Offset to create a shadow below
+                      const Offset(0, -6), // Offset to create a shadow below
                 ),
               ],
               child: CustomTapContainerButton(

@@ -14,6 +14,7 @@ abstract class LightColors {
   static const Color greenColor = Color(0xFF01B574);
   static const Color greyColor = Color(0xFFEAE8E9);
   static const Color blueColor = Color(0xFFD7E9FB);
+  static const Color black = Color(0xFF000000);
 }
 
 abstract class DarkColors {
@@ -30,4 +31,5 @@ abstract class DarkColors {
   static const Color greenColor = Color(0xFF01B574);
   static const Color greyColor = Color(0xFFEAE8E9);
   static const Color blueColor = Color(0xFF254668);
+  static const Color black = Color(0xFFffffff);
 }
