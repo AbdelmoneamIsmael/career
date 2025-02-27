@@ -1,8 +1,11 @@
+import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class CompanyJobsView extends StatelessWidget {
   const CompanyJobsView({
@@ -74,8 +77,24 @@ class CompanyJobsView extends StatelessWidget {
                           ),
                           const Spacer(),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              CupertinoButton(
+                                padding: EdgeInsets.zero,
+                                minSize: 0,
+                                onPressed: () => GoRouter.of(context)
+                                    .pushNamed(PagesKeys.candidatesPage),
+                                child: Text(
+                                  'candidate',
+                                  style:
+                                      AppTextStyle.simiBold16(context).copyWith(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Colors.blue,
+                                    decorationThickness: 30,
+                                  ),
+                                ),
+                              ),
                               Text(
                                 '3 weeks ago',
                                 style: AppTextStyle.regular14(context),

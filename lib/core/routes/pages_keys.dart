@@ -13,4 +13,5 @@ class PagesKeys {
   static const postDetails = 'postDetails';
   static const companyPage = 'companyPage';
   static const createPost="createPost";
+  static const candidatesPage="candidatesPage";
 }

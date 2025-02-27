@@ -1,5 +1,6 @@
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/features/business_login/presentation/pages/login_as_company.dart';
+import 'package:career/features/candidates/presentation/page/candidates_page.dart';
 import 'package:career/features/company_page/presentation/page/company_page.dart';
 import 'package:career/features/create_post/presentation/cubit/create_post_cubit.dart';
 import 'package:career/features/create_post/presentation/pages/create_post_screen.dart';
@@ -145,6 +146,13 @@ class PageRoutes {
             value: state.extra as HomeScreenCubit,
             child: const FillterPage(),
           );
+        },
+      ),
+      GoRoute(
+        name: PagesKeys.candidatesPage,
+        path: "/${PagesKeys.candidatesPage}",
+        builder: (context, state) {
+          return const CandidatesPage();
         },
       ),
       GoRoute(

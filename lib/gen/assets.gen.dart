@@ -162,6 +162,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/verified.png
   AssetGenImage get verified =>
       const AssetGenImage('assets/images/verified.png');
+  AssetGenImage get premium =>
+      const AssetGenImage('assets/images/premium-badge.png');
   // AssetGenImage get language =>
   //     const AssetGenImage('assets/images/language.png');
   // AssetGenImage get mode =>
