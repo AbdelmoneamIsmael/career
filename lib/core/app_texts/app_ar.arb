@@ -179,5 +179,8 @@
      "postType": "نوع المنشور",
      "postTypeRequired": "نوع المنشور مطلوب",
      "companyImage":"صورة الشركة",
-     "dateOfCreate":"تاريخ الانشاء"
+     "dateOfCreate":"تاريخ الانشاء",
+     "companyInfo":"معلومات الشركة",
+     "companyName":"اسم الشركة",
+     "specialization":"التخصص"
      }

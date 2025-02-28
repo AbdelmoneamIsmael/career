@@ -67,9 +67,12 @@ class ComPanyInfo extends StatelessWidget {
                 hint: AppLocalizations.of(context).address,
                 prefixIcon: const Icon(Icons.home_outlined),
               ),
+              AppTextField(
+                hint: AppLocalizations.of(context).specialization,
+                prefixIcon: const Icon(Icons.workspaces),
+              ),
               const SizedBox(),
-              const SizedBox(),
-             ForwardWidget(
+              ForwardWidget(
                 onPressed: () => context.read<RegisterAsBusinessCubit>().next(),
               ),
             ],

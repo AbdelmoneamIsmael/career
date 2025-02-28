@@ -180,7 +180,10 @@
      "postType": "Post Type",
      "postTypeRequired": "Post Type Required",
      "companyName":"Company Image",
-     "dateOfCreate":"Date of Create"
+     "dateOfCreate":"Date of Create",
+     "companyInfo":"Company Information",
+     "companyName":"Company Name",
+     "specialization":"specialization"
 
 
 }

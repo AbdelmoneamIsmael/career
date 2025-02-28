@@ -1166,7 +1166,7 @@ abstract class AppLocalizations {
   /// No description provided for @companyName.
   ///
   /// In en, this message translates to:
-  /// **'Company Image'**
+  /// **'Company Name'**
   String get companyName;
 
   /// No description provided for @dateOfCreate.
@@ -1174,6 +1174,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Date of Create'**
   String get dateOfCreate;
+
+  /// No description provided for @companyInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Company Information'**
+  String get companyInfo;
+
+  /// No description provided for @specialization.
+  ///
+  /// In en, this message translates to:
+  /// **'specialization'**
+  String get specialization;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

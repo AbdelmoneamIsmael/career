@@ -20,12 +20,12 @@ class BusinessCoreInformation extends StatelessWidget {
         spacing: 16.h,
         children: [
           TitleWidget(
-            title: AppLocalizations.of(context).coreInfo,
+            title: AppLocalizations.of(context).companyInfo,
             onTap: () => context.read<RegisterAsBusinessCubit>().previous(),
           ),
           const SizedBox(),
           AppTextField(
-            hint: AppLocalizations.of(context).fullName,
+            hint: AppLocalizations.of(context).companyName,
             prefixIcon: const Icon(
               Icons.home_work_outlined,
             ),
