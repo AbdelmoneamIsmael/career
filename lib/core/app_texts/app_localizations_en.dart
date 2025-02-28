@@ -541,4 +541,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get postTypeRequired => 'Post Type Required';
+
+  @override
+  String get companyName => 'Company Image';
+
+  @override
+  String get dateOfCreate => 'Date of Create';
 }

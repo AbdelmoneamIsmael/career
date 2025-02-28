@@ -4,9 +4,11 @@ import 'package:career/core/widgets/app_contry_code_picker.dart';
 import 'package:career/core/widgets/app_drop_down.dart';
 import 'package:career/core/widgets/app_text_field.dart';
 import 'package:career/core/widgets/primary_container.dart';
-import 'package:career/features/register_as_person/presentation/widgets/forward_widget.dart';
-import 'package:career/features/register_as_person/presentation/widgets/title_widget.dart';
+import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
+import 'package:career/core/widgets/forward_widget.dart';
+import 'package:career/core/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CoreInformation extends StatelessWidget {
@@ -20,6 +22,7 @@ class CoreInformation extends StatelessWidget {
         children: [
           TitleWidget(
             title: AppLocalizations.of(context).coreInfo,
+            onTap: () => context.read<RegisterAsPersonCubit>().previous(),
           ),
           const SizedBox(),
           AppTextField(
@@ -88,7 +91,9 @@ class CoreInformation extends StatelessWidget {
           ),
           const SizedBox(),
           const SizedBox(),
-          const ForwardWidget(),
+         ForwardWidget(
+            onPressed: ()=>context.read<RegisterAsPersonCubit>().next(),
+          ),
         ],
       ),
     );

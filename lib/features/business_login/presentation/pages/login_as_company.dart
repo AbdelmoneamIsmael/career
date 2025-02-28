@@ -1,12 +1,15 @@
 import 'package:career/core/app_texts/app_localizations.dart';
+import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/app_text_field.dart';
 import 'package:career/core/widgets/primary_button.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/features/business_login/presentation/cubit/business_login_cubit.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginAsBusiness extends StatelessWidget {
   const LoginAsBusiness({super.key});
@@ -121,6 +124,11 @@ class LoginAsBusiness extends StatelessWidget {
                                         ),
                                       ),
                                       TextSpan(
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () {
+                                            GoRouter.of(context).pushNamed(
+                                                PagesKeys.registerAsBusiness);
+                                          },
                                         text: AppLocalizations.of(context)
                                             .register,
                                         style: AppTextStyle.regular14(context)

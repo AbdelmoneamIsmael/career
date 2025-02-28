@@ -13,6 +13,7 @@ import 'package:career/features/notification/presentation/ui/pages/notifications
 import 'package:career/features/person_login/presentation/pages/login_as_person.dart';
 import 'package:career/features/post_details/presentation/pages/post_details.dart';
 import 'package:career/features/profile_screen/presentation/pages/profile_screen.dart';
+import 'package:career/features/register_as_business/presentation/page/register_as_business.dart';
 import 'package:career/features/register_as_person/presentation/pages/register_as_person.dart';
 import 'package:career/features/setting_screen/presentation/pages/settings_screen.dart';
 import 'package:flutter/material.dart';
@@ -153,6 +154,13 @@ class PageRoutes {
         path: "/${PagesKeys.candidatesPage}",
         builder: (context, state) {
           return const CandidatesPage();
+        },
+      ),
+      GoRoute(
+        name: PagesKeys.registerAsBusiness,
+        path: "/${PagesKeys.registerAsBusiness}",
+        builder: (context, state) {
+          return const RegisterAsBusiness();
         },
       ),
       GoRoute(

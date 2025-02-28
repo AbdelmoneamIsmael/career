@@ -541,4 +541,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get postTypeRequired => 'نوع المنشور مطلوب';
+
+  @override
+  String get companyName => 'Company Image';
+
+  @override
+  String get dateOfCreate => 'تاريخ الانشاء';
 }

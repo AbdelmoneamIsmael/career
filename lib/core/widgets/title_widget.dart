@@ -1,15 +1,14 @@
 import 'package:career/core/themes/styles/app_text_style.dart';
-import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TitleWidget extends StatelessWidget {
   const TitleWidget({
     super.key,
-    required this.title,
+    required this.title, required this.onTap,
   });
   final String title;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +18,10 @@ class TitleWidget extends StatelessWidget {
         size: 25.sp,
         color: Theme.of(context).textTheme.bodyMedium!.color,
       ),
-      onTap: () {
-        context.read<RegisterAsPersonCubit>().previous();
-      },
+      onTap: onTap,
+      // () {
+      //   context.read<RegisterAsPersonCubit>().previous();
+      // },
       contentPadding: EdgeInsets.zero,
       title: Text(
         title,

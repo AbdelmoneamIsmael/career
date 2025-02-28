@@ -178,5 +178,9 @@
      "postImageRequired": "Post Image Required",
      "postImageNotValid": "Post Image Not Valid",
      "postType": "Post Type",
-     "postTypeRequired": "Post Type Required"
+     "postTypeRequired": "Post Type Required",
+     "companyName":"Company Image",
+     "dateOfCreate":"Date of Create"
+
+
 }

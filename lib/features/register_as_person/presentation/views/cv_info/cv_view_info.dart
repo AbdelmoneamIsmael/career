@@ -6,8 +6,8 @@ import 'package:career/core/widgets/app_text_field.dart';
 import 'package:career/core/widgets/primary_button.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
-import 'package:career/features/register_as_person/presentation/widgets/forward_widget.dart';
-import 'package:career/features/register_as_person/presentation/widgets/title_widget.dart';
+import 'package:career/core/widgets/forward_widget.dart';
+import 'package:career/core/widgets/title_widget.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +28,7 @@ class CvViewInfo extends StatelessWidget {
             children: [
               TitleWidget(
                 title: AppLocalizations.of(context).cvInfo,
+                onTap: () => context.read<RegisterAsPersonCubit>().previous(),
               ),
               const SizedBox(),
               AppDropdown(
@@ -159,7 +160,9 @@ class CvViewInfo extends StatelessWidget {
               ),
               const SizedBox(),
               const SizedBox(),
-              const ForwardWidget(),
+             ForwardWidget(
+                onPressed: () => context.read<RegisterAsPersonCubit>().next(),
+              ),
             ],
           ),
         );

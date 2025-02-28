@@ -1162,6 +1162,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Post Type Required'**
   String get postTypeRequired;
+
+  /// No description provided for @companyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Company Image'**
+  String get companyName;
+
+  /// No description provided for @dateOfCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Create'**
+  String get dateOfCreate;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

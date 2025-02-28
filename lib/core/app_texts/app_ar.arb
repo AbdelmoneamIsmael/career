@@ -177,5 +177,7 @@
      "postImageRequired": "صورة المنشور مطلوبة",
      "postImageNotValid": "صورة المنشور غير صالحة",
      "postType": "نوع المنشور",
-     "postTypeRequired": "نوع المنشور مطلوب"
+     "postTypeRequired": "نوع المنشور مطلوب",
+     "companyImage":"صورة الشركة",
+     "dateOfCreate":"تاريخ الانشاء"
      }
