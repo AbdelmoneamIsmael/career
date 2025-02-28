@@ -1,3 +1,5 @@
+import 'package:career/core/bloc/app_bloc.dart';
+import 'package:career/core/const/enums.dart';
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/features/business_login/presentation/pages/login_as_company.dart';
 import 'package:career/features/candidates/presentation/page/candidates_page.dart';
@@ -102,7 +104,15 @@ class PageRoutes {
                 path: "/${PagesKeys.profileScreen}",
                 builder: (context, state) {
                   context.read<MainCubit>().getIndex(pagePath: state.fullPath!);
-                  return const ProfileScreen();
+                  switch (context.read<AppBloc>().visitorType) {
+                    case VisitorType.person:
+                      return const ProfileScreen();
+                    case VisitorType.business:
+                      return const CompanyPage();
+                    case VisitorType.guest:
+                      const SizedBox();
+                  }
+                  return const SizedBox();
                 },
               ),
               GoRoute(
@@ -168,7 +178,7 @@ class PageRoutes {
         path: "/${PagesKeys.createPost}",
         builder: (context, state) {
           return BlocProvider(
-            create:(context) => CreatePostCubit(context: context),
+            create: (context) => CreatePostCubit(context: context),
             child: const CreatePostScreen(),
           );
         },

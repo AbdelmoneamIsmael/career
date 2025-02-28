@@ -33,7 +33,9 @@ class NotificationItem extends StatelessWidget {
         borderRadius: isFirst
             ? const BorderRadius.only(
                 topLeft: Radius.circular(16), topRight: Radius.circular(16))
-            : const BorderRadius.all(Radius.circular(0)),
+            : const BorderRadius.all(
+                Radius.circular(0),
+              ),
         border: Border.all(color: LightColors.text2Color),
         boxShadow: [
           BoxShadow(

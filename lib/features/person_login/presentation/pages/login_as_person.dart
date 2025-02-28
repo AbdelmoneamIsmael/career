@@ -1,4 +1,7 @@
 import 'package:career/core/app_texts/app_localizations.dart';
+import 'package:career/core/bloc/app_bloc.dart';
+import 'package:career/core/bloc/app_event.dart';
+import 'package:career/core/const/enums.dart';
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/app_text_field.dart';
@@ -105,8 +108,14 @@ class LoginAsPerson extends StatelessWidget {
                                 const SizedBox(),
                                 Center(
                                   child: PrimaryButton(
-                                    onPressed: () =>
-                                        cubit.login(context: context),
+                                    onPressed: () {
+                                      cubit.login(context: context);
+                                      context.read<AppBloc>().add(
+                                            VistorEvent(
+                                              vistor: VisitorType.person,
+                                            ),
+                                          );
+                                    },
                                     fixedSize: false,
                                     loading: false,
                                     text: AppLocalizations.of(context).signIn,

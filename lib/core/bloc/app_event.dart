@@ -1,3 +1,4 @@
+import 'package:career/core/const/enums.dart';
 
 abstract class AppEvent {}
 
@@ -9,4 +10,9 @@ class ChangeLanguageEvent extends AppEvent {
 
 class ChangeThemeEvent extends AppEvent {
   ChangeThemeEvent();
+}
+
+class VistorEvent extends AppEvent {
+  VistorEvent({required this.vistor});
+  final VisitorType vistor;
 }

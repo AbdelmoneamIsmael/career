@@ -7,3 +7,5 @@ final class AppLoaded extends AppState {}
 final class ChangeLanguageState extends AppState {}
 
 final class ChangeThemeState extends AppState {}
+
+final class ChangeIngVisitorType extends AppState {}
