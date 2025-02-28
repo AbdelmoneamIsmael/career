@@ -88,7 +88,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   ThemeData getTheme() {
     switch (appModel.theme) {
       case ApplicationTheme.light:
-        return darkTheme;
+        return lightTheme;
       case ApplicationTheme.dark:
         return darkTheme;
     }
