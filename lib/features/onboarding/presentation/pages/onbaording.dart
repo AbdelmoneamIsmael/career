@@ -13,6 +13,7 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenWrapper(
+      appBar: AppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

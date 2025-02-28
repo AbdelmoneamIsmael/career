@@ -22,7 +22,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:career/core/const/app_const.dart';
-import 'package:career/features/main_screen/presentation/pages/main_screen.dart';
+import 'package:career/features/onboarding/presentation/pages/onbaording.dart';
 import 'package:career/core/bloc/bloc_observer.dart';
 
 class PageRoutes {
