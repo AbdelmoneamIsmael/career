@@ -19,6 +19,7 @@ class LoginAsBusiness extends StatelessWidget {
     return BlocProvider(
       create: (context) => BusinessLoginCubit(),
       child: ScreenWrapper(
+        appBar: AppBar(),
         body: BlocConsumer<BusinessLoginCubit, BusinessLoginState>(
           listener: (context, state) {
             // TODO: implement listener

@@ -1,3 +1,4 @@
+import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/features/company_page/presentation/manager/company_cubit.dart';
@@ -8,6 +9,7 @@ import 'package:career/features/company_page/presentation/widget/view_site.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class CompanyPage extends StatelessWidget {
   const CompanyPage({super.key});
@@ -15,6 +17,16 @@ class CompanyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenWrapper(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          GoRouter.of(context).pushNamed(PagesKeys.createPost);
+        },
+        backgroundColor: Theme.of(context).textTheme.bodyMedium!.color,
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context).colorScheme.primaryContainer,
+        ),
+      ),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,

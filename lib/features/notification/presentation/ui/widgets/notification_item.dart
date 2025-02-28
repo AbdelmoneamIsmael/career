@@ -26,7 +26,7 @@ class NotificationItem extends StatelessWidget {
       },
       child: PrimaryContainer(
         color: isRead
-            ? null
+            ? Colors.transparent
             : Theme.of(context).colorScheme.secondary, //Color(0xFF254668),
         margin: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 0),
         padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
