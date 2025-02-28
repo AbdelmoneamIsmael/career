@@ -1186,6 +1186,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'specialization'**
   String get specialization;
+
+  /// No description provided for @upgradePro.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade Now - Go Pro'**
+  String get upgradePro;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

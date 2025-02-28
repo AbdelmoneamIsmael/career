@@ -183,7 +183,16 @@
      "dateOfCreate":"Date of Create",
      "companyInfo":"Company Information",
      "companyName":"Company Name",
-     "specialization":"specialization"
+     "specialization":"specialization",
+     "upgradePro":"Upgrade Now - Go Pro",
+     "setting":"Settings",
+     "mode":"Dark Mode",
+     "lang":"Language",
+     "notification":"Notification",
+     "privicy":"Privicy",
+     "help":"Help",
+     "logOut":"Log out",
+     "about":"Apout"
 
 
 }
