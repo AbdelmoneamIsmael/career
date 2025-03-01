@@ -23,6 +23,7 @@ class HomeScreen extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         body: const CustomScrollView(
+          physics: BouncingScrollPhysics(),
           slivers: [
             AppBarView(),
             PostsListView(),
