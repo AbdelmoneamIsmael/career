@@ -1,4 +1,5 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/bloc/app_bloc.dart';
 import 'package:career/core/bloc/app_event.dart';
 import 'package:career/core/bloc/app_state.dart';
@@ -29,12 +30,12 @@ class SettingPageBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Settings',
+                  AppLocalizations.of(context).setting,
                   style: AppTextStyle.bold24h27(context),
                 ),
                 SettingPageItem(
                   path: Assets.images.mode.path,
-                  title: 'Dark Mode',
+                  title: AppLocalizations.of(context).mode,
                   child: ThemeSwitcher(
                     builder: (context) => FlutterSwitch(
                       width: 46.0,
@@ -69,14 +70,14 @@ class SettingPageBody extends StatelessWidget {
                 ),
                 SettingPageItem(
                   path: Assets.images.language.path,
-                  title: 'Language',
+                  title: AppLocalizations.of(context).language,
                   onTab: () => cubit.add(
                     ChangeLanguageEvent(),
                   ),
                 ),
                 SettingPageItem(
                   path: Assets.images.notification.path,
-                  title: 'Notification',
+                  title: AppLocalizations.of(context).notification,
                   child: Row(
                     children: [
                       Text(
@@ -92,19 +93,19 @@ class SettingPageBody extends StatelessWidget {
                 ),
                 SettingPageItem(
                   path: Assets.images.privacy.path,
-                  title: 'Privicy',
+                  title: AppLocalizations.of(context).privicy,
                 ),
                 SettingPageItem(
                   path: Assets.images.question.path,
-                  title: 'Help',
+                  title: AppLocalizations.of(context).help,
                 ),
                 SettingPageItem(
                   path: Assets.images.about.path,
-                  title: 'Apout',
+                  title: AppLocalizations.of(context).about,
                 ),
                 SettingPageItem(
                   path: Assets.images.logout.path,
-                  title: 'Log out',
+                  title: AppLocalizations.of(context).logOut,
                   onTab: () => GoRouter.of(context).goNamed(
                     PagesKeys.onBoardingScreen,
                   ),

@@ -556,4 +556,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get upgradePro => 'Upgrade Now - Go Pro';
+
+  @override
+  String get setting => 'Settings';
+
+  @override
+  String get mode => 'Dark Mode';
+
+  @override
+  String get lang => 'Language';
+
+  @override
+  String get notification => 'Notification';
+
+  @override
+  String get privicy => 'Privicy';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get logOut => 'Log out';
+
+  @override
+  String get about => 'Apout';
 }

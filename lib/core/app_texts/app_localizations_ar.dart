@@ -556,4 +556,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get upgradePro => 'الترقية الى البريميوم';
+
+  @override
+  String get setting => 'الأعدادات';
+
+  @override
+  String get mode => 'وضع الاضاءة';
+
+  @override
+  String get lang => 'اللغة';
+
+  @override
+  String get notification => 'الأشعارات';
+
+  @override
+  String get privicy => 'الخصوصية';
+
+  @override
+  String get help => 'المساعدة';
+
+  @override
+  String get logOut => 'تسجيل الخروج';
+
+  @override
+  String get about => 'تفاصيل';
 }

@@ -1192,6 +1192,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Upgrade Now - Go Pro'**
   String get upgradePro;
+
+  /// No description provided for @setting.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get setting;
+
+  /// No description provided for @mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get mode;
+
+  /// No description provided for @lang.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get lang;
+
+  /// No description provided for @notification.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification'**
+  String get notification;
+
+  /// No description provided for @privicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privicy'**
+  String get privicy;
+
+  /// No description provided for @help.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get help;
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logOut;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'Apout'**
+  String get about;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
