@@ -94,6 +94,10 @@ class $AssetsImagesGen {
   AssetGenImage get applyJop =>
       const AssetGenImage('assets/images/apply_jop.jpg');
 
+  /// File path: assets/images/aramedia.jpeg
+  AssetGenImage get aramedia =>
+      const AssetGenImage('assets/images/aramedia.jpeg');
+
   /// File path: assets/images/background_image.png
   AssetGenImage get backgroundImage =>
       const AssetGenImage('assets/images/background_image.png');
@@ -131,6 +135,10 @@ class $AssetsImagesGen {
   AssetGenImage get notification =>
       const AssetGenImage('assets/images/notification.png');
 
+  /// File path: assets/images/premium-badge.png
+  AssetGenImage get premiumBadge =>
+      const AssetGenImage('assets/images/premium-badge.png');
+
   /// File path: assets/images/privacy.png
   AssetGenImage get privacy => const AssetGenImage('assets/images/privacy.png');
 
@@ -141,6 +149,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/profileImage.jpg
   AssetGenImage get profileImage =>
       const AssetGenImage('assets/images/profileImage.jpg');
+
+  /// File path: assets/images/profile_avatar.png
+  AssetGenImage get profileAvatar =>
+      const AssetGenImage('assets/images/profile_avatar.png');
 
   /// File path: assets/images/question.png
   AssetGenImage get question =>
@@ -162,20 +174,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/verified.png
   AssetGenImage get verified =>
       const AssetGenImage('assets/images/verified.png');
-  AssetGenImage get premium =>
-      const AssetGenImage('assets/images/premium-badge.png');
-  // AssetGenImage get language =>
-  //     const AssetGenImage('assets/images/language.png');
-  // AssetGenImage get mode =>
-  //     const AssetGenImage('assets/images/mode.png');
-  // AssetGenImage get companyBackground =>
-  //     const AssetGenImage('assets/images/companyBackground.jpeg');
-  // AssetGenImage get companyImage =>
-  //     const AssetGenImage('assets/images/companyImage.jpeg');
-  // AssetGenImage get exit =>
-  //     const AssetGenImage('assets/images/exit.png');
-  AssetGenImage get aramedia =>
-      const AssetGenImage('assets/images/aramedia.jpeg');
 
   /// List of all assets
   List<AssetGenImage> get values => [
@@ -184,6 +182,7 @@ class $AssetsImagesGen {
     applogo,
     applyImage,
     applyJop,
+    aramedia,
     backgroundImage,
     companyBackground,
     companyImage,
@@ -194,9 +193,11 @@ class $AssetsImagesGen {
     logout,
     mode,
     notification,
+    premiumBadge,
     privacy,
     profile,
     profileImage,
+    profileAvatar,
     question,
     search,
     signIn,

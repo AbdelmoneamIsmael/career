@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
+import 'package:career/features/register_as_person/presentation/cubit/register_as_person_state.dart';
 import 'package:career/features/register_as_person/presentation/views/cirtifications/cirtifications.dart';
 import 'package:career/features/register_as_person/presentation/views/core_information/core_information.dart';
 import 'package:career/features/register_as_person/presentation/views/cv_info/cv_view_info.dart';

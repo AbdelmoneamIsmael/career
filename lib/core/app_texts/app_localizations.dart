@@ -1240,6 +1240,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Apout'**
   String get about;
+
+  /// No description provided for @youShouldFillAllFields.
+  ///
+  /// In en, this message translates to:
+  /// **'You Should Fill All Fields'**
+  String get youShouldFillAllFields;
+
+  /// No description provided for @passwordNotVailid.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Not Vailid Enter more than 6 characters'**
+  String get passwordNotVailid;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

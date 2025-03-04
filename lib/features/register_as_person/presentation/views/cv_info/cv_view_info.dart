@@ -8,6 +8,7 @@ import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
 import 'package:career/core/widgets/forward_widget.dart';
 import 'package:career/core/widgets/title_widget.dart';
+import 'package:career/features/register_as_person/presentation/cubit/register_as_person_state.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class CvViewInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RegisterAsPersonCubit, RegisterAsPersonState>(
       builder: (context, state) {
+        final cubit = context.read<RegisterAsPersonCubit>();
         return PrimaryContainer(
           child: Column(
             spacing: 16.h,
@@ -42,7 +44,9 @@ class CvViewInfo extends StatelessWidget {
                           child: Text(e),
                         ))
                     .toList(),
-                onChanged: (value) {},
+                onChanged: (value) {
+                  cubit.cvLanguage.text = value!;
+                },
                 hint: AppLocalizations.of(context).languageOfCV,
               ),
               const SizedBox(),
@@ -155,13 +159,18 @@ class CvViewInfo extends StatelessWidget {
                 ],
               ),
               AppTextField(
+                controller: cubit.adress,
                 hint: AppLocalizations.of(context).address,
                 prefixIcon: const Icon(Icons.home_outlined),
               ),
               const SizedBox(),
               const SizedBox(),
-             ForwardWidget(
-                onPressed: () => context.read<RegisterAsPersonCubit>().next(),
+              ForwardWidget(
+                onPressed: () {
+                  if (cubit.checkCVInfo(context)) {
+                    context.read<RegisterAsPersonCubit>().next();
+                  }
+                },
               ),
             ],
           ),

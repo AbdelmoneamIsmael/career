@@ -192,7 +192,9 @@
      "privicy":"Privicy",
      "help":"Help",
      "logOut":"Log out",
-     "about":"Apout"
+     "about":"Apout",
+     "youShouldFillAllFields": "You Should Fill All Fields",
+     "passwordNotVailid": "Password Not Vailid Enter more than 6 characters"
 
 
 }

@@ -88,6 +88,7 @@ class AppTextField extends StatelessWidget {
     this.withBorder = true,
     this.borderRadius,
     this.focusedBorder,
+    this.ontap,
   });
   final String hint;
   final bool scure, enabeld, readOnly, withBorder;
@@ -102,9 +103,12 @@ class AppTextField extends StatelessWidget {
   final BorderRadius? borderRadius;
   final InputBorder? focusedBorder;
 
+  final void Function()? ontap;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: ontap,
       controller: controller,
       obscureText: scure,
       readOnly: readOnly,

@@ -48,7 +48,7 @@ class CandidateItem extends StatelessWidget {
                         ),
                         if (isPremium)
                           Image.asset(
-                            Assets.images.premium.path,
+                            Assets.images.premiumBadge.path,
                             fit: BoxFit.scaleDown,
                             color: Colors.yellow,
                             width: 20.w,

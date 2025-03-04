@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:career/core/utils/api/dio_interceptors.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:career/core/const/app_const.dart';
@@ -36,43 +37,7 @@ class ApiServer extends ApiRepo {
   ///add interceptors
   void addInterceptors() {
     _dio!.interceptors.add(
-      InterceptorsWrapper(
-        onRequest: (options, handler) async {
-          debugPrint(
-              "----------------------------on request--------------------------");
-          String? token =
-              await CacheHelper.getSecuerString(key: StorageKeys.accessToken);
-          options.headers["Authorization"] = "Bearer $token";
-          options.headers["Accept-Language"] = "ar-EG";
-
-          return handler.next(options);
-        },
-        onResponse: (response, handler) async {
-          return handler.next(response);
-        },
-        onError: (error, handler) async {
-          if (error.response?.statusCode == 401 ||
-              error.response?.statusCode == 403) {
-            String token = await refreshToken();
-            if (token.isNotEmpty) {
-              error.requestOptions.headers["Authorization"] = "Bearer $token";
-
-              try {
-                final newResponse = await _dio!.fetch(error.requestOptions);
-                return handler.resolve(newResponse);
-              } catch (e) {
-                // PageRoutes.router.go(PagesKeys.loginPage);
-                return handler.next(error);
-              }
-            } else {
-              // PageRoutes.router.go(PagesKeys.loginPage);
-              return handler.next(error);
-            }
-          }
-
-          return handler.next(error);
-        },
-      ),
+   DioInterceptors(),
     );
   }
 
