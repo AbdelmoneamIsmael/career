@@ -57,9 +57,10 @@ class ProfileImage extends StatelessWidget {
                         backgroundColor:
                             Theme.of(context).colorScheme.primaryContainer,
                         child: IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.camera_alt_outlined,
-                            color: Colors.black,
+                            color:
+                                Theme.of(context).textTheme.bodyMedium!.color,
                           ),
                           onPressed: cubit.pickImage,
                         ),

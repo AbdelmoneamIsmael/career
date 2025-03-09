@@ -60,21 +60,21 @@ class WorkExperiances extends StatelessWidget {
             ],
           ),
         ),
-        PrimaryContainer(
-            child: Column(
-          spacing: 16.h,
-          children: [
-            const StudyWidget(),
-            const StudyWidget(),
-            const StudyWidget(),
-            const StudyWidget(),
-            const SizedBox(),
-            const SizedBox(),
-              ForwardWidget(
-              onPressed: ()=>context.read<RegisterAsPersonCubit>().next(),
-            ),
-          ],
-        ))
+        // PrimaryContainer(
+        //     child: Column(
+        //   spacing: 16.h,
+        //   children: [
+        //     const StudyWidget(),
+        //     const StudyWidget(),
+        //     const StudyWidget(),
+        //     const StudyWidget(),
+        //     const SizedBox(),
+        //     const SizedBox(),
+        //       ForwardWidget(
+        //       onPressed: ()=>context.read<RegisterAsPersonCubit>().next(),
+        //     ),
+        //   ],
+        // ))
       ],
     );
   }

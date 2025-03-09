@@ -38,13 +38,11 @@ class RegisterModel {
           ? []
           : List<String>.from(json["language"]!.map((x) => x)),
       password: json["password"],
-
     );
   }
   factory RegisterModel.empty() {
     return RegisterModel(
       password: "",
-      
       email: '',
       fullName: '',
       jopName: '',
@@ -71,7 +69,7 @@ class RegisterModel {
   RegisterModel({
     required this.email,
     required this.fullName,
-      required this.address,
+    required this.address,
     required this.jopName,
     required this.dateOfBirth,
     required this.gender,
@@ -143,22 +141,22 @@ class Study {
   factory Study.fromJson(Map<String, dynamic> json) {
     return Study(
       degree: json["degree"],
-      uni: json["uni"],
-      degreet: json["degreet"],
+      univirsity: json["uni"],
+      year: json["degreet"],
       department: json["department"],
     );
   }
   Study({
     required this.degree,
-    required this.uni,
-    required this.degreet,
+    required this.univirsity,
+    required this.year,
     required this.department,
   });
 
   final String? degree;
-  final String? uni;
-  final String? degreet;
+  final String? univirsity;
   final String? department;
+  final DateTime? year;
 }
 
 class Work {

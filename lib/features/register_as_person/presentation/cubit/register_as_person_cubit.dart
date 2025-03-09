@@ -30,6 +30,9 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   @override
   Future<void> close() {
     pageController.dispose();
+    disposeStudyInfo();
+    disposeCvInfo();
+    disposeCoreInfo();
     return super.close();
   }
 
@@ -86,6 +89,15 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   TextEditingController jopTitleController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   TextEditingController nationalityController = TextEditingController();
+  disposeCoreInfo() {
+    nameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    passwordController.dispose();
+    jopTitleController.dispose();
+    dateController.dispose();
+    nationalityController.dispose();
+  }
 
   Gender? gender;
 
@@ -173,6 +185,10 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   TextEditingController cvLanguage =
       TextEditingController(text: popularLanguages[0]);
   TextEditingController adress = TextEditingController();
+  disposeCvInfo() {
+    cvLanguage.dispose();
+    adress.dispose();
+  }
 
   PlatformFile? cv;
   Future<void> pdfPicker() async {
@@ -206,5 +222,64 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
     registerModel.languageOfCv = cvLanguage.text;
     registerModel.address = adress.text;
     registerModel.cv = File(cv!.path!);
+  }
+
+  ////////////////////////////studies information//////////////////////////
+  TextEditingController university = TextEditingController();
+  TextEditingController department = TextEditingController();
+  TextEditingController year = TextEditingController();
+  TextEditingController degree = TextEditingController();
+  disposeStudyInfo() {
+    university.dispose();
+    department.dispose();
+    year.dispose();
+    degree.dispose();
+  }
+
+  bool checkStudiesInfo(BuildContext context) {
+    if (university.text.isNotEmpty &&
+        department.text.isNotEmpty &&
+        year.text.isNotEmpty &&
+        degree.text.isNotEmpty) {
+      fillStudiesInfo();
+      return true;
+    }
+    UiHelper.showSnakBar(
+      message: AppLocalizations.of(context).youShouldFillAllFields,
+      context: context,
+      type: MotionToastType.info,
+    );
+    return false;
+  }
+
+  void fillStudiesInfo() {
+    registerModel.studies.add(Study(
+      univirsity: university.text,
+      department: department.text,
+      year: DateTime.parse(year.text),
+      degree: degree.text,
+    ));
+    clearStudiesForm();
+    emit(AddStudy());
+  }
+
+  void clearStudiesForm() {
+    university.clear();
+    degree.clear();
+    department.clear();
+    year.clear();
+  }
+
+  void deleteStudy(int index) {
+    registerModel.studies.removeAt(index);
+    emit(DeleteStudy());
+  }
+
+  void editStudy(int index) {
+    university.text = registerModel.studies[index].univirsity!;
+    degree.text = registerModel.studies[index].degree!;
+    department.text = registerModel.studies[index].department!;
+    year.text = registerModel.studies[index].year.toString();
+    deleteStudy(index);
   }
 }

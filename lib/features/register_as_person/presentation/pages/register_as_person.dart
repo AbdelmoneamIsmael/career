@@ -30,9 +30,9 @@ class RegisterAsPerson extends StatelessWidget {
           elevation: 0,
           centerTitle: true,
           leading: IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.close,
-              color: Colors.white,
+              color: Theme.of(context).textTheme.bodyMedium!.color,
             ),
             onPressed: () => context.pop(),
           ),
