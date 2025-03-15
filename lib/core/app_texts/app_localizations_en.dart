@@ -584,4 +584,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordNotVailid => 'Password Not Vailid Enter more than 6 characters';
+
+  @override
+  String get workingNow => 'Till Now';
+
+  @override
+  String get startDate => 'Start Date';
+
+  @override
+  String get anotherJopSelected => 'There is another job selected, you must select only one job as still work Here';
+
+  @override
+  String get certifications => 'Certifications';
+
+  @override
+  String get addCertification => 'Add Certification';
+
+  @override
+  String get certificationName => 'Certification Name';
+
+  @override
+  String get certificationDescription => 'Certification Description';
+
+  @override
+  String get givenDate => 'Given Date';
+
+  @override
+  String get givenBy => 'Given By';
+
+  @override
+  String get personalSkill => 'Personal Skill';
+
+  @override
+  String get addPersonalSkill => 'Add Personal Skill';
+
+  @override
+  String get skillName => 'Skill Name';
 }

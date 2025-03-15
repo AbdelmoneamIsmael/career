@@ -1252,6 +1252,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password Not Vailid Enter more than 6 characters'**
   String get passwordNotVailid;
+
+  /// No description provided for @workingNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Till Now'**
+  String get workingNow;
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDate;
+
+  /// No description provided for @anotherJopSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'There is another job selected, you must select only one job as still work Here'**
+  String get anotherJopSelected;
+
+  /// No description provided for @certifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Certifications'**
+  String get certifications;
+
+  /// No description provided for @addCertification.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Certification'**
+  String get addCertification;
+
+  /// No description provided for @certificationName.
+  ///
+  /// In en, this message translates to:
+  /// **'Certification Name'**
+  String get certificationName;
+
+  /// No description provided for @certificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Certification Description'**
+  String get certificationDescription;
+
+  /// No description provided for @givenDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Given Date'**
+  String get givenDate;
+
+  /// No description provided for @givenBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Given By'**
+  String get givenBy;
+
+  /// No description provided for @personalSkill.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Skill'**
+  String get personalSkill;
+
+  /// No description provided for @addPersonalSkill.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Personal Skill'**
+  String get addPersonalSkill;
+
+  /// No description provided for @skillName.
+  ///
+  /// In en, this message translates to:
+  /// **'Skill Name'**
+  String get skillName;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

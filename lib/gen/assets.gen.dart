@@ -21,6 +21,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/chevron-down.svg
   String get chevronDown => 'assets/icons/chevron-down.svg';
 
+  /// File path: assets/icons/cirtificate.svg
+  String get cirtificate => 'assets/icons/cirtificate.svg';
+
   /// File path: assets/icons/cv_icon.svg
   String get cvIcon => 'assets/icons/cv_icon.svg';
 
@@ -59,6 +62,7 @@ class $AssetsIconsGen {
     asset1,
     cartIcon,
     chevronDown,
+    cirtificate,
     cvIcon,
     fillterIcon,
     googleLogo,
@@ -101,6 +105,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/background_image.png
   AssetGenImage get backgroundImage =>
       const AssetGenImage('assets/images/background_image.png');
+
+  /// File path: assets/images/company-default.png
+  AssetGenImage get companyDefault =>
+      const AssetGenImage('assets/images/company-default.png');
 
   /// File path: assets/images/companyBackground.jpeg
   AssetGenImage get companyBackground =>
@@ -184,6 +192,7 @@ class $AssetsImagesGen {
     applyJop,
     aramedia,
     backgroundImage,
+    companyDefault,
     companyBackground,
     companyImage,
     createPost,

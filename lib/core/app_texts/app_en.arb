@@ -194,7 +194,19 @@
      "logOut":"Log out",
      "about":"Apout",
      "youShouldFillAllFields": "You Should Fill All Fields",
-     "passwordNotVailid": "Password Not Vailid Enter more than 6 characters"
-
+     "passwordNotVailid": "Password Not Vailid Enter more than 6 characters",
+     "workingNow": "Till Now",
+     "startDate": "Start Date",
+     "anotherJopSelected":"There is another job selected, you must select only one job as still work Here",
+    "certifications": "Certifications",
+    "addCertification": "Add Certification",
+    "certificationName": "Certification Name",
+    "certificationDescription": "Certification Description",
+    "givenDate": "Given Date",
+    "givenBy": "Given By",
+    "personalSkill": "Personal Skill",
+    "addPersonalSkill": "Add Personal Skill",
+    "skillName": "Skill Name"
+    
 
 }

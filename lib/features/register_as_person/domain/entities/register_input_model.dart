@@ -133,7 +133,7 @@ class Certification {
 
   final String? name;
   final String? given;
-  final String? at;
+  final DateTime? at;
   final String? describ;
 }
 
@@ -184,8 +184,8 @@ class Work {
   final String? jopTitle;
   final String? discrib;
   final String? location;
-  final String? startDate;
-  final String? endDate;
+  final DateTime? startDate;
+  final DateTime? endDate;
   final bool? now;
   final String? companyName;
 }

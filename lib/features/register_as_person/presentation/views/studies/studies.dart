@@ -12,6 +12,7 @@ import 'package:career/features/register_as_person/presentation/widgets/study_wi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:motion_toast/resources/arrays.dart';
 
 class Studies extends StatelessWidget {
   const Studies({super.key});
@@ -105,7 +106,18 @@ class Studies extends StatelessWidget {
                 const SizedBox(),
                 const SizedBox(),
                 ForwardWidget(
-                  onPressed: () => context.read<RegisterAsPersonCubit>().next(),
+                  onPressed: () {
+                    if (cubit.registerModel.studies.isNotEmpty) {
+                      context.read<RegisterAsPersonCubit>().next();
+                    } else {
+                      UiHelper.showSnakBar(
+                        message:
+                            AppLocalizations.of(context).youShouldFillAllFields,
+                        context: context,
+                        type: MotionToastType.info,
+                      );
+                    }
+                  },
                 ),
               ],
             ))

@@ -2,10 +2,12 @@ import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/app_texts/text_extentions.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
+import 'package:career/features/register_as_person/domain/entities/register_input_model.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -298,27 +300,32 @@ class ProfileScreen extends StatelessWidget {
 class WorkWidget extends StatelessWidget {
   const WorkWidget({
     super.key,
+    this.work,
   });
-
+  final Work? work;
   @override
   Widget build(BuildContext context) {
     return Column(
       spacing: 10.h,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const ProfileSelectableInfo(
-          value: "Almahd Technology",
-          icon: Icon(
+        ProfileSelectableInfo(
+          value: work?.companyName ?? "Almahd Technology",
+          icon: const Icon(
             Icons.work_outline,
             size: 16,
           ),
         ),
         Text(
-            "Graphic designers often gain experience through internships, which they may undertake while enrolled in a design program. Internships allow aspiring graphic designers to work with designers and to experience the design process from concept to completion",
+            work?.discrib ??
+                "Graphic designers often gain experience through internships, which they may undertake while enrolled in a design program. Internships allow aspiring graphic designers to work with designers and to experience the design process from concept to completion",
             style: AppTextStyle.regular12(context).copyWith(
               color: Theme.of(context).textTheme.bodySmall!.color,
             )).withPaddingLeft(16),
-        Text("22-2-2020 => 24-2-2022 5 Years",
+        Text( 
+                work == null
+                    ? "22-2-2020 => 24-2-2022 (5 Years)"
+                    : "${DateFormat('dd-MM-yyyy').format(work!.startDate!)} => ${work!.now! ? "Now" : DateFormat('dd-MM-yyyy').format(work!.endDate!)}  (${work!.endDate!.year - work!.startDate!.year} Years)",
                 style: AppTextStyle.regular12(context))
             .withPaddingLeft(16),
         const SizedBox()

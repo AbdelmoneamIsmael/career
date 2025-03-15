@@ -126,7 +126,6 @@ class CoreInformation extends StatelessWidget {
                 prefixIcon: GestureDetector(
                   onTap: () async {
                     DateTime? date = await showDatePicker(
-                      
                       context: context,
                       initialDate: DateTime(2000, 6),
                       firstDate: DateTime(1800, 6),

@@ -193,5 +193,20 @@
      "logOut":"تسجيل الخروج",
      "about":"تفاصيل",
      "youShouldFillAllFields": "يجب عليك ملء جميع الحقول",
-     "passwordNotVailid": "كلمة المرور غير صالحة من 6 حروف على الاقل"
+     "passwordNotVailid": "كلمة المرور غير صالحة من 6 حروف على الاقل",
+     "workingNow": "حتي الان",
+     "startDate": "تاريخ البدء",
+     "anotherJopSelected": "تم اختيار وظيفة اخرى، يجب اختيار وظيفة واحدة فقط ك اعمل هنا",
+     "certifications": "الشهادات",
+     "addCertification": "اضافة شهادة",
+     "certificationName": "اسم الشهادة",
+     "certificationDescription": "وصف الشهادة",
+     "givenDate": "تاريخ الحصول",
+     "givenBy": "المقدم",
+     "personalSkill": "مهارات شخصية",
+     "addPersonalSkill": "اضافة مهارة شخصية",
+     "skillName": "اسم المهارة"
+     
+
+
      }

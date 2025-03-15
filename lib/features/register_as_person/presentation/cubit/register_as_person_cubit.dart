@@ -5,6 +5,7 @@ import 'package:career/core/const/enums.dart';
 import 'package:career/core/src/language.dart';
 import 'package:career/core/widgets/ui_function.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_state.dart';
+import 'package:career/features/register_as_person/presentation/views/cirtifications/cirtifications.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:path_provider/path_provider.dart';
@@ -33,6 +34,8 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
     disposeStudyInfo();
     disposeCvInfo();
     disposeCoreInfo();
+    disposeWorkExperianceInfo();
+    disposeCirtificationsInfo();
     return super.close();
   }
 
@@ -281,5 +284,178 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
     department.text = registerModel.studies[index].department!;
     year.text = registerModel.studies[index].year.toString();
     deleteStudy(index);
+  }
+
+  ////////////////////////////work experiance information//////////////////////////
+  TextEditingController jobTitle = TextEditingController();
+  TextEditingController companyName = TextEditingController();
+  TextEditingController jopDescription = TextEditingController();
+  TextEditingController location = TextEditingController();
+  TextEditingController beginDate = TextEditingController();
+  TextEditingController endDate = TextEditingController();
+  bool workHereNow = false;
+
+  disposeWorkExperianceInfo() {
+    jobTitle.dispose();
+    companyName.dispose();
+    jopDescription.dispose();
+    location.dispose();
+    beginDate.dispose();
+    endDate.dispose();
+  }
+
+  void changeWorkHereNow(bool? value, BuildContext context) {
+    if (canISelectNow()) {
+      workHereNow = value!;
+      if (workHereNow) {
+        endDate.text = DateTime.now().toString();
+      }
+      emit(ChangeWorkHereNow());
+    } else {
+      UiHelper.showSnakBar(
+        message: AppLocalizations.of(context).anotherJopSelected,
+        context: context,
+        type: MotionToastType.info,
+      );
+    }
+  }
+
+  bool canISelectNow() {
+    for (var element in registerModel.work) {
+      if (element.now == true) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  void validateWorkExperiance(BuildContext context) {
+    if (jobTitle.text.isNotEmpty &&
+        companyName.text.isNotEmpty &&
+        jopDescription.text.isNotEmpty &&
+        location.text.isNotEmpty &&
+        beginDate.text.isNotEmpty &&
+        endDate.text.isNotEmpty) {
+      fillWorkExperianceInfo();
+      emit(AddWorkExperiance());
+    } else {
+      UiHelper.showSnakBar(
+        message: AppLocalizations.of(context).youShouldFillAllFields,
+        context: context,
+        type: MotionToastType.info,
+      );
+    }
+  }
+
+  void fillWorkExperianceInfo() {
+    registerModel.work.add(
+      Work(
+        jopTitle: jobTitle.text,
+        companyName: companyName.text,
+        discrib: jopDescription.text,
+        location: location.text,
+        startDate: DateTime.parse(beginDate.text),
+        endDate: DateTime.parse(endDate.text),
+        now: workHereNow,
+      ),
+    );
+    clearWorkExperianceForm();
+  }
+
+  void clearWorkExperianceForm() {
+    jobTitle.clear();
+    companyName.clear();
+    jopDescription.clear();
+    location.clear();
+    beginDate.clear();
+    endDate.clear();
+    workHereNow = false;
+  }
+
+  void deleteWork(int index) {
+    registerModel.work.removeAt(index);
+    emit(DeleteWorkExperiance());
+  }
+
+  void editWork(int index) {
+    jobTitle.text = registerModel.work[index].jopTitle!;
+    companyName.text = registerModel.work[index].companyName!;
+    jopDescription.text = registerModel.work[index].discrib!;
+    location.text = registerModel.work[index].location!;
+    beginDate.text = registerModel.work[index].startDate.toString();
+    endDate.text = registerModel.work[index].endDate.toString();
+    workHereNow = registerModel.work[index].now!;
+    deleteWork(index);
+  }
+  //////////////////////////Cirtifications information//////////////////////////
+
+  TextEditingController cirtificationTitle = TextEditingController();
+  TextEditingController cirtificationdescription = TextEditingController();
+  TextEditingController cirtificationGivenDate = TextEditingController();
+  TextEditingController cirtificationGivenBy = TextEditingController();
+
+  disposeCirtificationsInfo() {
+    cirtificationTitle.dispose();
+    cirtificationdescription.dispose();
+    cirtificationGivenDate.dispose();
+    cirtificationGivenBy.dispose();
+  }
+
+  void validateCirtificationsInfo(BuildContext context) {
+    if (cirtificationTitle.text.isNotEmpty &&
+        cirtificationdescription.text.isNotEmpty &&
+        cirtificationGivenDate.text.isNotEmpty &&
+        cirtificationGivenBy.text.isNotEmpty) {
+      fillCirtificationsInfo();
+      emit(AddCirtifications());
+    } else {
+      UiHelper.showSnakBar(
+        message: AppLocalizations.of(context).youShouldFillAllFields,
+        context: context,
+        type: MotionToastType.info,
+      );
+    }
+  }
+
+  void fillCirtificationsInfo() {
+    registerModel.certifications.add(Certification(
+      name: cirtificationTitle.text,
+      given: cirtificationGivenBy.text,
+      at: DateTime.parse(cirtificationGivenDate.text),
+      describ: cirtificationdescription.text,
+    ));
+    clearCirtificationsForm();
+  }
+
+  void clearCirtificationsForm() {
+    cirtificationTitle.clear();
+    cirtificationdescription.clear();
+    cirtificationGivenDate.clear();
+    cirtificationGivenBy.clear();
+  }
+
+  void addLanguageToUser(String suggestion) {
+    registerModel.language.add(suggestion);
+    var lang = registerModel.language.toSet();
+    registerModel.language = lang.toList();
+
+    emit(AddLanguage());
+  }
+
+  void deleteLanguage(String e) {
+    registerModel.language.remove(e);
+    emit(DeleteLanguage());
+  }
+  void addSkills(String suggestion) {
+    registerModel.skills.add(suggestion);
+    var skills = registerModel.skills.toSet();
+    registerModel.language = skills.toList();
+
+    emit(AddLanguage());
+  }
+
+  void deleteSkill(String e) {
+    registerModel.language.remove(e);
+    emit(DeleteLanguage());
   }
 }

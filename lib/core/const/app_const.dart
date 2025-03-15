@@ -4,7 +4,7 @@ import 'package:get_it/get_it.dart';
 const String kAppName = "Career";
 const kFontFamily = "Tajawal";
 const knotification = "notification";
-const baseUrl = 'https://perfume.runasp.net';
+const baseUrl = 'https://careerapi.runasp.net';
 String appUrl = "";
 String initialRoute = "/${PagesKeys.onBoardingScreen}";
 // "/${PagesKeys.mainScreen}/${PagesKeys.homeScreen}";

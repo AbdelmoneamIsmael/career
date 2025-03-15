@@ -584,4 +584,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordNotVailid => 'كلمة المرور غير صالحة من 6 حروف على الاقل';
+
+  @override
+  String get workingNow => 'حتي الان';
+
+  @override
+  String get startDate => 'تاريخ البدء';
+
+  @override
+  String get anotherJopSelected => 'تم اختيار وظيفة اخرى، يجب اختيار وظيفة واحدة فقط ك اعمل هنا';
+
+  @override
+  String get certifications => 'الشهادات';
+
+  @override
+  String get addCertification => 'اضافة شهادة';
+
+  @override
+  String get certificationName => 'اسم الشهادة';
+
+  @override
+  String get certificationDescription => 'وصف الشهادة';
+
+  @override
+  String get givenDate => 'تاريخ الحصول';
+
+  @override
+  String get givenBy => 'المقدم';
+
+  @override
+  String get personalSkill => 'مهارات شخصية';
+
+  @override
+  String get addPersonalSkill => 'اضافة مهارة شخصية';
+
+  @override
+  String get skillName => 'اسم المهارة';
 }
