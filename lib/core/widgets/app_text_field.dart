@@ -74,7 +74,6 @@ class AppTextField extends StatelessWidget {
     super.key,
     required this.hint,
     this.scure = false,
-    
     this.enabeld = true,
     this.readOnly = false,
     this.controller,

@@ -24,6 +24,8 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
   @override
   Future<void> close() {
     pageController.dispose();
+    disposeCoreInfo();
+    disposeCommunicationInfo();
     return super.close();
   }
 
@@ -95,5 +97,48 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
       }
       emit(ChangeCompanyImage());
     }
+  }
+
+  ///////////////////////////////core information//////////////////////////
+  TextEditingController nameController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  String code = "+964";
+  TextEditingController passwordController = TextEditingController();
+
+  TextEditingController nationalityController = TextEditingController();
+  disposeCoreInfo() {
+    nameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    passwordController.dispose();
+
+    userNameController.dispose();
+    nationalityController.dispose();
+  }
+
+  ////////////////////////// communication information////////////////////////
+  TextEditingController webSiteUrlController = TextEditingController();
+  TextEditingController facebookUrlController = TextEditingController();
+  TextEditingController linkedInUrlrUrlController = TextEditingController();
+  TextEditingController specializationController = TextEditingController();
+
+  disposeCommunicationInfo() {
+    webSiteUrlController.dispose();
+    facebookUrlController.dispose();
+    linkedInUrlrUrlController.dispose();
+    specializationController.dispose();
+  }
+
+  void addSpecialization() {
+    registerModel.scope.add(specializationController.text);
+    specializationController.text = "";
+    emit(AddSpeacialization());
+  }
+
+  void deleteSpecialization(String e) {
+    registerModel.scope.remove(e);
+    emit(AddSpeacialization());
   }
 }

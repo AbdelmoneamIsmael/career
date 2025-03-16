@@ -1324,6 +1324,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Skill Name'**
   String get skillName;
+
+  /// No description provided for @userName.
+  ///
+  /// In en, this message translates to:
+  /// **'User Name'**
+  String get userName;
+
+  /// No description provided for @communicationInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Communication Info'**
+  String get communicationInfo;
+
+  /// No description provided for @facebookUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Facebook Url'**
+  String get facebookUrl;
+
+  /// No description provided for @twitterUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Twitter Url'**
+  String get twitterUrl;
+
+  /// No description provided for @linkedinUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Linkedin Url'**
+  String get linkedinUrl;
+
+  /// No description provided for @instagramUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram Url'**
+  String get instagramUrl;
+
+  /// No description provided for @websiteUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Url'**
+  String get websiteUrl;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

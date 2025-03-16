@@ -1,6 +1,5 @@
 import 'package:career/core/app_texts/app_localizations.dart';
-import 'package:career/core/bloc/app_bloc.dart';
-import 'package:career/core/global_views/skills/model/skills_responce.dart';
+import 'package:career/core/global_views/all_areas/model/all_area_responce.dart';
 import 'package:career/core/global_views/skills/view/get_all_skills.dart';
 import 'package:career/core/src/language.dart';
 import 'package:career/core/widgets/app_text_field.dart';
@@ -56,11 +55,10 @@ class UserSkills extends StatelessWidget {
                 const SizedBox(),
                 AppTextField(
                   ontap: () async {
-                    Skill? x = await showSearch(
+                    Areas? x = await showSearch(
                       context: context,
                       delegate: SkillsSearchView(),
-                    ) as Skill?;
-                    
+                    ) as Areas?;
                   },
                   hint: AppLocalizations.of(context).personalSkill,
                   prefixIcon: const Icon(Icons.account_box),

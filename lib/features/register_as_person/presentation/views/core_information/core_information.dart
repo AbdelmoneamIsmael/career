@@ -61,7 +61,9 @@ class CoreInformation extends StatelessWidget {
               ),
               AppTextField(
                 validator: (value) {
-                  if (value == null || value.isEmpty || value.length >= 9) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context).phoneNotValid;
+                  } else if (value.length < 8) {
                     return AppLocalizations.of(context).phoneNotValid;
                   }
                   return null;

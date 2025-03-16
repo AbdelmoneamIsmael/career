@@ -36,6 +36,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/info.svg
   String get info => 'assets/icons/info.svg';
 
+  /// File path: assets/icons/linked_in.svg
+  String get linkedIn => 'assets/icons/linked_in.svg';
+
   /// File path: assets/icons/logout.svg
   String get logout => 'assets/icons/logout.svg';
 
@@ -67,6 +70,7 @@ class $AssetsIconsGen {
     fillterIcon,
     googleLogo,
     info,
+    linkedIn,
     logout,
     notification,
     notificationIcon,

@@ -205,8 +205,13 @@
      "givenBy": "المقدم",
      "personalSkill": "مهارات شخصية",
      "addPersonalSkill": "اضافة مهارة شخصية",
-     "skillName": "اسم المهارة"
-     
-
+     "skillName": "اسم المهارة",
+     "userName": "اسم المستخدم",
+     "communicationInfo": "معلومات التواصل",
+     "facebookUrl": "رابط الفيسبوك",
+     "twitterUrl": "رابط تويتر",
+     "linkedinUrl": "رابط لينكدان",
+     "instagramUrl": "رابط انستقرام",
+     "websiteUrl": "رابط الموقع"
 
      }

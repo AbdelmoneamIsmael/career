@@ -622,4 +622,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get skillName => 'Skill Name';
+
+  @override
+  String get userName => 'User Name';
+
+  @override
+  String get communicationInfo => 'Communication Info';
+
+  @override
+  String get facebookUrl => 'Facebook Url';
+
+  @override
+  String get twitterUrl => 'Twitter Url';
+
+  @override
+  String get linkedinUrl => 'Linkedin Url';
+
+  @override
+  String get instagramUrl => 'Instagram Url';
+
+  @override
+  String get websiteUrl => 'Website Url';
 }

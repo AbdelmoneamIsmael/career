@@ -206,7 +206,14 @@
     "givenBy": "Given By",
     "personalSkill": "Personal Skill",
     "addPersonalSkill": "Add Personal Skill",
-    "skillName": "Skill Name"
+    "skillName": "Skill Name",
+    "userName": "User Name",
+    "communicationInfo": "Communication Info",
+    "facebookUrl": "Facebook Url",
+    "twitterUrl": "Twitter Url",
+    "linkedinUrl": "Linkedin Url",
+    "instagramUrl": "Instagram Url",
+    "websiteUrl": "Website Url"
     
 
 }

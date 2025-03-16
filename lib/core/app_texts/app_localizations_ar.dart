@@ -622,4 +622,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get skillName => 'اسم المهارة';
+
+  @override
+  String get userName => 'اسم المستخدم';
+
+  @override
+  String get communicationInfo => 'معلومات التواصل';
+
+  @override
+  String get facebookUrl => 'رابط الفيسبوك';
+
+  @override
+  String get twitterUrl => 'رابط تويتر';
+
+  @override
+  String get linkedinUrl => 'رابط لينكدان';
+
+  @override
+  String get instagramUrl => 'رابط انستقرام';
+
+  @override
+  String get websiteUrl => 'رابط الموقع';
 }
