@@ -649,4 +649,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get area => 'area';
+
+  @override
+  String get companySized => 'Company sized';
 }

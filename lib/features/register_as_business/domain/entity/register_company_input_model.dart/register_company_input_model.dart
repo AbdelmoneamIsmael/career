@@ -15,7 +15,7 @@ class CompanyRegisterModel {
       linkedInUrl: '',
       addresses: [],
       scope: [],
-      nationalityId: '',
+      nationalityId: null,
     );
   }
   factory CompanyRegisterModel.fromJson(Map<String, dynamic> json) {
@@ -68,7 +68,7 @@ class CompanyRegisterModel {
   String? linkedInUrl;
   List<CompanyAddresss> addresses;
   List<String> scope;
-  String? nationalityId;
+  int? nationalityId;
 
   CompanyRegisterModel copyWith({
     num? companySize,
@@ -83,7 +83,7 @@ class CompanyRegisterModel {
     String? linkedInUrl,
     List<CompanyAddresss>? addresses,
     List<String>? scope,
-    String? nationalityId,
+    int? nationalityId,
   }) {
     return CompanyRegisterModel(
       companySize: companySize ?? this.companySize,
@@ -120,7 +120,7 @@ class CompanyRegisterModel {
 
   @override
   String toString() {
-    return "$companySize, $name, $username, $email, $password, $image, $phoneNumber, $websiteUrl, $facebookUrl, $linkedInUrl, $addresses, $scope, $nationalityId, ";
+    return "  companySize: $companySize,NAme  $name, UserName $username, Email $email,Password $password,Image $image,phone $phoneNumber, website $websiteUrl, facebook $facebookUrl, linkedin $linkedInUrl, addresses $addresses, scope $scope, NationalityId $nationalityId, ";
   }
 }
 

@@ -13,3 +13,6 @@ class RemoveSpeacialization extends RegisterBusinessState {}
 class ChangeGovernorate extends RegisterBusinessState {}
 
 class ChangeAreas extends RegisterBusinessState {}
+
+class AddAddress extends RegisterBusinessState {}
+class DeleteAddress extends RegisterBusinessState {}

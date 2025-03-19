@@ -1,11 +1,14 @@
 import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/const/regs.dart';
+import 'package:career/core/global_views/all_nationality/view/all_nationality_view.dart';
+import 'package:career/core/src/countries.dart';
 import 'package:career/core/widgets/app_contry_code_picker.dart';
 import 'package:career/core/widgets/app_drop_down.dart';
 import 'package:career/core/widgets/app_text_field.dart';
 import 'package:career/core/widgets/forward_widget.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/core/widgets/title_widget.dart';
+import 'package:career/core/widgets/ui_function.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_cubit.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
 import 'package:career/features/register_as_business/presentation/page/register_as_business.dart';
@@ -13,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:motion_toast/resources/arrays.dart';
 
 class BusinessCoreInformation extends StatelessWidget {
   const BusinessCoreInformation({super.key});
@@ -36,6 +40,15 @@ class BusinessCoreInformation extends StatelessWidget {
                 hint: AppLocalizations.of(context).companyName,
                 prefixIcon: const Icon(
                   Icons.home_work_outlined,
+                ),
+              ),
+              AppTextField(
+                controller: cubit.companySizedController,
+                hint: AppLocalizations.of(context).companySized,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                keyboardType: TextInputType.number,
+                prefixIcon: const Icon(
+                  Icons.numbers,
                 ),
               ),
               AppTextField(
@@ -94,17 +107,38 @@ class BusinessCoreInformation extends StatelessWidget {
                 ),
                 scure: true,
               ),
-              AppDropdown(
+              AppTextField(
+                controller: cubit.nationalityController,
                 prefixIcon: const Icon(
                   Icons.flag,
                 ),
-                items: [],
-                onChanged: (value) {},
+                ontap: () async {
+                  CountryModel? selectedCountry = await showSearch(
+                    context: context,
+                    delegate: MySearchDelegate(
+                      cubit.nationalityController,
+                    ),
+                  ) as CountryModel?;
+                  if (selectedCountry != null) {
+                    cubit.registerModel.nationalityId = selectedCountry.id;
+                  }
+                },
                 hint: AppLocalizations.of(context).nationality,
               ),
               const SizedBox(),
               ForwardWidget(
-                onPressed: () => context.read<RegisterAsBusinessCubit>().next(),
+                onPressed: () {
+                  if (cubit.coreInformationValid()) {
+                    context.read<RegisterAsBusinessCubit>().next();
+                  } else {
+                    UiHelper.showSnakBar(
+                      context: context,
+                      message:
+                          AppLocalizations.of(context).youShouldFillAllFields,
+                      type: MotionToastType.info,
+                    );
+                  }
+                },
               ),
             ],
           ),

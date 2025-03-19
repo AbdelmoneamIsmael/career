@@ -5,12 +5,14 @@ import 'package:career/core/widgets/app_text_field.dart';
 import 'package:career/core/widgets/forward_widget.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/core/widgets/title_widget.dart';
+import 'package:career/core/widgets/ui_function.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_cubit.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:motion_toast/resources/arrays.dart';
 
 class ComPanyInfo extends StatelessWidget {
   const ComPanyInfo({super.key});
@@ -74,13 +76,23 @@ class ComPanyInfo extends StatelessWidget {
                         label: Text(e),
                         onDeleted: () => cubit.deleteSpecialization(e),
                       ),
-                      
                     )
                     .toList(),
               ),
               const SizedBox(),
               ForwardWidget(
-                onPressed: () => context.read<RegisterAsBusinessCubit>().next(),
+                onPressed: () {
+                  if (cubit.communicationInformationValid()) {
+                    context.read<RegisterAsBusinessCubit>().next();
+                  } else {
+                    UiHelper.showSnakBar(
+                      context: context,
+                      message:
+                          AppLocalizations.of(context).youShouldFillAllFields,
+                      type: MotionToastType.info,
+                    );
+                  }
+                },
               ),
             ],
           ),

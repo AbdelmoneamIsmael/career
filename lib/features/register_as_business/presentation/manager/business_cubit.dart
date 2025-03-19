@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:career/core/global_views/all_areas/model/all_area_responce.dart';
 import 'package:career/core/global_views/all_governorates/model/all_governorates_responce.dart';
+import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/company_adress_info_model.dart';
 import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/register_company_input_model.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
 import 'package:file_picker/file_picker.dart';
@@ -23,7 +24,7 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
   );
   int currentPage = 0;
   CompanyRegisterModel registerModel = CompanyRegisterModel.empty();
-
+  final RegisterBusinessRepo registerBusinessRepo ;
   Governerates? selectedGovernorate;
   Areas? selectedArea;
 
@@ -108,16 +109,41 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
   TextEditingController phoneController = TextEditingController();
   String code = "+964";
   TextEditingController passwordController = TextEditingController();
-
+  TextEditingController companySizedController = TextEditingController();
   TextEditingController nationalityController = TextEditingController();
   disposeCoreInfo() {
     nameController.dispose();
     emailController.dispose();
     phoneController.dispose();
     passwordController.dispose();
-
+    companySizedController.dispose();
     userNameController.dispose();
     nationalityController.dispose();
+  }
+
+  bool coreInformationValid() {
+    if (nameController.text.isNotEmpty &&
+        userNameController.text.isNotEmpty &&
+        emailController.text.isNotEmpty &&
+        companySizedController.text.isNotEmpty &&
+        phoneController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty &&
+        nationalityController.text.isNotEmpty) {
+      confirmCoreInformation();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void confirmCoreInformation() {
+    registerModel.name = nameController.text;
+    registerModel.username = userNameController.text;
+    registerModel.email = emailController.text;
+    registerModel.password = passwordController.text;
+    registerModel.companySize = num.parse(companySizedController.text);
+    registerModel.phoneNumber = code + phoneController.text;
+    // registerModel.nationalityId = nationalityController.text;
   }
 
   ////////////////////////// communication information////////////////////////
@@ -131,6 +157,27 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
     facebookUrlController.dispose();
     linkedInUrlrUrlController.dispose();
     specializationController.dispose();
+  }
+
+  bool communicationInformationValid() {
+    if (webSiteUrlController.text.isNotEmpty ||
+        facebookUrlController.text.isNotEmpty ||
+        linkedInUrlrUrlController.text.isNotEmpty) {
+      if (registerModel.scope.isNotEmpty) {
+        confirmCommunicationInformation();
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  void confirmCommunicationInformation() {
+    registerModel.websiteUrl = webSiteUrlController.text;
+    registerModel.facebookUrl = facebookUrlController.text;
+    registerModel.linkedInUrl = linkedInUrlrUrlController.text;
   }
 
   void addSpecialization() {
@@ -170,5 +217,76 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
     governorateController.dispose();
     areaController.dispose();
     adressController.dispose();
+  }
+
+  List<CompanyAdressInfoModel> addresses = [];
+  void addAddress() {
+    if (companyInformationValidation()) {
+      addresses.add(
+        CompanyAdressInfoModel(
+          areaName: selectedArea!.name!,
+          governorateName: selectedGovernorate!.name!,
+          governorateId: selectedGovernorate!.id!,
+          areaId: selectedArea!.id!,
+          streetAddress: adressController.text,
+          isDefault: false,
+        ),
+      );
+      selectedGovernorate = null;
+      selectedArea = null;
+      adressController.text = "";
+      governorateController.text = "";
+      areaController.text = "";
+      emit(AddAddress());
+    }
+  }
+
+  void deleteAddress(CompanyAdressInfoModel address) {
+    addresses.remove(address);
+    emit(DeleteAddress());
+  }
+
+  void editAddress(CompanyAdressInfoModel address) {
+    areaController.text = address.areaName!;
+    governorateController.text = address.governorateName!;
+    adressController.text = address.streetAddress!;
+    selectedArea = Areas(
+      governorateId: address.governorateId?.toInt(),
+      id: address.areaId?.toInt(),
+      name: address.areaName,
+    );
+    selectedGovernorate = Governerates(
+      id: address.governorateId?.toInt(),
+      name: address.governorateName,
+    );
+
+    deleteAddress(address);
+  }
+
+  bool companyInformationValidation() {
+    if (selectedGovernorate != null &&
+        selectedArea != null &&
+        adressController.text.isNotEmpty) {
+      confirmCompanyInformation();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void confirmCompanyInformation() {}
+
+  //////////////final review ///////////////////////////
+  bool finalReview() {
+    if (registerModel.addresses.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void confirmRegister() {
+    registerModel.addresses = addresses;
+
   }
 }

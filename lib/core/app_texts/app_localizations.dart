@@ -1378,6 +1378,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'area'**
   String get area;
+
+  /// No description provided for @companySized.
+  ///
+  /// In en, this message translates to:
+  /// **'Company sized'**
+  String get companySized;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

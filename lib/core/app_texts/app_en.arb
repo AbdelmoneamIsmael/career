@@ -214,8 +214,9 @@
     "linkedinUrl": "Linkedin Url",
     "instagramUrl": "Instagram Url",
     "websiteUrl": "Website Url",
-         "governorate": "governorate/city/section",
-     "area": "area"
+    "governorate": "governorate/city/section",
+    "area": "area",
+    "companySized": "Company sized"
     
     
 

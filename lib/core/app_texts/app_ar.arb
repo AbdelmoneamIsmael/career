@@ -214,7 +214,8 @@
      "instagramUrl": "رابط انستقرام",
      "websiteUrl": "رابط الموقع",
      "governorate": "المحافظة/المدينة/القسم",
-     "area": "المنطقة"
+     "area": "المنطقة",
+     "companySized": "حجم الشركة"
     
 
      }

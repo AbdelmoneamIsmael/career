@@ -649,4 +649,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get area => 'المنطقة';
+
+  @override
+  String get companySized => 'حجم الشركة';
 }
