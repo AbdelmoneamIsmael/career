@@ -18,7 +18,7 @@ class AllGovernoratesRepo {
       
       var result = await apiServer.getRequest(
         uri:
-            "/api/AllGovernorates/GetAllAllGovernorates?isPagingEnabled=$isPagingEnabled&pageIndex=$pageIndex&pageSize=$pageSize${query != null ? query.isEmpty ? "" : " &Search=$query" : ""}",
+            "/api/Governorates/GetAllGovernorates?isPagingEnabled=$isPagingEnabled&pageIndex=$pageIndex&pageSize=$pageSize${query != null ? query.isEmpty ? "" : " &Search=$query" : ""}",
       );
       AllGovernoratesResponse allGovernoratesResponse = AllGovernoratesResponse.fromJson(result);
       return Right(allGovernoratesResponse);

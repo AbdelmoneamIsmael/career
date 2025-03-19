@@ -643,4 +643,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get websiteUrl => 'رابط الموقع';
+
+  @override
+  String get governorate => 'المحافظة/المدينة/القسم';
+
+  @override
+  String get area => 'المنطقة';
 }

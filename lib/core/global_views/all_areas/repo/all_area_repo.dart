@@ -10,15 +10,15 @@ class AllAreasRepo {
   Future<Either<Failure, AllAreasResponse>> getAllAreas({
     required bool? isPagingEnabled,
     required int? pageIndex,
+    required int? governorateId,
     required int? pageSize,
     String? sort,
     String? query,
   }) async {
     try {
-      
       var result = await apiServer.getRequest(
         uri:
-            "/api/AllAreas/GetAllAllAreas?isPagingEnabled=$isPagingEnabled&pageIndex=$pageIndex&pageSize=$pageSize${query != null ? query.isEmpty ? "" : " &Search=$query" : ""}",
+            "/api/Areas/GetAllAreas?GovernorateId=$governorateId&isPagingEnabled=$isPagingEnabled&pageIndex=$pageIndex&pageSize=$pageSize${query != null ? query.isEmpty ? "" : " &Search=$query" : ""}",
       );
       AllAreasResponse allAreasResponse = AllAreasResponse.fromJson(result);
       return Right(allAreasResponse);

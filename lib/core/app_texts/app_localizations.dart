@@ -1366,6 +1366,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Website Url'**
   String get websiteUrl;
+
+  /// No description provided for @governorate.
+  ///
+  /// In en, this message translates to:
+  /// **'governorate/city/section'**
+  String get governorate;
+
+  /// No description provided for @area.
+  ///
+  /// In en, this message translates to:
+  /// **'area'**
+  String get area;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

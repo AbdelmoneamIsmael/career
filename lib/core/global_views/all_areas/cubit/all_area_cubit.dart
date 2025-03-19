@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class AllAreasCubit extends Cubit<AllAreasState> {
   AllAreasCubit(
     this.allAreasRepo,
+    this.governorateId,
   ) : super(AllAreasInitial());
   ScrollController scrollController = ScrollController();
   bool isThereMoreItems = true;
@@ -15,6 +16,7 @@ class AllAreasCubit extends Cubit<AllAreasState> {
   AllAreasRepo allAreasRepo;
   String query = '';
   List<Areas> allAreas = [];
+  final int governorateId;
 
   @override
   Future<void> close() {
@@ -23,7 +25,6 @@ class AllAreasCubit extends Cubit<AllAreasState> {
   }
 
   onInit() {
-    print('init');
     getAllAllAreas();
     scrollController.addListener(_onScroll);
   }
@@ -47,6 +48,7 @@ class AllAreasCubit extends Cubit<AllAreasState> {
       emit(AllAreasLoading());
       allAreasRepo
           .getAllAreas(
+            governorateId: governorateId,
             isPagingEnabled: true,
             pageIndex: pageIndex,
             pageSize: 20,

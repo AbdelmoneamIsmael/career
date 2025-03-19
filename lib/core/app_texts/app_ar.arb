@@ -212,6 +212,9 @@
      "twitterUrl": "رابط تويتر",
      "linkedinUrl": "رابط لينكدان",
      "instagramUrl": "رابط انستقرام",
-     "websiteUrl": "رابط الموقع"
+     "websiteUrl": "رابط الموقع",
+     "governorate": "المحافظة/المدينة/القسم",
+     "area": "المنطقة"
+    
 
      }

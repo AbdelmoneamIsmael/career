@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AllAreasSearchView extends SearchDelegate {
-  AllAreasSearchView();
+  AllAreasSearchView(this.governorateId);
+  final int governorateId;
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -44,6 +45,7 @@ class AllAreasSearchView extends SearchDelegate {
     return BlocProvider(
       create: (context) => AllAreasCubit(
         AllAreasRepo(),
+        governorateId,
       )..onInit(),
       child: BlocBuilder<AllAreasCubit, AllAreasState>(
         builder: (context, state) {
@@ -63,7 +65,10 @@ class AllAreasSearchView extends SearchDelegate {
                     selectedColor:
                         Theme.of(context).textTheme.bodyMedium!.color,
                     onTap: () {
-                      close(context, cubit.allAreas[index]);
+                      close(
+                        context,
+                        cubit.allAreas[index],
+                      );
                     },
                     title: Text(
                       cubit.allAreas[index].name.toString(),

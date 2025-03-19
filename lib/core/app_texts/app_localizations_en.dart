@@ -643,4 +643,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get websiteUrl => 'Website Url';
+
+  @override
+  String get governorate => 'governorate/city/section';
+
+  @override
+  String get area => 'area';
 }

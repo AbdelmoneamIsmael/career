@@ -213,7 +213,10 @@
     "twitterUrl": "Twitter Url",
     "linkedinUrl": "Linkedin Url",
     "instagramUrl": "Instagram Url",
-    "websiteUrl": "Website Url"
+    "websiteUrl": "Website Url",
+         "governorate": "governorate/city/section",
+     "area": "area"
+    
     
 
 }
