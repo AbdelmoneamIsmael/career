@@ -15,4 +15,14 @@ class ChangeGovernorate extends RegisterBusinessState {}
 class ChangeAreas extends RegisterBusinessState {}
 
 class AddAddress extends RegisterBusinessState {}
+
 class DeleteAddress extends RegisterBusinessState {}
+
+class LoadingRegister extends RegisterBusinessState {}
+
+class ErrorRegister extends RegisterBusinessState {
+  ErrorRegister(this.error);
+  final String error;
+}
+
+class SuccessRegister extends RegisterBusinessState {}

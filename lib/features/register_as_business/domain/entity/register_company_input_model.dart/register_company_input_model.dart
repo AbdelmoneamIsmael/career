@@ -1,4 +1,7 @@
 import 'dart:io';
+import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart' as http;
+import 'package:mime/mime.dart';
 
 class CompanyRegisterModel {
   factory CompanyRegisterModel.empty() {
@@ -102,21 +105,41 @@ class CompanyRegisterModel {
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        "CompanySize": companySize,
-        "name": name,
-        "Username": username,
-        "Email": email,
-        "Password": password,
-        "Image": image,
-        "PhoneNumber": phoneNumber,
-        "WebsiteUrl": websiteUrl,
-        "FacebookUrl": facebookUrl,
-        "LinkedInUrl": linkedInUrl,
-        "Addresses": addresses.map((x) => x.toJson()).toList(),
-        "Scope": scope.map((x) => x).toList(),
-        "NationalityId": nationalityId,
-      };
+  Future<Map<String, dynamic>> toJson() async {
+    // Check if the image path is valid
+    if (image == null || !await File(image!.path).exists()) {
+      throw Exception("Image file does not exist.");
+    }
+
+    // Use mime package to get the correct content type
+    String? mimeType = lookupMimeType(image!.path);
+    if (mimeType == null) {
+      throw Exception("Could not determine the MIME type.");
+    }
+
+    var file = await MultipartFile.fromFile(
+      image!.path,
+      filename: image!.path.split("/").last,
+      contentType:
+          http.MediaType.parse(mimeType), // Set the correct content type
+    );
+
+    return {
+      "CompanySize": companySize,
+      "name": name,
+      "Username": username,
+      "Email": email,
+      "Password": password,
+      "Image": file,
+      "PhoneNumber": phoneNumber,
+      "WebsiteUrl": websiteUrl,
+      "FacebookUrl": facebookUrl,
+      "LinkedInUrl": linkedInUrl,
+      "Addresses": addresses.map((x) => x.toJson()).toList(),
+      "Scope": scope.map((x) => x).toList(),
+      "NationalityId": nationalityId,
+    };
+  }
 
   @override
   String toString() {

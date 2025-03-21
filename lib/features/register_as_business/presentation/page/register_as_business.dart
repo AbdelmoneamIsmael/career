@@ -1,5 +1,9 @@
 import 'dart:ui';
+import 'package:career/core/utils/functions/initialize_getit/initialize_getit.dart';
+import 'package:career/core/widgets/loading_over_lay.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
+import 'package:career/core/widgets/ui_function.dart';
+import 'package:career/features/register_as_business/domain/repo/reister_business_repo.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_cubit.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
 import 'package:career/features/register_as_business/presentation/view/business_core_information.dart';
@@ -11,6 +15,7 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:motion_toast/resources/arrays.dart';
 
 class RegisterAsBusiness extends StatelessWidget {
   const RegisterAsBusiness({super.key});
@@ -18,7 +23,8 @@ class RegisterAsBusiness extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RegisterAsBusinessCubit(),
+      create: (context) => RegisterAsBusinessCubit(
+          registerBusinessRepo: getIt.get<RegisterBusinessRepo>()),
       child: ScreenWrapper(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -41,26 +47,43 @@ class RegisterAsBusiness extends StatelessWidget {
         ),
         body: BlocConsumer<RegisterAsBusinessCubit, RegisterBusinessState>(
           listener: (context, state) {
-            // TODO: implement listener
+            if (state is SuccessRegister) {
+              context.pop();
+            }
+            if (state is ErrorRegister) {
+              UiHelper.showSnakBar(
+                message: state.error,
+                context: context,
+                type: MotionToastType.error,
+              );
+            }
           },
           builder: (context, state) {
             final cubit = BlocProvider.of<RegisterAsBusinessCubit>(context);
-            return CustomScrollView(
-              physics: const ClampingScrollPhysics(),
-              slivers: [
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: ExpandablePageView(
-                    onPageChanged: cubit.setVAlue,
-                    controller: cubit.pageController,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      const CompanyImage(),
-                      const BusinessCoreInformation(),
-                      const ComPanyInfo(),
-                      const BusinessAddressInformation(),
-                    ],
-                  ),
+            return Stack(
+              children: [
+                CustomScrollView(
+                  physics: const ClampingScrollPhysics(),
+                  slivers: [
+                    SliverFillRemaining(
+                      hasScrollBody: false,
+                      child: ExpandablePageView(
+                        onPageChanged: cubit.setVAlue,
+                        controller: cubit.pageController,
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: [
+                          const CompanyImage(),
+                          const BusinessCoreInformation(),
+                          const ComPanyInfo(),
+                          const BusinessAddressInformation(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Visibility(
+                  visible: state is LoadingRegister,
+                  child: const LoadingOverlay(),
                 ),
               ],
             );

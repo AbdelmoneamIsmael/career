@@ -15,4 +15,5 @@ class PagesKeys {
   static const createPost="createPost";
   static const candidatesPage="candidatesPage";
   static const registerAsBusiness="RegisterAsBusiness";
+  static const otpScreen="otpScreen";
 }

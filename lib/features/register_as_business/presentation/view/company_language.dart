@@ -12,7 +12,6 @@ import 'package:career/core/widgets/ui_function.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_cubit.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
 import 'package:career/features/register_as_business/presentation/widget/company_address_widget.dart';
-import 'package:career/features/register_as_person/presentation/widgets/study_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -97,7 +96,7 @@ class BusinessAddressInformation extends StatelessWidget {
                 ],
               ),
             ),
-            cubit.registerModel.addresses.isNotEmpty
+            cubit.addresses.isNotEmpty
                 ? PrimaryContainer(
                     child: Column(
                       spacing: 16.h,
@@ -118,14 +117,16 @@ class BusinessAddressInformation extends StatelessWidget {
                         const SizedBox(),
                         ForwardWidget(
                           onPressed: () {
+                            cubit.assignAddress();
                             if (cubit.finalReview()) {
                               cubit.confirmRegister();
                             } else {
                               UiHelper.showSnakBar(
-                                context:  context,
-                                message: AppLocalizations.of(context).youShouldFillAllFields,
+                                context: context,
+                                message: AppLocalizations.of(context)
+                                    .youShouldFillAllFields,
                                 type: MotionToastType.info,
-                              )
+                              );
                             }
                           },
                         ),

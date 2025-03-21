@@ -12,6 +12,8 @@ import 'package:career/features/home_screen/presentation/views/fillter_sheet.dar
 import 'package:career/features/main/presentation/cubit/main_cubit.dart';
 import 'package:career/features/main/presentation/pages/screen/main_screen.dart';
 import 'package:career/features/notification/presentation/ui/pages/notifications_page.dart';
+import 'package:career/features/otp_screen/presentation/cubit/otp_screen_cubit.dart';
+import 'package:career/features/otp_screen/presentation/pages/otp_screen.dart';
 import 'package:career/features/person_login/presentation/pages/login_as_person.dart';
 import 'package:career/features/post_details/presentation/pages/post_details.dart';
 import 'package:career/features/profile_screen/presentation/pages/profile_screen.dart';
@@ -180,6 +182,16 @@ class PageRoutes {
           return BlocProvider(
             create: (context) => CreatePostCubit(context: context),
             child: const CreatePostScreen(),
+          );
+        },
+      ),
+      GoRoute(
+        name: PagesKeys.otpScreen,
+        path: "/${PagesKeys.otpScreen}",
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => OtpScreenCubit(),
+            child: const OtpScreen(),
           );
         },
       ),

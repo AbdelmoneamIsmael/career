@@ -5,6 +5,7 @@ import 'package:career/core/global_views/all_areas/model/all_area_responce.dart'
 import 'package:career/core/global_views/all_governorates/model/all_governorates_responce.dart';
 import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/company_adress_info_model.dart';
 import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/register_company_input_model.dart';
+import 'package:career/features/register_as_business/domain/repo/reister_business_repo.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
-  RegisterAsBusinessCubit() : super(BusinessInitial()) {
+  RegisterAsBusinessCubit({required this.registerBusinessRepo})
+      : super(BusinessInitial()) {
     onInintial();
   }
   PageController pageController = PageController(
@@ -24,7 +26,7 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
   );
   int currentPage = 0;
   CompanyRegisterModel registerModel = CompanyRegisterModel.empty();
-  final RegisterBusinessRepo registerBusinessRepo ;
+  final RegisterBusinessRepo registerBusinessRepo;
   Governerates? selectedGovernorate;
   Areas? selectedArea;
 
@@ -89,7 +91,9 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
     await Permission.camera.request();
     final ImagePicker picker = ImagePicker();
 // Pick an image.
-    final XFile? result = await picker.pickImage(source: ImageSource.gallery);
+    final XFile? result = await picker.pickImage(
+      source: ImageSource.gallery,
+    );
 
     if (result != null) {
       CroppedFile? croppedFile = await ImageCropper().cropImage(
@@ -285,8 +289,24 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
     }
   }
 
-  void confirmRegister() {
+  void assignAddress() {
     registerModel.addresses = addresses;
+  }
 
+  void confirmRegister() async {
+    try {
+      emit(LoadingRegister());
+      var result = await registerBusinessRepo.registerCompany(
+          companyRegisterModel: registerModel);
+      result.fold((l) {
+        emit(ErrorRegister(l.message));
+      }, (r) {
+        emit(
+          SuccessRegister(),
+        );
+      });
+    } catch (e) {
+      emit(ErrorRegister(e.toString()));
+    }
   }
 }
