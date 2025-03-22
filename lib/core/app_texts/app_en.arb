@@ -125,7 +125,7 @@
     "language" : "Language",
     "languageRequired" : "Language Required",
     "languageNotValid" : "Language Not Valid",
-    "otpVerification" : "OTP Verification",
+    "otpVerification" : "OTP Verification Please Type your OTP for verification your mobiele number That Help Us To Verify Your Identity and keep Your Information Safe",
     "hello" : "Hello",
     "thanksRegister" : "Thanks for registering,please Type your OTP for verification your mobiele number",
     "didntReceiveOtp" : "Didn't receive OTP?",

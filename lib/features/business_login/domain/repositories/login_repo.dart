@@ -7,4 +7,5 @@ abstract class LoginRepo {
   Future<Either <Failure, LoginResponseModel>> login({
 required LoginPrameters loginPrameters,
   });
+  
 }

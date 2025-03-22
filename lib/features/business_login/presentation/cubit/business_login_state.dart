@@ -1,10 +1,12 @@
-part of 'business_login_cubit.dart';
-
-abstract class BusinessLoginState extends Equatable {
-  const BusinessLoginState();
-
-  @override
-  List<Object> get props => [];
-}
+abstract class BusinessLoginState {}
 
 class BusinessLoginInitial extends BusinessLoginState {}
+
+class LoadingLoginProcess extends BusinessLoginState {}
+
+class SuccessLogin extends BusinessLoginState {}
+
+class ErrorLogin extends BusinessLoginState {
+  ErrorLogin({required this.message});
+  final String message;
+}

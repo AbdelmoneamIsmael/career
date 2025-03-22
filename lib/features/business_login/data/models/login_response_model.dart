@@ -1,156 +1,112 @@
 class LoginResponseModel {
   LoginResponseModel({
-    required this.companySize,
-    required this.name,
+    required this.message,
+    required this.isAuthenticated,
+    required this.id,
+    required this.personId,
+    required this.buisnessId,
     required this.username,
     required this.email,
-    required this.password,
-    required this.image,
-    required this.phoneNumber,
-    required this.websiteUrl,
-    required this.facebookUrl,
-    required this.linkedInUrl,
-    required this.addresses,
-    required this.scope,
-    required this.nationalityId,
+    required this.deviceToken,
+    required this.imageUrl,
+    required this.roles,
+    required this.token,
+    required this.expiresOn,
+    required this.refreshToken,
+    required this.refreshTokenExpiration,
   });
 
-  final num? companySize;
-  final String? name;
+  final String? message;
+  final bool? isAuthenticated;
+  final int? id;
+  final num? personId;
+  final num? buisnessId;
   final String? username;
   final String? email;
-  final String? password;
-  final String? image;
-  final String? phoneNumber;
-  final String? websiteUrl;
-  final String? facebookUrl;
-  final String? linkedInUrl;
-  final List<Address> addresses;
-  final List<String> scope;
-  final String? nationalityId;
+  final String? deviceToken;
+  final String? imageUrl;
+  final List<String> roles;
+  final String? token;
+  final DateTime? expiresOn;
+  final String? refreshToken;
+  final DateTime? refreshTokenExpiration;
 
   LoginResponseModel copyWith({
-    num? companySize,
-    String? name,
+    String? message,
+    bool? isAuthenticated,
+    int? id,
+    num? personId,
+    num? buisnessId,
     String? username,
     String? email,
-    String? password,
-    String? image,
-    String? phoneNumber,
-    String? websiteUrl,
-    String? facebookUrl,
-    String? linkedInUrl,
-    List<Address>? addresses,
-    List<String>? scope,
-    String? nationalityId,
+    String? deviceToken,
+    String? imageUrl,
+    List<String>? roles,
+    String? token,
+    DateTime? expiresOn,
+    String? refreshToken,
+    DateTime? refreshTokenExpiration,
   }) {
     return LoginResponseModel(
-      companySize: companySize ?? this.companySize,
-      name: name ?? this.name,
+      message: message ?? this.message,
+      isAuthenticated: isAuthenticated ?? this.isAuthenticated,
+      id: id ?? this.id,
+      personId: personId ?? this.personId,
+      buisnessId: buisnessId ?? this.buisnessId,
       username: username ?? this.username,
       email: email ?? this.email,
-      password: password ?? this.password,
-      image: image ?? this.image,
-      phoneNumber: phoneNumber ?? this.phoneNumber,
-      websiteUrl: websiteUrl ?? this.websiteUrl,
-      facebookUrl: facebookUrl ?? this.facebookUrl,
-      linkedInUrl: linkedInUrl ?? this.linkedInUrl,
-      addresses: addresses ?? this.addresses,
-      scope: scope ?? this.scope,
-      nationalityId: nationalityId ?? this.nationalityId,
+      deviceToken: deviceToken ?? this.deviceToken,
+      imageUrl: imageUrl ?? this.imageUrl,
+      roles: roles ?? this.roles,
+      token: token ?? this.token,
+      expiresOn: expiresOn ?? this.expiresOn,
+      refreshToken: refreshToken ?? this.refreshToken,
+      refreshTokenExpiration:
+          refreshTokenExpiration ?? this.refreshTokenExpiration,
     );
   }
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
     return LoginResponseModel(
-      companySize: json["CompanySize"],
-      name: json["name"],
-      username: json["Username"],
-      email: json["Email"],
-      password: json["Password"],
-      image: json["Image"],
-      phoneNumber: json["PhoneNumber"],
-      websiteUrl: json["WebsiteUrl"],
-      facebookUrl: json["FacebookUrl"],
-      linkedInUrl: json["LinkedInUrl"],
-      addresses: json["Addresses"] == null
+      message: json["message"],
+      isAuthenticated: json["isAuthenticated"],
+      id: json["id"],
+      personId: json["personId"],
+      buisnessId: json["buisnessId"],
+      username: json["username"],
+      email: json["email"],
+      deviceToken: json["deviceToken"],
+      imageUrl: json["imageUrl"],
+      roles: json["roles"] == null
           ? []
-          : List<Address>.from(
-              json["Addresses"]!.map((x) => Address.fromJson(x))),
-      scope: json["Scope"] == null
-          ? []
-          : List<String>.from(json["Scope"]!.map((x) => x)),
-      nationalityId: json["NationalityId"],
+          : List<String>.from(json["roles"]!.map((x) => x)),
+      token: json["token"],
+      expiresOn: DateTime.tryParse(json["expiresOn"] ?? ""),
+      refreshToken: json["refreshToken"],
+      refreshTokenExpiration:
+          DateTime.tryParse(json["refreshTokenExpiration"] ?? ""),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "CompanySize": companySize,
-        "name": name,
-        "Username": username,
-        "Email": email,
-        "Password": password,
-        "Image": image,
-        "PhoneNumber": phoneNumber,
-        "WebsiteUrl": websiteUrl,
-        "FacebookUrl": facebookUrl,
-        "LinkedInUrl": linkedInUrl,
-        "Addresses": addresses.map((x) => x?.toJson()).toList(),
-        "Scope": scope.map((x) => x).toList(),
-        "NationalityId": nationalityId,
+        "message": message,
+        "isAuthenticated": isAuthenticated,
+        "id": id,
+        "personId": personId,
+        "buisnessId": buisnessId,
+        "username": username,
+        "email": email,
+        "deviceToken": deviceToken,
+        "imageUrl": imageUrl,
+        "roles": roles.map((x) => x).toList(),
+        "token": token,
+        "expiresOn": expiresOn?.toIso8601String(),
+        "refreshToken": refreshToken,
+        "refreshTokenExpiration": refreshTokenExpiration?.toIso8601String(),
       };
 
   @override
   String toString() {
-    return "$companySize, $name, $username, $email, $password, $image, $phoneNumber, $websiteUrl, $facebookUrl, $linkedInUrl, $addresses, $scope, $nationalityId, ";
-  }
-}
-
-class Address {
-  Address({
-    required this.governorateId,
-    required this.areaId,
-    required this.streetAddress,
-    required this.isDefault,
-  });
-
-  final num? governorateId;
-  final num? areaId;
-  final String? streetAddress;
-  final bool? isDefault;
-
-  Address copyWith({
-    num? governorateId,
-    num? areaId,
-    String? streetAddress,
-    bool? isDefault,
-  }) {
-    return Address(
-      governorateId: governorateId ?? this.governorateId,
-      areaId: areaId ?? this.areaId,
-      streetAddress: streetAddress ?? this.streetAddress,
-      isDefault: isDefault ?? this.isDefault,
-    );
-  }
-
-  factory Address.fromJson(Map<String, dynamic> json) {
-    return Address(
-      governorateId: json["governorateId"],
-      areaId: json["areaId"],
-      streetAddress: json["streetAddress"],
-      isDefault: json["isDefault"],
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "governorateId": governorateId,
-        "areaId": areaId,
-        "streetAddress": streetAddress,
-        "isDefault": isDefault,
-      };
-
-  @override
-  String toString() {
-    return "$governorateId, $areaId, $streetAddress, $isDefault, ";
+    return "$message, $isAuthenticated, $id, $personId, $buisnessId, $username, $email, $deviceToken, $imageUrl, $roles, $token, $expiresOn, $refreshToken, $refreshTokenExpiration, ";
   }
 }

@@ -1,18 +1,21 @@
 import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/bloc/app_bloc.dart';
-import 'package:career/core/bloc/app_event.dart';
-import 'package:career/core/const/enums.dart';
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
+import 'package:career/core/utils/functions/initialize_getit/initialize_getit.dart';
 import 'package:career/core/widgets/app_text_field.dart';
 import 'package:career/core/widgets/primary_button.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
+import 'package:career/core/widgets/ui_function.dart';
+import 'package:career/features/business_login/domain/usecases/login_use_case.dart';
 import 'package:career/features/business_login/presentation/cubit/business_login_cubit.dart';
+import 'package:career/features/business_login/presentation/cubit/business_login_state.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:motion_toast/resources/arrays.dart';
 
 class LoginAsBusiness extends StatelessWidget {
   const LoginAsBusiness({super.key});
@@ -20,12 +23,20 @@ class LoginAsBusiness extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BusinessLoginCubit(),
+      create: (context) => BusinessLoginCubit(
+        appBloc: context.read<AppBloc>(),
+        loginUseCase: getIt.get<LoginUseCase>(),
+      ),
       child: ScreenWrapper(
         appBar: AppBar(),
         body: BlocConsumer<BusinessLoginCubit, BusinessLoginState>(
           listener: (context, state) {
-            // TODO: implement listener
+            if (state is ErrorLogin) {
+              UiHelper.showSnakBar(
+                  message: state.message,
+                  context: context,
+                  type: MotionToastType.error);
+            } else if (state is SuccessLogin) {}
           },
           builder: (context, state) {
             final cubit = BlocProvider.of<BusinessLoginCubit>(context);
@@ -107,11 +118,9 @@ class LoginAsBusiness extends StatelessWidget {
                                 Center(
                                   child: PrimaryButton(
                                     onPressed: () {
-                                      cubit.login(context: context);
-                                      context.read<AppBloc>().add(
-                                            VistorEvent(
-                                                vistor: VisitorType.business),
-                                          );
+                                      // cubit.login(context: context);
+                                      GoRouter.of(context)
+                                          .pushNamed(PagesKeys.otpScreen);
                                     },
                                     fixedSize: false,
                                     loading: false,

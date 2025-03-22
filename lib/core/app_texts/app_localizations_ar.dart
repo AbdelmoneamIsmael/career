@@ -382,7 +382,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get languageNotValid => 'اللغة غير صالحة';
 
   @override
-  String get otpVerification => 'تحقق من OTP';
+  String get otpVerification => 'يرجي التحقق من OTP الذي ارسل لك هذا يساعدنا علي  التحقق من هويتك والحفاظ علي معلوماتك';
 
   @override
   String get hello => 'مرحبًا';

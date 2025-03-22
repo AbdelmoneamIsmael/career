@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "896217504035",
+    "project_id": "career-3837e",
+    "storage_bucket": "career-3837e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896217504035:android:166555af2e6d010cf71496",
+        "android_client_info": {
+          "package_name": "com.almahd.career"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXdxCCfu6Txo5FrnNCiIfT8KWYw_XweWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

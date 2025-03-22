@@ -382,7 +382,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languageNotValid => 'Language Not Valid';
 
   @override
-  String get otpVerification => 'OTP Verification';
+  String get otpVerification => 'OTP Verification Please Type your OTP for verification your mobiele number That Help Us To Verify Your Identity and keep Your Information Safe';
 
   @override
   String get hello => 'Hello';

@@ -38,6 +38,7 @@ enum VisitorType {
   person,
   business,
   guest,
+  admin,
 }
 
 enum PaymentMethod {

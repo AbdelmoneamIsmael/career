@@ -9,6 +9,7 @@ class ApplicationModel {
   ApplicationTheme theme;
   ApplicationLanguage language;
   String fontFamily;
+  
 
   ApplicationModel copyWith({
     String? applicationName,

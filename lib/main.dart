@@ -1,9 +1,16 @@
 // import 'dart:html' as web;
+import 'dart:developer';
+
 import 'package:career/core/bloc/bloc_observer.dart';
+import 'package:career/core/const/app_const.dart';
 
 import 'package:career/core/utils/cache_helper.dart';
 import 'package:career/core/utils/functions/init_hive/init_hive.dart';
 import 'package:career/core/utils/functions/initialize_getit/initialize_getit.dart';
+import 'package:career/core/utils/notification_handeler.dart';
+import 'package:career/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,14 +43,14 @@ void main() async {
 Future<void> initializing() async {
   Bloc.observer = MyBlocObserver();
   Logger.level = Level.trace;
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-  // var deviceToken = await NotificationHelper.init();
+  var deviceToken = await NotificationHelper.init();
 
-  // kDeviceToken = deviceToken;
-  // log(kDeviceToken);
+  kDeviceToken = deviceToken;
+  log(kDeviceToken);
 
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 }

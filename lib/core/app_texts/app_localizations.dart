@@ -848,7 +848,7 @@ abstract class AppLocalizations {
   /// No description provided for @otpVerification.
   ///
   /// In en, this message translates to:
-  /// **'OTP Verification'**
+  /// **'OTP Verification Please Type your OTP for verification your mobiele number That Help Us To Verify Your Identity and keep Your Information Safe'**
   String get otpVerification;
 
   /// No description provided for @hello.

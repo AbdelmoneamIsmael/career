@@ -113,6 +113,8 @@ class PageRoutes {
                       return const CompanyPage();
                     case VisitorType.guest:
                       const SizedBox();
+                    case VisitorType.admin:
+                      const SizedBox();
                   }
                   return const SizedBox();
                 },

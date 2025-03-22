@@ -124,7 +124,7 @@
     "language": "لغة",
     "languageRequired": "اللغة مطلوبة",
     "languageNotValid": "اللغة غير صالحة",
-    "otpVerification": "تحقق من OTP",
+    "otpVerification": "يرجي التحقق من OTP الذي ارسل لك هذا يساعدنا علي  التحقق من هويتك والحفاظ علي معلوماتك",
     "hello": "مرحبًا",
     "thanksRegister": "شكرًا لتسجيلك، يرجى كتابة OTP الخاص بك للتحقق من رقم هاتفك المحمول",
     "didntReceiveOtp": "لم تتلق OTP؟",
