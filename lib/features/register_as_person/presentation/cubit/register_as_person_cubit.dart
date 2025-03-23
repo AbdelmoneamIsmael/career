@@ -2,9 +2,11 @@ import 'dart:io';
 import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/global_views/all_areas/model/all_area_responce.dart';
 import 'package:career/core/global_views/all_governorates/model/all_governorates_responce.dart';
+import 'package:career/core/global_views/skills/model/skills_responce.dart';
 import 'package:career/core/src/language.dart';
 import 'package:career/core/widgets/ui_function.dart';
 import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/company_adress_info_model.dart';
+import 'package:career/features/register_as_person/domain/repositories/register_person_repo.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_state.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:motion_toast/resources/arrays.dart';
@@ -17,16 +19,20 @@ import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
-  RegisterAsPersonCubit() : super(RegisterAsPersonInitial()) {
+  RegisterAsPersonCubit(
+    this.registerPersonRepo,
+  ) : super(RegisterAsPersonInitial()) {
     onInintial();
   }
   //global variabels
   PageController pageController = PageController(
     initialPage: 0,
   );
+  final RegisterPersonRepo registerPersonRepo;
   int currentPage = 0;
-  RegisterModel registerModel = RegisterModel.empty();
+  RegisterPersonModel registerModel = RegisterPersonModel.empty();
   Governerates? selectedGovernorate;
+  List<Skill> selectedSkills = [];
   Areas? selectedArea;
   @override
   Future<void> close() {
@@ -262,8 +268,6 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
         }
       }
     }
-    print(
-        "${cvLanguage.text.isNotEmpty} ${adress.text.isNotEmpty} ${cv != null}");
     UiHelper.showSnakBar(
       message: AppLocalizations.of(context).youShouldFillAllFields,
       context: context,
@@ -501,17 +505,60 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void addSkills(
-    int suggestion,
+    Skill suggestion,
   ) {
-    registerModel.skills.add(suggestion);
-    var skills = registerModel.skills.toSet();
-    registerModel.skills = skills.toList();
-
+    selectedSkills.add(suggestion);
+    var tempSkills = selectedSkills.toSet();
+    selectedSkills = tempSkills.toList();
+    registerModel.skills.clear();
+    for (var element in selectedSkills) {
+      registerModel.skills.add(element.id!);
+    }
     emit(AddLanguage());
   }
 
-  void deleteSkill(String e) {
-    registerModel.skills.remove(e);
-    emit(DeleteLanguage());
+  void deleteSkill(Skill e) {
+    registerModel.skills.remove(e.id!);
+    selectedSkills.remove(e);
+
+    emit(
+      DeleteLanguage(),
+    );
+  }
+
+  bool cheeckSkillValidation(
+    BuildContext context,
+  ) {
+    if (registerModel.skills.isEmpty || registerModel.languages.isEmpty) {
+      UiHelper.showSnakBar(
+        message: AppLocalizations.of(context).youShouldFillAllFields,
+        context: context,
+        type: MotionToastType.info,
+      );
+      return false;
+    }
+    return true;
+  }
+
+  Future<void> register() async {
+    try {
+      emit(LoadingPersonRegister());
+      var results = await registerPersonRepo.register(
+        registerModel,
+      );
+      results.fold((l) {
+        emit(PersonRegisteredFailed(
+          l.message,
+        ));
+      }, (r) {
+        emit(PersonRegisteredSuccess());
+      });
+    } catch (e) {
+      emit(
+        PersonRegisteredFailed(
+          e.toString(),
+        ),
+      );
+    }
   }
 }

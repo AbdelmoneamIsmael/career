@@ -106,23 +106,26 @@ class CompanyRegisterModel {
   }
 
   Future<Map<String, dynamic>> toJson() async {
+    MultipartFile? file;
     // Check if the image path is valid
-    if (image == null || !await File(image!.path).exists()) {
-      throw Exception("Image file does not exist.");
-    }
+    if (image != null) {
+      if (image == null || !await File(image!.path).exists()) {
+        throw Exception("Image file does not exist.");
+      }
 
-    // Use mime package to get the correct content type
-    String? mimeType = lookupMimeType(image!.path);
-    if (mimeType == null) {
-      throw Exception("Could not determine the MIME type.");
-    }
+      // Use mime package to get the correct content type
+      String? mimeType = lookupMimeType(image!.path);
+      if (mimeType == null) {
+        throw Exception("Could not determine the MIME type.");
+      }
 
-    var file = await MultipartFile.fromFile(
-      image!.path,
-      filename: image!.path.split("/").last,
-      contentType:
-          http.MediaType.parse(mimeType), // Set the correct content type
-    );
+      file = await MultipartFile.fromFile(
+        image!.path,
+        filename: image!.path.split("/").last,
+        contentType:
+            http.MediaType.parse(mimeType), // Set the correct content type
+      );
+    }
 
     return {
       "CompanySize": companySize,

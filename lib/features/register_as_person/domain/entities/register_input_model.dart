@@ -1,10 +1,12 @@
 import 'dart:io';
-
+import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart' as http;
+import 'package:mime/mime.dart';
 import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/register_company_input_model.dart';
 
-class RegisterModel {
-  factory RegisterModel.empty() {
-    return RegisterModel(
+class RegisterPersonModel {
+  factory RegisterPersonModel.empty() {
+    return RegisterPersonModel(
       name: "",
       username: "",
       email: "",
@@ -31,8 +33,8 @@ class RegisterModel {
       studies: [],
     );
   }
-  factory RegisterModel.fromJson(Map<String, dynamic> json) {
-    return RegisterModel(
+  factory RegisterPersonModel.fromJson(Map<String, dynamic> json) {
+    return RegisterPersonModel(
       name: json["Name"],
       username: json["Username"],
       email: json["Email"],
@@ -76,7 +78,7 @@ class RegisterModel {
           : List<Study>.from(json["Studies"]!.map((x) => Study.fromJson(x))),
     );
   }
-  RegisterModel({
+  RegisterPersonModel({
     required this.name,
     required this.username,
     required this.email,
@@ -128,7 +130,7 @@ class RegisterModel {
   List<String> languages;
   List<Study> studies;
 
-  RegisterModel copyWith({
+  RegisterPersonModel copyWith({
     String? name,
     String? username,
     String? email,
@@ -154,7 +156,7 @@ class RegisterModel {
     List<String>? languages,
     List<Study>? studies,
   }) {
-    return RegisterModel(
+    return RegisterPersonModel(
       name: name ?? this.name,
       username: username ?? this.username,
       email: email ?? this.email,
@@ -183,33 +185,76 @@ class RegisterModel {
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        "Name": name,
-        "Username": username,
-        "Email": email,
-        "Password": password,
-        "Image": image,
-        "JopName": jopName,
-        "DateOfBirth": dateOfBirth?.toIso8601String(),
-        "Gender": gender,
-        "NationalityId": nationalityId,
-        "Scope": scope.map((x) => x).toList(),
-        "CurrentlyAt": currentlyAt,
-        "PhoneNumber": phoneNumber,
-        "WebsiteUrl": websiteUrl,
-        "FacebookUrl": facebookUrl,
-        "LinkedInUrl": linkedInUrl,
-        "Addresses": addresses.map((x) => x.toJson()).toList(),
-        "YearOfExperiance": yearOfExperiance,
-        "CvLanguage": cvLanguage,
-        "CvFile": cvFile,
-        "Experiences": experiences.map((x) => x.toJson()).toList(),
-        "CertificationRequests":
-            certificationRequests.map((x) => x.toJson()).toList(),
-        "Skills": skills.map((x) => x).toList(),
-        "Languages": languages.map((x) => x).toList(),
-        "Studies": studies.map((x) => x.toJson()).toList(),
-      };
+  Future<Map<String, dynamic>> toJson() async {
+    MultipartFile? imageFile;
+    MultipartFile? cv;
+    // Check if the image path is valid
+    if (image != null) {
+      if (image == null || !await File(image!.path).exists()) {
+        throw Exception("Image file does not exist.");
+      }
+
+      // Use mime package to get the correct content type
+      String? mimeType = lookupMimeType(image!.path);
+      if (mimeType == null) {
+        throw Exception("Could not determine the MIME type.");
+      }
+
+      imageFile = await MultipartFile.fromFile(
+        image!.path,
+        filename: image!.path.split("/").last,
+        contentType:
+            http.MediaType.parse(mimeType), // Set the correct content type
+      );
+    }
+
+    if (cvFile != null) {
+      if (cvFile == null || !await File(cvFile!.path).exists()) {
+        throw Exception("Image file does not exist.");
+      }
+
+      // Use mime package to get the correct content type
+      String? mimeType = lookupMimeType(cvFile!.path);
+      if (mimeType == null) {
+        throw Exception("Could not determine the MIME type.");
+      }
+
+      cv = await MultipartFile.fromFile(
+        cvFile!.path,
+        filename: image!.path.split("/").last,
+        contentType:
+            http.MediaType.parse(mimeType), // Set the correct content type
+      );
+    }
+
+    return {
+      "Name": name,
+      "Username": username,
+      "Email": email,
+      "Password": password,
+      "Image": imageFile,
+      "JopName": jopName,
+      "DateOfBirth": dateOfBirth?.toIso8601String(),
+      "Gender": gender,
+      "NationalityId": nationalityId,
+      "Scope": scope.map((x) => x).toList(),
+      "CurrentlyAt": currentlyAt,
+      "PhoneNumber": phoneNumber,
+      "WebsiteUrl": websiteUrl,
+      "FacebookUrl": facebookUrl,
+      "LinkedInUrl": linkedInUrl,
+      "Addresses": addresses.map((x) => x.toJson()).toList(),
+      "YearOfExperiance": yearOfExperiance,
+      "CvLanguage": cvLanguage,
+      "CvFile": cv,
+      "Experiences": experiences.map((x) => x.toJson()).toList(),
+      "CertificationRequests":
+          certificationRequests.map((x) => x.toJson()).toList(),
+      "Skills": skills.map((x) => x).toList(),
+      "Languages": languages.map((x) => x).toList(),
+      "Studies": studies.map((x) => x.toJson()).toList(),
+    };
+  }
 
   @override
   String toString() {

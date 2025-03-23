@@ -1,12 +1,16 @@
 import 'dart:ui';
 
+import 'package:career/core/utils/functions/initialize_getit/initialize_getit.dart';
+import 'package:career/core/widgets/loading_over_lay.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
+import 'package:career/core/widgets/ui_function.dart';
+import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
+import 'package:career/features/register_as_person/domain/repositories/register_person_repo.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_cubit.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_state.dart';
 import 'package:career/features/register_as_person/presentation/views/cirtifications/cirtifications.dart';
 import 'package:career/features/register_as_person/presentation/views/core_information/core_information.dart';
 import 'package:career/features/register_as_person/presentation/views/cv_info/cv_view_info.dart';
-import 'package:career/features/register_as_person/presentation/views/language/user_language.dart';
 import 'package:career/features/register_as_person/presentation/views/profile_image/profile_image.dart';
 import 'package:career/features/register_as_person/presentation/views/studies/studies.dart';
 import 'package:career/features/register_as_person/presentation/views/user_skills.dart/user_skills.dart';
@@ -16,6 +20,7 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:motion_toast/resources/arrays.dart';
 
 class RegisterAsPerson extends StatelessWidget {
   const RegisterAsPerson({super.key});
@@ -23,7 +28,9 @@ class RegisterAsPerson extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RegisterAsPersonCubit(),
+      create: (context) => RegisterAsPersonCubit(
+        getIt.get<RegisterPersonRepo>(),
+      ),
       child: ScreenWrapper(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -46,29 +53,46 @@ class RegisterAsPerson extends StatelessWidget {
         ),
         body: BlocConsumer<RegisterAsPersonCubit, RegisterAsPersonState>(
           listener: (context, state) {
-            // TODO: implement listener
+            if (state is PersonRegisteredSuccess) {
+              context.pop();
+            }
+            if (state is PersonRegisteredFailed) {
+              UiHelper.showSnakBar(
+                message: state.message,
+                context: context,
+                type: MotionToastType.error,
+              );
+            }
           },
           builder: (context, state) {
             final cubit = BlocProvider.of<RegisterAsPersonCubit>(context);
-            return CustomScrollView(
-              physics: const ClampingScrollPhysics(),
-              slivers: [
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: ExpandablePageView(
-                    onPageChanged: cubit.setVAlue,
-                    controller: cubit.pageController,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      const ProfileImage(),
-                      const CoreInformation(),
-                      const CvViewInfo(),
-                      const Studies(),
-                      const WorkExperiances(),
-                      const Cirtifications(),
-                      const UserSkills(),
-                    ],
-                  ),
+            return Stack(
+              children: [
+                CustomScrollView(
+                  physics: const ClampingScrollPhysics(),
+                  slivers: [
+                    SliverFillRemaining(
+                      hasScrollBody: false,
+                      child: ExpandablePageView(
+                        onPageChanged: cubit.setVAlue,
+                        controller: cubit.pageController,
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: [
+                          const ProfileImage(),
+                          const CoreInformation(),
+                          const CvViewInfo(),
+                          const Studies(),
+                          const WorkExperiances(),
+                          const Cirtifications(),
+                          const UserSkills(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Visibility(
+                  visible: state is LoadingRegister,
+                  child: const LoadingOverlay(),
                 ),
               ],
             );

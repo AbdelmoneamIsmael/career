@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class SkillsResponse {
   factory SkillsResponse.fromJson(Map<String, dynamic> json) {
     return SkillsResponse(
@@ -28,18 +30,22 @@ class SkillsResponse {
   final List<Skill> data;
 }
 
-class Skill {
+class Skill extends Equatable {
   factory Skill.fromJson(Map<String, dynamic> json) {
     return Skill(
       id: json["id"],
       name: json["name"],
     );
   }
-  Skill({
+  const Skill({
     required this.id,
     required this.name,
   });
 
   final int? id;
   final String? name;
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [id, name];
 }

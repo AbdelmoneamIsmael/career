@@ -25,7 +25,7 @@ class ServerFailure extends Failure {
         return ServerFailure(
             'Connection Error From the server ,Try Again Later');
       case DioExceptionType.unknown:
-        return ServerFailure('Unexpected Error with server, please try again!');
+        return ServerFailure("${error.message}");
     }
   }
   factory ServerFailure.fromResponse(Response response) {

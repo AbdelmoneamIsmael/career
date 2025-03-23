@@ -1,5 +1,6 @@
 import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/global_views/all_areas/model/all_area_responce.dart';
+import 'package:career/core/global_views/skills/model/skills_responce.dart';
 import 'package:career/core/global_views/skills/view/get_all_skills.dart';
 import 'package:career/core/src/language.dart';
 import 'package:career/core/widgets/app_text_field.dart';
@@ -55,27 +56,30 @@ class UserSkills extends StatelessWidget {
                 const SizedBox(),
                 AppTextField(
                   ontap: () async {
-                    Areas? x = await showSearch(
+                    Skill? x = await showSearch(
                       context: context,
                       delegate: SkillsSearchView(),
-                    ) as Areas?;
+                    ) as Skill?;
+                    if (x != null) {
+                      cubit.addSkills(x);
+                    }
                   },
                   hint: AppLocalizations.of(context).personalSkill,
                   prefixIcon: const Icon(Icons.account_box),
                 ),
                 Wrap(
                   spacing: 8.w,
-                  children: cubit.registerModel.languages
+                  children: cubit.selectedSkills
                       .map((e) => Chip(
-                            label: Text(e),
-                            onDeleted: () => cubit.deleteLanguage(e),
+                            label: Text(e.name ?? ''),
+                            onDeleted: () => cubit.deleteSkill(e),
                           ))
                       .toList(),
                 ),
                 ForwardWidget(
                   onPressed: () {
-                    if (cubit.checkCoreInfoValidate(context)) {
-                      context.read<RegisterAsPersonCubit>().next();
+                    if (cubit.cheeckSkillValidation(context)) {
+                      context.read<RegisterAsPersonCubit>().register();
                     }
                   },
                 ),
