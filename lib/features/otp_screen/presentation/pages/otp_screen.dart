@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:motion_toast/resources/arrays.dart';
 
@@ -45,53 +46,65 @@ class OtpScreen extends StatelessWidget {
           children: [
             ScreenWrapper(
               appBar: AppBar(),
-              body: Padding(
-                padding: const EdgeInsets.all(21),
-                child: CustomScrollView(
-                  slivers: [
-                    SliverFillRemaining(
-                      hasScrollBody: false,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          OtpTextField(
-                            numberOfFields: 6,
-                            borderColor: LightColors.buttonColor,
-                            //set to true to show as box or false to show as dash
-                            showFieldAsBox: true,
-                            //runs when a code is typed in
-                            onCodeChanged: (String code) {
-                              //handle validation or checks here
-                            },
+              body: CustomScrollView(
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        PrimaryContainer(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 50,
+                          ).w,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              OtpTextField(
+                                numberOfFields: 6,
+                                borderColor: LightColors.buttonColor,
+                                //set to true to show as box or false to show as dash
+                                showFieldAsBox: true,
+                                //runs when a code is typed in
+                                onCodeChanged: (String code) {
+                                  //handle validation or checks here
+                                },
 
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                //runs when every textfield is filled
+                                onSubmit: cubit.submitOtp, // end onSubmit
+                              ),
+                              const SizedBox(height: 40),
+                              Text(
+                                textAlign: TextAlign.center,
+                                AppLocalizations.of(context).otpVerification,
+                                style: AppTextStyle.medium18(context),
+                              ),
+                              const SizedBox(height: 20),
+                              TextButton(
+                                  onPressed: cubit.resendOtp,
+                                  child: Text(
+                                    AppLocalizations.of(context).resendOtp,
+                                    style: AppTextStyle.medium16(context)
+                                        .copyWith(
+                                            color: LightColors.buttonColor),
+                                  )),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).viewInsets.bottom,
+                              )
                             ],
-                            //runs when every textfield is filled
-                            onSubmit: cubit.submitOtp, // end onSubmit
                           ),
-                          const SizedBox(height: 40),
-                          Text(
-                            textAlign: TextAlign.center,
-                            AppLocalizations.of(context).otpVerification,
-                            style: AppTextStyle.medium18(context),
-                          ),
-                          const SizedBox(height: 20),
-                          TextButton(
-                              onPressed: cubit.resendOtp,
-                              child: Text(
-                                AppLocalizations.of(context).resendOtp,
-                                style: AppTextStyle.medium16(context)
-                                    .copyWith(color: LightColors.buttonColor),
-                              )),
-                          SizedBox(
-                            height: MediaQuery.of(context).viewInsets.bottom,
-                          )
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             Visibility(
