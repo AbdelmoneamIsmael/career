@@ -1,5 +1,12 @@
-class LoginResponseModel {
-  LoginResponseModel({
+class OtpResponseModel {
+  factory OtpResponseModel.fromJson(Map<String, dynamic> json) {
+    return OtpResponseModel(
+      success: json["success"],
+      data: json["data"] == null ? null : Data.fromJson(json["data"]),
+      message: json["message"],
+    );
+  }
+  OtpResponseModel({
     required this.success,
     required this.data,
     required this.message,
@@ -7,25 +14,17 @@ class LoginResponseModel {
 
   final bool? success;
   final Data? data;
-  final String? message;
+  final dynamic message;
 
-  LoginResponseModel copyWith({
+  OtpResponseModel copyWith({
     bool? success,
     Data? data,
-    String? message,
+    dynamic message,
   }) {
-    return LoginResponseModel(
+    return OtpResponseModel(
       success: success ?? this.success,
       data: data ?? this.data,
       message: message ?? this.message,
-    );
-  }
-
-  factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
-    return LoginResponseModel(
-      success: json["success"],
-      data: json["data"] == null ? null : Data.fromJson(json["data"]),
-      message: json["message"],
     );
   }
 
@@ -42,6 +41,28 @@ class LoginResponseModel {
 }
 
 class Data {
+  factory Data.fromJson(Map<String, dynamic> json) {
+    return Data(
+      message: json["message"],
+      isAuthenticated: json["isAuthenticated"],
+      id: json["id"],
+      personId: json["personId"],
+      buisnessId: json["buisnessId"],
+      username: json["username"],
+      email: json["email"],
+      deviceToken: json["deviceToken"],
+      imageUrl: json["imageUrl"],
+      phoneNumber: json["phoneNumber"],
+      roles: json["roles"] == null
+          ? []
+          : List<String>.from(json["roles"]!.map((x) => x)),
+      token: json["token"],
+      expiresOn: DateTime.tryParse(json["expiresOn"] ?? ""),
+      refreshToken: json["refreshToken"],
+      refreshTokenExpiration:
+          DateTime.tryParse(json["refreshTokenExpiration"] ?? ""),
+    );
+  }
   Data({
     required this.message,
     required this.isAuthenticated,
@@ -63,16 +84,16 @@ class Data {
   final String? message;
   final bool? isAuthenticated;
   final int? id;
-  final String? personId;
-  final String? buisnessId;
+  final dynamic personId;
+  final num? buisnessId;
   final String? username;
   final String? email;
   final String? deviceToken;
-  final String? imageUrl;
+  final dynamic imageUrl;
   final String? phoneNumber;
-  final String? roles;
+  final List<String> roles;
   final String? token;
-  final String? expiresOn;
+  final DateTime? expiresOn;
   final String? refreshToken;
   final DateTime? refreshTokenExpiration;
 
@@ -80,16 +101,16 @@ class Data {
     String? message,
     bool? isAuthenticated,
     int? id,
-    String? personId,
-    String? buisnessId,
+    dynamic personId,
+    num? buisnessId,
     String? username,
     String? email,
     String? deviceToken,
-    String? imageUrl,
+    dynamic imageUrl,
     String? phoneNumber,
-    String? roles,
+    List<String>? roles,
     String? token,
-    String? expiresOn,
+    DateTime? expiresOn,
     String? refreshToken,
     DateTime? refreshTokenExpiration,
   }) {
@@ -113,27 +134,6 @@ class Data {
     );
   }
 
-  factory Data.fromJson(Map<String, dynamic> json) {
-    return Data(
-      message: json["message"],
-      isAuthenticated: json["isAuthenticated"],
-      id: json["id"],
-      personId: json["personId"],
-      buisnessId: json["buisnessId"],
-      username: json["username"],
-      email: json["email"],
-      deviceToken: json["deviceToken"],
-      imageUrl: json["imageUrl"],
-      phoneNumber: json["phoneNumber"],
-      roles: json["roles"],
-      token: json["token"],
-      expiresOn: json["expiresOn"],
-      refreshToken: json["refreshToken"],
-      refreshTokenExpiration:
-          DateTime.tryParse(json["refreshTokenExpiration"] ?? ""),
-    );
-  }
-
   Map<String, dynamic> toJson() => {
         "message": message,
         "isAuthenticated": isAuthenticated,
@@ -145,9 +145,9 @@ class Data {
         "deviceToken": deviceToken,
         "imageUrl": imageUrl,
         "phoneNumber": phoneNumber,
-        "roles": roles,
+        "roles": roles.map((x) => x).toList(),
         "token": token,
-        "expiresOn": expiresOn,
+        "expiresOn": expiresOn?.toIso8601String(),
         "refreshToken": refreshToken,
         "refreshTokenExpiration": refreshTokenExpiration?.toIso8601String(),
       };

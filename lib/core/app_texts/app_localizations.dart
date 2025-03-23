@@ -1390,6 +1390,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Company sized'**
   String get companySized;
+
+  /// No description provided for @resendOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend OTP'**
+  String get resendOtp;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

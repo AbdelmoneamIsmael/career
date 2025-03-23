@@ -38,6 +38,7 @@ class BusinessLoginCubit extends Cubit<BusinessLoginState> {
   }
 
   Future<void> excuteLogin() async {
+    emit(LoadingLoginProcess());
     try {
       var result = await loginUseCase.call(
         loginPrameters: LoginPrameters(
@@ -48,7 +49,7 @@ class BusinessLoginCubit extends Cubit<BusinessLoginState> {
         bloc: appBloc,
       );
       result.fold((l) => emit(ErrorLogin(message: l.message)), (r) {
-        emit(SuccessLogin());
+        emit(SuccessLogin(loginResponseModel: r));
       });
     } on Exception catch (e) {
       emit(ErrorLogin(message: e.toString()));
@@ -62,10 +63,5 @@ class BusinessLoginCubit extends Cubit<BusinessLoginState> {
   ///
   void savePassword(BuildContext context) {
     TextInput.finishAutofillContext();
-
-    if (context.mounted) {
-      GoRouter.of(context)
-          .push("/${PagesKeys.mainScreen}/${PagesKeys.homeScreen}");
-    }
   }
 }

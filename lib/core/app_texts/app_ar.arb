@@ -216,7 +216,8 @@
      "websiteUrl": "رابط الموقع",
      "governorate": "المحافظة/المدينة/القسم",
      "area": "المنطقة",
-     "companySized": "حجم الشركة"
+     "companySized": "حجم الشركة",
+     "resendOtp":"اعادة ارسال الكود"
     
 
      }

@@ -653,4 +653,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get companySized => 'حجم الشركة';
+
+  @override
+  String get resendOtp => 'اعادة ارسال الكود';
 }

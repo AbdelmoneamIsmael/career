@@ -217,7 +217,8 @@
     "websiteUrl": "Website Url",
     "governorate": "governorate/city/section",
     "area": "area",
-    "companySized": "Company sized"
+    "companySized": "Company sized",
+    "resendOtp":"Resend OTP"
     
     
 

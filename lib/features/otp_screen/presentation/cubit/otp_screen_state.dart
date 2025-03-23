@@ -1,10 +1,14 @@
-part of 'otp_screen_cubit.dart';
-
-abstract class OtpScreenState extends Equatable {
-  const OtpScreenState();
-
-  @override
-  List<Object> get props => [];
-}
+abstract class OtpScreenState {}
 
 class OtpScreenInitial extends OtpScreenState {}
+
+class LoadingOtpConfirmationProccess extends OtpScreenState {}
+
+class SuccessOtpConfirmationProccess extends OtpScreenState {}
+
+class SuccessresendOtpProccess extends OtpScreenState {}
+
+class FailedOtpConfirmationProccess extends OtpScreenState {
+  FailedOtpConfirmationProccess({required this.message});
+  final String message;
+}

@@ -192,7 +192,11 @@ class PageRoutes {
         path: "/${PagesKeys.otpScreen}",
         builder: (context, state) {
           return BlocProvider(
-            create: (context) => OtpScreenCubit(),
+            create: (context) => OtpScreenCubit(
+              confirmOtpUseCases: getIt.get(),
+              appBloc: context.read<AppBloc>(),
+              phoneNumber: state.extra as String,
+            ),
             child: const OtpScreen(),
           );
         },

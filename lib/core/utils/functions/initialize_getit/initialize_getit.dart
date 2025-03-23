@@ -1,7 +1,12 @@
+import 'package:career/core/widgets/loading_over_lay.dart';
 import 'package:career/features/business_login/data/datasources/remote_login.dart';
 import 'package:career/features/business_login/data/repositories/login_repo_imple.dart';
 import 'package:career/features/business_login/domain/repositories/login_repo.dart';
 import 'package:career/features/business_login/domain/usecases/login_use_case.dart';
+import 'package:career/features/otp_screen/data/datasources/confirm_otp_remote.dart';
+import 'package:career/features/otp_screen/data/repositories/confirm_otp_repo_imple.dart';
+import 'package:career/features/otp_screen/domain/repositories/confirm_otp_repo.dart';
+import 'package:career/features/otp_screen/domain/usecases/confirm_otp_use_cases.dart';
 import 'package:career/features/register_as_business/data/remote_data/regester_company_remote.dart';
 import 'package:career/features/register_as_business/data/repo/register_company_repo_imple.dart';
 import 'package:career/features/register_as_business/domain/repo/reister_business_repo.dart';
@@ -31,6 +36,20 @@ void initializeGetIt() {
   getIt.registerSingleton<RegisterPersonRepo>(
     RegisterPersonRepoImple(
       remotePersoneRegister: RemotePersoneRegister(),
+    ),
+  );
+  getIt.registerSingleton<LoadingOverlay>(
+    const LoadingOverlay(),
+  );
+  getIt.registerSingleton<ConfirmOtpRepo>(
+    ConfirmOtpRepoImple(
+      resendOtpRemote: ResendOtpRemote(),
+      confirmOtpRemote: ConfirmOtpRemote(),
+    ),
+  );
+  getIt.registerSingleton<ConfirmOtpUseCases>(
+    ConfirmOtpUseCases(
+      confirmOtpRepo: getIt.get<ConfirmOtpRepo>(),
     ),
   );
 }

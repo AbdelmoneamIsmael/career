@@ -653,4 +653,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get companySized => 'Company sized';
+
+  @override
+  String get resendOtp => 'Resend OTP';
 }
