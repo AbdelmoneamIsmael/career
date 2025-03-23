@@ -223,11 +223,11 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
     adressController.dispose();
   }
 
-  List<CompanyAdressInfoModel> addresses = [];
+  List<AdressInfoModel> addresses = [];
   void addAddress() {
     if (companyInformationValidation()) {
       addresses.add(
-        CompanyAdressInfoModel(
+        AdressInfoModel(
           areaName: selectedArea!.name!,
           governorateName: selectedGovernorate!.name!,
           governorateId: selectedGovernorate!.id!,
@@ -245,12 +245,12 @@ class RegisterAsBusinessCubit extends Cubit<RegisterBusinessState> {
     }
   }
 
-  void deleteAddress(CompanyAdressInfoModel address) {
+  void deleteAddress(AdressInfoModel address) {
     addresses.remove(address);
     emit(DeleteAddress());
   }
 
-  void editAddress(CompanyAdressInfoModel address) {
+  void editAddress(AdressInfoModel address) {
     areaController.text = address.areaName!;
     governorateController.text = address.governorateName!;
     adressController.text = address.streetAddress!;

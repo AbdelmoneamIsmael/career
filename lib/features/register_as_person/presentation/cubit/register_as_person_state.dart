@@ -22,3 +22,6 @@ class AddCirtifications extends RegisterAsPersonState {}
 
 class AddLanguage extends RegisterAsPersonState {}
 class DeleteLanguage extends RegisterAsPersonState {}
+class ChangeAreas extends RegisterAsPersonState {}
+
+class ChangeGovernorate extends RegisterAsPersonState {}

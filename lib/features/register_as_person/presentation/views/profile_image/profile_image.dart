@@ -34,9 +34,9 @@ class ProfileImage extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(200.r),
-                      child: cubit.registerModel.profileImage != null
+                      child: cubit.registerModel.image != null
                           ? Image.file(
-                              cubit.registerModel.profileImage!,
+                              cubit.registerModel.image!,
                               width: 200.w,
                               height: 200.w,
                               fit: BoxFit.cover,

@@ -28,7 +28,7 @@ class StudyWidget extends StatelessWidget {
             spacing: 5,
             children: [
               Text(
-                study.univirsity!,
+                study.university!,
                 style: AppTextStyle.simiBold18(context),
               ),
               Text(

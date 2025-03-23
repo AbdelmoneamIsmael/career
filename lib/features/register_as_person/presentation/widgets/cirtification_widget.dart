@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 
 class CirtificationsWidget extends StatelessWidget {
   const CirtificationsWidget({super.key, required this.certification});
-  final Certification certification;
+  final CertificationRequest certification;
   @override
   Widget build(BuildContext context) {
     return Row(

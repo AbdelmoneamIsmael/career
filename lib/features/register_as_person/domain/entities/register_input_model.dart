@@ -1,191 +1,379 @@
 import 'dart:io';
 
-import 'package:career/core/const/enums.dart';
+import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/register_company_input_model.dart';
 
 class RegisterModel {
-  factory RegisterModel.fromJson(Map<String, dynamic> json) {
-    return RegisterModel(
-      address: json["address"],
-      email: json["email"],
-      fullName: json["FullName"],
-      jopName: json["jopName"],
-      dateOfBirth: json["dateOfBirth"],
-      gender: json["gender"],
-      nationality: json["nationality"],
-      currentlyAt: json["currentlyAt"],
-      city: json["city"],
-      state: json["state"],
-      area: json["area"],
-      phone: json["phone"],
-      yearsOfExperiance: json["yearsOfExperiance"],
-      languageOfCv: json["languageOfCv"],
-      cv: json["cv"],
-      profileImage: json["profileImage"],
-      studies: json["studies"] == null
-          ? []
-          : List<Study>.from(json["studies"]!.map((x) => Study.fromJson(x))),
-      work: json["work"] == null
-          ? []
-          : List<Work>.from(json["work"]!.map((x) => Work.fromJson(x))),
-      certifications: json["certifications"] == null
-          ? []
-          : List<Certification>.from(
-              json["certifications"]!.map((x) => Certification.fromJson(x))),
-      skills: json["skills"] == null
-          ? []
-          : List<String>.from(json["skills"]!.map((x) => x)),
-      language: json["language"] == null
-          ? []
-          : List<String>.from(json["language"]!.map((x) => x)),
-      password: json["password"],
-    );
-  }
   factory RegisterModel.empty() {
     return RegisterModel(
+      name: "",
+      username: "",
+      email: "",
       password: "",
-      email: '',
-      fullName: '',
-      jopName: '',
+      image: null,
+      jopName: "",
       dateOfBirth: DateTime(1997),
-      gender: Gender.male,
-      nationality: '',
-      currentlyAt: '',
-      city: '',
-      state: '',
-      area: '',
-      phone: '',
-      yearsOfExperiance: 0,
-      languageOfCv: '',
-      cv: null,
-      profileImage: null,
-      studies: [],
-      work: [],
-      certifications: [],
+      gender: 1,
+      nationalityId: 1,
+      scope: [],
+      currentlyAt: "",
+      phoneNumber: "",
+      websiteUrl: "",
+      facebookUrl: "",
+      linkedInUrl: "",
+      addresses: [],
+      yearOfExperiance: 5,
+      cvLanguage: "",
+      cvFile: null,
+      experiences: [],
+      certificationRequests: [],
       skills: [],
-      language: [],
-      address: "",
+      languages: [],
+      studies: [],
+    );
+  }
+  factory RegisterModel.fromJson(Map<String, dynamic> json) {
+    return RegisterModel(
+      name: json["Name"],
+      username: json["Username"],
+      email: json["Email"],
+      password: json["Password"],
+      image: json["Image"],
+      jopName: json["JopName"],
+      dateOfBirth: DateTime.tryParse(json["DateOfBirth"] ?? ""),
+      gender: json["Gender"],
+      nationalityId: json["NationalityId"],
+      scope: json["Scope"] == null
+          ? []
+          : List<String>.from(json["Scope"]!.map((x) => x)),
+      currentlyAt: json["CurrentlyAt"],
+      phoneNumber: json["PhoneNumber"],
+      websiteUrl: json["WebsiteUrl"],
+      facebookUrl: json["FacebookUrl"],
+      linkedInUrl: json["LinkedInUrl"],
+      addresses: json["Addresses"] == null
+          ? []
+          : List<AddresssModel>.from(
+              json["Addresses"]!.map((x) => AddresssModel.fromJson(x))),
+      yearOfExperiance: json["YearOfExperiance"],
+      cvLanguage: json["CvLanguage"],
+      cvFile: json["CvFile"],
+      experiences: json["Experiences"] == null
+          ? []
+          : List<Experience>.from(
+              json["Experiences"]!.map((x) => Experience.fromJson(x))),
+      certificationRequests: json["CertificationRequests"] == null
+          ? []
+          : List<CertificationRequest>.from(json["CertificationRequests"]!
+              .map((x) => CertificationRequest.fromJson(x))),
+      skills: json["Skills"] == null
+          ? []
+          : List<int>.from(json["Skills"]!.map((x) => x)),
+      languages: json["Languages"] == null
+          ? []
+          : List<String>.from(json["Languages"]!.map((x) => x)),
+      studies: json["Studies"] == null
+          ? []
+          : List<Study>.from(json["Studies"]!.map((x) => Study.fromJson(x))),
     );
   }
   RegisterModel({
+    required this.name,
+    required this.username,
     required this.email,
-    required this.fullName,
-    required this.address,
+    required this.password,
+    required this.image,
     required this.jopName,
     required this.dateOfBirth,
     required this.gender,
-    required this.nationality,
+    required this.nationalityId,
+    required this.scope,
     required this.currentlyAt,
-    required this.city,
-    required this.state,
-    required this.area,
-    required this.phone,
-    required this.yearsOfExperiance,
-    required this.languageOfCv,
-    required this.cv,
-    required this.profileImage,
-    required this.studies,
-    required this.work,
-    required this.certifications,
+    required this.phoneNumber,
+    required this.websiteUrl,
+    required this.facebookUrl,
+    required this.linkedInUrl,
+    required this.addresses,
+    required this.yearOfExperiance,
+    required this.cvLanguage,
+    required this.cvFile,
+    required this.experiences,
+    required this.certificationRequests,
     required this.skills,
-    required this.language,
-    required this.password,
+    required this.languages,
+    required this.studies,
   });
 
-  String? fullName;
-  String? jopName;
-  String? password;
-  DateTime? dateOfBirth;
-  Gender? gender;
-  String? nationality;
-  String? currentlyAt;
-  String? city;
-  String? state;
-  String? area;
-  String? phone;
-  int? yearsOfExperiance;
-  String? languageOfCv;
+  String? username;
   String? email;
-  File? cv;
-  String? address;
-  File? profileImage;
+  String? password;
+  String? name;
+  File? image;
+  String? jopName;
+  DateTime? dateOfBirth;
+  num? gender;
+  int? nationalityId;
+  List<String> scope;
+  String? currentlyAt;
+  String? phoneNumber;
+  String? websiteUrl;
+  String? facebookUrl;
+  String? linkedInUrl;
+  List<AddresssModel> addresses;
+  num? yearOfExperiance;
+  String? cvLanguage;
+  File? cvFile;
+  List<Experience> experiences;
+  List<CertificationRequest> certificationRequests;
+  List<int> skills;
+  List<String> languages;
   List<Study> studies;
-  List<Work> work;
-  List<Certification> certifications;
-  List<String> skills;
-  List<String> language;
-}
 
-class Certification {
-  factory Certification.fromJson(Map<String, dynamic> json) {
-    return Certification(
-      name: json["name"],
-      given: json["given"],
-      at: json["at"],
-      describ: json["describ"],
+  RegisterModel copyWith({
+    String? name,
+    String? username,
+    String? email,
+    String? password,
+    File? image,
+    String? jopName,
+    DateTime? dateOfBirth,
+    num? gender,
+    int? nationalityId,
+    List<String>? scope,
+    String? currentlyAt,
+    String? phoneNumber,
+    String? websiteUrl,
+    String? facebookUrl,
+    String? linkedInUrl,
+    List<AddresssModel>? addresses,
+    num? yearOfExperiance,
+    String? cvLanguage,
+    File? cvFile,
+    List<Experience>? experiences,
+    List<CertificationRequest>? certificationRequests,
+    List<int>? skills,
+    List<String>? languages,
+    List<Study>? studies,
+  }) {
+    return RegisterModel(
+      name: name ?? this.name,
+      username: username ?? this.username,
+      email: email ?? this.email,
+      password: password ?? this.password,
+      image: image ?? this.image,
+      jopName: jopName ?? this.jopName,
+      dateOfBirth: dateOfBirth ?? this.dateOfBirth,
+      gender: gender ?? this.gender,
+      nationalityId: nationalityId ?? this.nationalityId,
+      scope: scope ?? this.scope,
+      currentlyAt: currentlyAt ?? this.currentlyAt,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      websiteUrl: websiteUrl ?? this.websiteUrl,
+      facebookUrl: facebookUrl ?? this.facebookUrl,
+      linkedInUrl: linkedInUrl ?? this.linkedInUrl,
+      addresses: addresses ?? this.addresses,
+      yearOfExperiance: yearOfExperiance ?? this.yearOfExperiance,
+      cvLanguage: cvLanguage ?? this.cvLanguage,
+      cvFile: cvFile ?? this.cvFile,
+      experiences: experiences ?? this.experiences,
+      certificationRequests:
+          certificationRequests ?? this.certificationRequests,
+      skills: skills ?? this.skills,
+      languages: languages ?? this.languages,
+      studies: studies ?? this.studies,
     );
   }
-  Certification({
+
+  Map<String, dynamic> toJson() => {
+        "Name": name,
+        "Username": username,
+        "Email": email,
+        "Password": password,
+        "Image": image,
+        "JopName": jopName,
+        "DateOfBirth": dateOfBirth?.toIso8601String(),
+        "Gender": gender,
+        "NationalityId": nationalityId,
+        "Scope": scope.map((x) => x).toList(),
+        "CurrentlyAt": currentlyAt,
+        "PhoneNumber": phoneNumber,
+        "WebsiteUrl": websiteUrl,
+        "FacebookUrl": facebookUrl,
+        "LinkedInUrl": linkedInUrl,
+        "Addresses": addresses.map((x) => x.toJson()).toList(),
+        "YearOfExperiance": yearOfExperiance,
+        "CvLanguage": cvLanguage,
+        "CvFile": cvFile,
+        "Experiences": experiences.map((x) => x.toJson()).toList(),
+        "CertificationRequests":
+            certificationRequests.map((x) => x.toJson()).toList(),
+        "Skills": skills.map((x) => x).toList(),
+        "Languages": languages.map((x) => x).toList(),
+        "Studies": studies.map((x) => x.toJson()).toList(),
+      };
+
+  @override
+  String toString() {
+    return "$name, $username, $email, $password, $image, $jopName, $dateOfBirth, $gender, $nationalityId, $scope, $currentlyAt, $phoneNumber, $websiteUrl, $facebookUrl, $linkedInUrl, $addresses, $yearOfExperiance, $cvLanguage, $cvFile, $experiences, $certificationRequests, $skills, $languages, $studies, ";
+  }
+}
+
+class CertificationRequest {
+  factory CertificationRequest.fromJson(Map<String, dynamic> json) {
+    return CertificationRequest(
+      name: json["name"],
+      description: json["description"],
+      given: json["given"],
+      givenAt: DateTime.tryParse(json["givenAt"] ?? ""),
+    );
+  }
+  CertificationRequest({
     required this.name,
     required this.given,
-    required this.at,
-    required this.describ,
+    required this.givenAt,
+    required this.description,
   });
-
+  final String? description;
   final String? name;
   final String? given;
-  final DateTime? at;
-  final String? describ;
+  final DateTime? givenAt;
+
+  CertificationRequest copyWith({
+    String? name,
+    String? given,
+    DateTime? givenAt,
+    String? description,
+  }) {
+    return CertificationRequest(
+      description: description ?? this.description,
+      name: name ?? this.name,
+      given: given ?? this.given,
+      givenAt: givenAt ?? this.givenAt,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "description": description,
+        "given": given,
+        "givenAt": givenAt?.toIso8601String(),
+      };
+
+  @override
+  String toString() {
+    return "$name, $given, $givenAt, $description, ";
+  }
+}
+
+class Experience {
+  factory Experience.fromJson(Map<String, dynamic> json) {
+    return Experience(
+      jopTitle: json["jopTitle"],
+      description: json["description"],
+      location: json["location"],
+      startDate: DateTime.tryParse(json["startDate"] ?? ""),
+      endDate: DateTime.tryParse(json["endDate"] ?? ""),
+      isWorkingNow: json["isWorkingNow"],
+      companyName: json["companyName"],
+    );
+  }
+  Experience({
+    required this.jopTitle,
+    required this.description,
+    required this.location,
+    required this.startDate,
+    required this.endDate,
+    required this.isWorkingNow,
+    required this.companyName,
+  });
+
+  final String? jopTitle;
+  final String? description;
+  final String? location;
+  final DateTime? startDate;
+  final DateTime? endDate;
+  final bool? isWorkingNow;
+  final String? companyName;
+
+  Experience copyWith({
+    String? jopTitle,
+    String? description,
+    String? location,
+    DateTime? startDate,
+    DateTime? endDate,
+    bool? isWorkingNow,
+    String? companyName,
+  }) {
+    return Experience(
+      jopTitle: jopTitle ?? this.jopTitle,
+      description: description ?? this.description,
+      location: location ?? this.location,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      isWorkingNow: isWorkingNow ?? this.isWorkingNow,
+      companyName: companyName ?? this.companyName,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "jopTitle": jopTitle,
+        "description": description,
+        "location": location,
+        "startDate": startDate?.toIso8601String(),
+        "endDate": endDate?.toIso8601String(),
+        "isWorkingNow": isWorkingNow,
+        "companyName": companyName,
+      };
+
+  @override
+  String toString() {
+    return "$jopTitle, $description, $location, $startDate, $endDate, $isWorkingNow, $companyName, ";
+  }
 }
 
 class Study {
   factory Study.fromJson(Map<String, dynamic> json) {
     return Study(
       degree: json["degree"],
-      univirsity: json["uni"],
-      year: json["degreet"],
+      university: json["university"],
+      year: json["year"],
       department: json["department"],
     );
   }
   Study({
     required this.degree,
-    required this.univirsity,
+    required this.university,
     required this.year,
     required this.department,
   });
 
   final String? degree;
-  final String? univirsity;
-  final String? department;
+  final String? university;
   final DateTime? year;
-}
+  final String? department;
 
-class Work {
-  factory Work.fromJson(Map<String, dynamic> json) {
-    return Work(
-      jopTitle: json["jopTitle"],
-      discrib: json["discrib"],
-      location: json["location"],
-      startDate: json["startDate"],
-      endDate: json["endDate"],
-      now: json["now"],
-      companyName: json["companyName"],
+  Study copyWith({
+    String? degree,
+    String? university,
+    DateTime? year,
+    String? department,
+  }) {
+    return Study(
+      degree: degree ?? this.degree,
+      university: university ?? this.university,
+      year: year ?? this.year,
+      department: department ?? this.department,
     );
   }
-  Work({
-    required this.jopTitle,
-    required this.discrib,
-    required this.location,
-    required this.startDate,
-    required this.endDate,
-    required this.now,
-    required this.companyName,
-  });
 
-  final String? jopTitle;
-  final String? discrib;
-  final String? location;
-  final DateTime? startDate;
-  final DateTime? endDate;
-  final bool? now;
-  final String? companyName;
+  Map<String, dynamic> toJson() => {
+        "degree": degree,
+        "university": university,
+        "year": year,
+        "department": department,
+      };
+
+  @override
+  String toString() {
+    return "$degree, $university, $year, $department, ";
+  }
 }

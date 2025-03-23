@@ -580,10 +580,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get about => 'Apout';
 
   @override
+  String get fillAtListOneSocialMedia => 'Fill At List One Social Media URL';
+
+  @override
   String get youShouldFillAllFields => 'You Should Fill All Fields';
 
   @override
-  String get passwordNotVailid => 'Password Not Vailid Enter more than 6 characters';
+  String get passwordNotVailid => 'Password Not Vailid Enter more than 8 characters';
 
   @override
   String get workingNow => 'Till Now';

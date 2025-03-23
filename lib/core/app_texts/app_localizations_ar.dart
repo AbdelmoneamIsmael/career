@@ -580,10 +580,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get about => 'تفاصيل';
 
   @override
+  String get fillAtListOneSocialMedia => 'يجب عليك ملء على الاقل واحدة من الوسائط الاجتماعية';
+
+  @override
   String get youShouldFillAllFields => 'يجب عليك ملء جميع الحقول';
 
   @override
-  String get passwordNotVailid => 'كلمة المرور غير صالحة من 6 حروف على الاقل';
+  String get passwordNotVailid => 'كلمة المرور غير صالحة من 8 حروف على الاقل';
 
   @override
   String get workingNow => 'حتي الان';

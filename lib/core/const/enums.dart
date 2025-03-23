@@ -47,10 +47,7 @@ enum PaymentMethod {
   bank,
 }
 
-enum Gender {
-  male,
-  female,
-}
+
 
 class Enums {
   factory Enums.fromJson(Map<String, dynamic> json) {

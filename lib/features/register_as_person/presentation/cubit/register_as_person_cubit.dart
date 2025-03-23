@@ -1,18 +1,16 @@
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:career/core/app_texts/app_localizations.dart';
-import 'package:career/core/const/enums.dart';
+import 'package:career/core/global_views/all_areas/model/all_area_responce.dart';
+import 'package:career/core/global_views/all_governorates/model/all_governorates_responce.dart';
 import 'package:career/core/src/language.dart';
 import 'package:career/core/widgets/ui_function.dart';
+import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/company_adress_info_model.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_state.dart';
-import 'package:career/features/register_as_person/presentation/views/cirtifications/cirtifications.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:bloc/bloc.dart';
 import 'package:career/features/register_as_person/domain/entities/register_input_model.dart';
-import 'package:career/gen/assets.gen.dart';
-import 'package:equatable/equatable.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,6 +26,8 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   );
   int currentPage = 0;
   RegisterModel registerModel = RegisterModel.empty();
+  Governerates? selectedGovernorate;
+  Areas? selectedArea;
   @override
   Future<void> close() {
     pageController.dispose();
@@ -56,8 +56,8 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
     final String path = '${tempDir.path}/profile_avatar.png';
 
     // Write the image bytes to a file
-    registerModel.profileImage = File(path);
-    await registerModel.profileImage!.writeAsBytes(bytes);
+    registerModel.image = File(path);
+    await registerModel.image!.writeAsBytes(bytes);
   }
 
   void setVAlue(int value) {
@@ -92,8 +92,10 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   TextEditingController jopTitleController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   TextEditingController nationalityController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
   disposeCoreInfo() {
     nameController.dispose();
+    userNameController.dispose();
     emailController.dispose();
     phoneController.dispose();
     passwordController.dispose();
@@ -101,8 +103,6 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
     dateController.dispose();
     nationalityController.dispose();
   }
-
-  Gender? gender;
 
   PlatformFile? profileImagePlatformFile;
   Future<void> pickImage() async {
@@ -124,7 +124,7 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
         sourcePath: result.files.first.path!,
       );
       if (croppedFile != null) {
-        registerModel.profileImage = File(croppedFile.path);
+        registerModel.image = File(croppedFile.path);
       }
       emit(ChangeProfileImage());
     }
@@ -139,13 +139,9 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
         passwordController.text.isNotEmpty &&
         jopTitleController.text.isNotEmpty &&
         dateController.text.isNotEmpty &&
-        nationalityController.text.isNotEmpty &&
-        gender != null) {
-      print(phoneController.text.length);
-      print(phoneController.text.length <= 8);
-      if (phoneController.text.length > 9) {
-        print(code + phoneController.text);
-
+        userNameController.text.isNotEmpty &&
+        nationalityController.text.isNotEmpty) {
+      if (phoneController.text.length <= 8) {
         UiHelper.showSnakBar(
           message: AppLocalizations.of(context).phoneNotValid,
           context: context,
@@ -153,7 +149,7 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
         );
         return false;
       }
-      if (passwordController.text.length <= 6) {
+      if (passwordController.text.length < 8) {
         UiHelper.showSnakBar(
           message: AppLocalizations.of(context).passwordNotVailid,
           context: context,
@@ -174,23 +170,51 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void fillCoreInfo() {
-    registerModel.fullName = nameController.text;
+    registerModel.name = nameController.text;
     registerModel.email = emailController.text;
-    registerModel.phone = code + phoneController.text;
+    registerModel.phoneNumber = code + phoneController.text;
     registerModel.password = passwordController.text;
     registerModel.jopName = jopTitleController.text;
     registerModel.dateOfBirth = DateTime.parse(dateController.text);
-    registerModel.nationality = nationalityController.text;
-    registerModel.gender = gender;
+    registerModel.username = userNameController.text;
   }
 
   /////////////////////////////cv information//////////////////////////
   TextEditingController cvLanguage =
       TextEditingController(text: popularLanguages[0]);
   TextEditingController adress = TextEditingController();
+  TextEditingController governorateController = TextEditingController();
+  TextEditingController areaController = TextEditingController();
+  TextEditingController facebookController = TextEditingController();
+  TextEditingController websiteController = TextEditingController();
+  TextEditingController linkedinController = TextEditingController();
+
   disposeCvInfo() {
     cvLanguage.dispose();
+
+    governorateController.dispose();
+    areaController.dispose();
     adress.dispose();
+    facebookController.dispose();
+    websiteController.dispose();
+    linkedinController.dispose();
+  }
+
+  void assignGovernorate(Governerates? result) {
+    selectedGovernorate = result;
+    if (selectedGovernorate != null) {
+      governorateController.text = selectedGovernorate!.name!;
+    }
+    selectedArea = null;
+    emit(ChangeGovernorate());
+  }
+
+  void assignArea(Areas? result) {
+    selectedArea = result;
+    if (selectedArea != null) {
+      areaController.text = selectedArea!.name!;
+    }
+    emit(ChangeAreas());
   }
 
   PlatformFile? cv;
@@ -207,9 +231,36 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   bool checkCVInfo(BuildContext context) {
-    if (cvLanguage.text.isNotEmpty && adress.text.isNotEmpty && cv != null) {
-      fillCvInfo();
-      return true;
+    if (cvLanguage.text.isNotEmpty &&
+        adress.text.isNotEmpty &&
+        cv != null &&
+        selectedArea != null &&
+        selectedGovernorate != null) {
+      registerModel.addresses = [
+        AdressInfoModel(
+          areaName: selectedArea!.name!,
+          governorateName: selectedGovernorate!.name!,
+          governorateId: selectedGovernorate!.id!,
+          areaId: selectedArea!.id!,
+          streetAddress: adress.text,
+          isDefault: false,
+        ),
+      ];
+      if (registerModel.addresses.isNotEmpty) {
+        if (websiteController.text.isNotEmpty ||
+            facebookController.text.isNotEmpty ||
+            linkedinController.text.isNotEmpty) {
+          fillCvInfo();
+          return true;
+        } else {
+          UiHelper.showSnakBar(
+            message: AppLocalizations.of(context).fillAtListOneSocialMedia,
+            context: context,
+            type: MotionToastType.info,
+          );
+          return false;
+        }
+      }
     }
     print(
         "${cvLanguage.text.isNotEmpty} ${adress.text.isNotEmpty} ${cv != null}");
@@ -222,9 +273,9 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void fillCvInfo() {
-    registerModel.languageOfCv = cvLanguage.text;
-    registerModel.address = adress.text;
-    registerModel.cv = File(cv!.path!);
+    registerModel.cvLanguage = cvLanguage.text;
+
+    registerModel.cvFile = File(cv!.path!);
   }
 
   ////////////////////////////studies information//////////////////////////
@@ -256,12 +307,14 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void fillStudiesInfo() {
-    registerModel.studies.add(Study(
-      univirsity: university.text,
-      department: department.text,
-      year: DateTime.parse(year.text),
-      degree: degree.text,
-    ));
+    registerModel.studies.add(
+      Study(
+        university: university.text,
+        department: department.text,
+        year: DateTime.parse(year.text),
+        degree: degree.text,
+      ),
+    );
     clearStudiesForm();
     emit(AddStudy());
   }
@@ -279,8 +332,8 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void editStudy(int index) {
-    university.text = registerModel.studies[index].univirsity!;
-    degree.text = registerModel.studies[index].degree!;
+    university.text = registerModel.studies[index].university!;
+    degree.text = registerModel.studies[index].degree!.toString();
     department.text = registerModel.studies[index].department!;
     year.text = registerModel.studies[index].year.toString();
     deleteStudy(index);
@@ -321,8 +374,8 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   bool canISelectNow() {
-    for (var element in registerModel.work) {
-      if (element.now == true) {
+    for (var element in registerModel.experiences) {
+      if (element.isWorkingNow == true) {
         return false;
       }
     }
@@ -348,15 +401,15 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void fillWorkExperianceInfo() {
-    registerModel.work.add(
-      Work(
+    registerModel.experiences.add(
+      Experience(
         jopTitle: jobTitle.text,
         companyName: companyName.text,
-        discrib: jopDescription.text,
+        description: jopDescription.text,
         location: location.text,
         startDate: DateTime.parse(beginDate.text),
         endDate: DateTime.parse(endDate.text),
-        now: workHereNow,
+        isWorkingNow: workHereNow,
       ),
     );
     clearWorkExperianceForm();
@@ -373,18 +426,18 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void deleteWork(int index) {
-    registerModel.work.removeAt(index);
+    registerModel.experiences.removeAt(index);
     emit(DeleteWorkExperiance());
   }
 
   void editWork(int index) {
-    jobTitle.text = registerModel.work[index].jopTitle!;
-    companyName.text = registerModel.work[index].companyName!;
-    jopDescription.text = registerModel.work[index].discrib!;
-    location.text = registerModel.work[index].location!;
-    beginDate.text = registerModel.work[index].startDate.toString();
-    endDate.text = registerModel.work[index].endDate.toString();
-    workHereNow = registerModel.work[index].now!;
+    jobTitle.text = registerModel.experiences[index].jopTitle!;
+    companyName.text = registerModel.experiences[index].companyName!;
+    jopDescription.text = registerModel.experiences[index].description!;
+    location.text = registerModel.experiences[index].location!;
+    beginDate.text = registerModel.experiences[index].startDate.toString();
+    endDate.text = registerModel.experiences[index].endDate.toString();
+    workHereNow = registerModel.experiences[index].isWorkingNow!;
     deleteWork(index);
   }
   //////////////////////////Cirtifications information//////////////////////////
@@ -418,11 +471,11 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void fillCirtificationsInfo() {
-    registerModel.certifications.add(Certification(
+    registerModel.certificationRequests.add(CertificationRequest(
       name: cirtificationTitle.text,
       given: cirtificationGivenBy.text,
-      at: DateTime.parse(cirtificationGivenDate.text),
-      describ: cirtificationdescription.text,
+      givenAt: DateTime.parse(cirtificationGivenDate.text),
+      description: cirtificationdescription.text,
     ));
     clearCirtificationsForm();
   }
@@ -435,27 +488,30 @@ class RegisterAsPersonCubit extends Cubit<RegisterAsPersonState> {
   }
 
   void addLanguageToUser(String suggestion) {
-    registerModel.language.add(suggestion);
-    var lang = registerModel.language.toSet();
-    registerModel.language = lang.toList();
+    registerModel.languages.add(suggestion);
+    var lang = registerModel.languages.toSet();
+    registerModel.languages = lang.toList();
 
     emit(AddLanguage());
   }
 
   void deleteLanguage(String e) {
-    registerModel.language.remove(e);
+    registerModel.languages.remove(e);
     emit(DeleteLanguage());
   }
-  void addSkills(String suggestion) {
+
+  void addSkills(
+    int suggestion,
+  ) {
     registerModel.skills.add(suggestion);
     var skills = registerModel.skills.toSet();
-    registerModel.language = skills.toList();
+    registerModel.skills = skills.toList();
 
     emit(AddLanguage());
   }
 
   void deleteSkill(String e) {
-    registerModel.language.remove(e);
+    registerModel.skills.remove(e);
     emit(DeleteLanguage());
   }
 }

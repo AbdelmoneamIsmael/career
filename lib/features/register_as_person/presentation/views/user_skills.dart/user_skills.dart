@@ -45,7 +45,7 @@ class UserSkills extends StatelessWidget {
                 ),
                 Wrap(
                   spacing: 8.w,
-                  children: cubit.registerModel.language
+                  children: cubit.registerModel.languages
                       .map((e) => Chip(
                             label: Text(e),
                             onDeleted: () => cubit.deleteLanguage(e),
@@ -65,7 +65,7 @@ class UserSkills extends StatelessWidget {
                 ),
                 Wrap(
                   spacing: 8.w,
-                  children: cubit.registerModel.language
+                  children: cubit.registerModel.languages
                       .map((e) => Chip(
                             label: Text(e),
                             onDeleted: () => cubit.deleteLanguage(e),

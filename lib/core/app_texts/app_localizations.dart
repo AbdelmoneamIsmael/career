@@ -1241,6 +1241,12 @@ abstract class AppLocalizations {
   /// **'Apout'**
   String get about;
 
+  /// No description provided for @fillAtListOneSocialMedia.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill At List One Social Media URL'**
+  String get fillAtListOneSocialMedia;
+
   /// No description provided for @youShouldFillAllFields.
   ///
   /// In en, this message translates to:
@@ -1250,7 +1256,7 @@ abstract class AppLocalizations {
   /// No description provided for @passwordNotVailid.
   ///
   /// In en, this message translates to:
-  /// **'Password Not Vailid Enter more than 6 characters'**
+  /// **'Password Not Vailid Enter more than 8 characters'**
   String get passwordNotVailid;
 
   /// No description provided for @workingNow.

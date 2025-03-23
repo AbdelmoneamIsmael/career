@@ -91,13 +91,13 @@ class Cirtifications extends StatelessWidget {
                 child: Column(
               spacing: 16.h,
               children: [
-                ...List.generate(cubit.registerModel.certifications.length,
+                ...List.generate(cubit.registerModel.certificationRequests.length,
                     (index) {
                   return Column(
                     children: [
                       CirtificationsWidget(
                         certification:
-                            cubit.registerModel.certifications[index],
+                            cubit.registerModel.certificationRequests[index],
                       ),
                       Row(
                         children: [
@@ -116,7 +116,7 @@ class Cirtifications extends StatelessWidget {
                 const SizedBox(),
                 ForwardWidget(
                   onPressed: () {
-                    if (cubit.registerModel.certifications.isNotEmpty) {
+                    if (cubit.registerModel.certificationRequests.isNotEmpty) {
                       context.read<RegisterAsPersonCubit>().next();
                     } else {
                       UiHelper.showSnakBar(

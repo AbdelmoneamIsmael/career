@@ -302,7 +302,7 @@ class WorkWidget extends StatelessWidget {
     super.key,
     this.work,
   });
-  final Work? work;
+  final Experience? work;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -317,15 +317,15 @@ class WorkWidget extends StatelessWidget {
           ),
         ),
         Text(
-            work?.discrib ??
+            work?.description ??
                 "Graphic designers often gain experience through internships, which they may undertake while enrolled in a design program. Internships allow aspiring graphic designers to work with designers and to experience the design process from concept to completion",
             style: AppTextStyle.regular12(context).copyWith(
               color: Theme.of(context).textTheme.bodySmall!.color,
             )).withPaddingLeft(16),
-        Text( 
+        Text(
                 work == null
                     ? "22-2-2020 => 24-2-2022 (5 Years)"
-                    : "${DateFormat('dd-MM-yyyy').format(work!.startDate!)} => ${work!.now! ? "Now" : DateFormat('dd-MM-yyyy').format(work!.endDate!)}  (${work!.endDate!.year - work!.startDate!.year} Years)",
+                    : "${DateFormat('dd-MM-yyyy').format(work!.startDate!)} => ${work!.isWorkingNow! ? "Now" : DateFormat('dd-MM-yyyy').format(work!.endDate!)}  (${work!.endDate!.year - work!.startDate!.year} Years)",
                 style: AppTextStyle.regular12(context))
             .withPaddingLeft(16),
         const SizedBox()

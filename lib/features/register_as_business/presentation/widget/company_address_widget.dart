@@ -11,7 +11,7 @@ class CompanyADressInfoWidget extends StatelessWidget {
     required this.onDelete,
     required this.onEdit,
   });
-  final CompanyAdressInfoModel address;
+  final AdressInfoModel address;
   final VoidCallback onDelete, onEdit;
   @override
   Widget build(BuildContext context) {

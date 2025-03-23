@@ -142,11 +142,11 @@ class WorkExperiances extends StatelessWidget {
                 child: Column(
               spacing: 16.h,
               children: [
-                ...List.generate(cubit.registerModel.work.length, (index) {
+                ...List.generate(cubit.registerModel.experiences.length, (index) {
                   return Column(
                     children: [
                       WorkWidget(
-                        work: cubit.registerModel.work[index],
+                        work: cubit.registerModel.experiences[index],
                       ),
                       Row(
                         children: [
@@ -183,7 +183,7 @@ class WorkExperiances extends StatelessWidget {
                 const SizedBox(),
                 ForwardWidget(
                   onPressed: () {
-                    if (cubit.registerModel.work.isNotEmpty) {
+                    if (cubit.registerModel.experiences.isNotEmpty) {
                       context.read<RegisterAsPersonCubit>().next();
                     } else {
                       UiHelper.showSnakBar(

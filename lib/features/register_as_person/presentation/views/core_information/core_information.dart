@@ -45,6 +45,13 @@ class CoreInformation extends StatelessWidget {
                 ),
               ),
               AppTextField(
+                controller: cubit.userNameController,
+                hint: AppLocalizations.of(context).userName,
+                prefixIcon: const Icon(
+                  Icons.person,
+                ),
+              ),
+              AppTextField(
                 controller: cubit.emailController,
                 validator: (value) {
                   if (value == null ||
@@ -81,7 +88,10 @@ class CoreInformation extends StatelessWidget {
               AppTextField(
                 controller: cubit.passwordController,
                 validator: (value) {
-                  if (value == null || value.isEmpty || value.length <= 6) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context).passwordNotVailid;
+                  }
+                  if (value.length < 8) {
                     return AppLocalizations.of(context).passwordNotVailid;
                   }
                   return null;
@@ -107,15 +117,20 @@ class CoreInformation extends StatelessWidget {
                       prefixIcon: const Icon(
                         Icons.male_outlined,
                       ),
-                      items: Gender.values.map((e) {
+                      items: genderEnum.map((e) {
                         print(e);
                         return DropdownMenuItem(
                           value: e,
-                          child: Text(e.name),
+                          child: Text(
+                            context.read<AppBloc>().appModel.language ==
+                                    ApplicationLanguage.en
+                                ? e.nameEn ?? ""
+                                : e.nameAr ?? "",
+                          ),
                         );
                       }).toList(),
                       onChanged: (value) {
-                        cubit.gender = value!;
+                        cubit.registerModel.gender = value.value;
                       },
                       hint: AppLocalizations.of(context).gender,
                     ),
@@ -145,12 +160,15 @@ class CoreInformation extends StatelessWidget {
               ),
               AppTextField(
                 ontap: () async {
-                  showSearch(
+                  CountryModel? selectedCountry = await showSearch(
                     context: context,
                     delegate: MySearchDelegate(
                       cubit.nationalityController,
                     ),
-                  );
+                  ) as CountryModel?;
+                  if (selectedCountry != null) {
+                    cubit.registerModel.nationalityId = selectedCountry.id;
+                  }
                 },
                 readOnly: true,
                 hint: AppLocalizations.of(context).nationality,
@@ -184,4 +202,3 @@ class CoreInformation extends StatelessWidget {
     );
   }
 }
-

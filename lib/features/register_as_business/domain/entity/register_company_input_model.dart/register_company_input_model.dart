@@ -35,8 +35,8 @@ class CompanyRegisterModel {
       linkedInUrl: json["LinkedInUrl"],
       addresses: json["Addresses"] == null
           ? []
-          : List<CompanyAddresss>.from(
-              json["Addresses"]!.map((x) => CompanyAddresss.fromJson(x))),
+          : List<AddresssModel>.from(
+              json["Addresses"]!.map((x) => AddresssModel.fromJson(x))),
       scope: json["Scope"] == null
           ? []
           : List<String>.from(json["Scope"]!.map((x) => x)),
@@ -69,7 +69,7 @@ class CompanyRegisterModel {
   String? websiteUrl;
   String? facebookUrl;
   String? linkedInUrl;
-  List<CompanyAddresss> addresses;
+  List<AddresssModel> addresses;
   List<String> scope;
   int? nationalityId;
 
@@ -84,7 +84,7 @@ class CompanyRegisterModel {
     String? websiteUrl,
     String? facebookUrl,
     String? linkedInUrl,
-    List<CompanyAddresss>? addresses,
+    List<AddresssModel>? addresses,
     List<String>? scope,
     int? nationalityId,
   }) {
@@ -147,16 +147,16 @@ class CompanyRegisterModel {
   }
 }
 
-class CompanyAddresss {
-  factory CompanyAddresss.fromJson(Map<String, dynamic> json) {
-    return CompanyAddresss(
+class AddresssModel {
+  factory AddresssModel.fromJson(Map<String, dynamic> json) {
+    return AddresssModel(
       governorateId: json["governorateId"],
       areaId: json["areaId"],
       streetAddress: json["streetAddress"],
       isDefault: json["isDefault"],
     );
   }
-  CompanyAddresss({
+  AddresssModel({
     required this.governorateId,
     required this.areaId,
     required this.streetAddress,
@@ -168,13 +168,13 @@ class CompanyAddresss {
   final String? streetAddress;
   final bool? isDefault;
 
-  CompanyAddresss copyWith({
+  AddresssModel copyWith({
     num? governorateId,
     num? areaId,
     String? streetAddress,
     bool? isDefault,
   }) {
-    return CompanyAddresss(
+    return AddresssModel(
       governorateId: governorateId ?? this.governorateId,
       areaId: areaId ?? this.areaId,
       streetAddress: streetAddress ?? this.streetAddress,
