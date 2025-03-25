@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:career/core/bloc/bloc_observer.dart';
 import 'package:career/core/const/app_const.dart';
+import 'package:career/core/routes/pages_keys.dart';
 
 import 'package:career/core/utils/cache_helper.dart';
 import 'package:career/core/utils/functions/init_hive/init_hive.dart';
@@ -46,11 +47,14 @@ Future<void> initializing() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   var deviceToken = await NotificationHelper.init();
 
   kDeviceToken = deviceToken;
   log(kDeviceToken);
+  var auth = await CacheHelper.getSecuerString(key: StorageKeys.accessToken);
+  initialRoute = auth.isNotEmpty
+      ? "/${PagesKeys.mainScreen}/${PagesKeys.homeScreen}"
+      : "/${PagesKeys.onBoardingScreen}";
 
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 }

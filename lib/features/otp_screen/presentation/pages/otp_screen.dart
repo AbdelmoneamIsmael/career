@@ -1,5 +1,4 @@
 import 'package:career/core/app_texts/app_localizations.dart';
-import 'package:career/core/bloc/app_bloc.dart';
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/colors/colors.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
@@ -8,7 +7,6 @@ import 'package:career/core/widgets/loading_over_lay.dart';
 import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/core/widgets/ui_function.dart';
-import 'package:career/features/otp_screen/domain/usecases/confirm_otp_use_cases.dart';
 import 'package:career/features/otp_screen/presentation/cubit/otp_screen_cubit.dart';
 import 'package:career/features/otp_screen/presentation/cubit/otp_screen_state.dart';
 import 'package:flutter/material.dart';

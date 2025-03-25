@@ -17,6 +17,7 @@ abstract class HiveKeys {}
 abstract class StorageKeys {
   static const String accessToken = "accessToken";
   static const String refreshToken = "refreshToken";
+  static const String loginInfo = "loginInfo";
 
   static const String lang = "lang";
 

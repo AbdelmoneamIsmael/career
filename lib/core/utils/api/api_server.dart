@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:career/core/routes/page_routes.dart';
+import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/utils/api/dio_interceptors.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +39,9 @@ class ApiServer extends ApiRepo {
   ///add interceptors
   void addInterceptors() {
     _dio!.interceptors.add(
-   DioInterceptors(),
+      DioInterceptors(
+        dio: _dio!,
+      ),
     );
   }
 
@@ -156,7 +160,8 @@ class ApiServer extends ApiRepo {
             key: StorageKeys.accessToken, value: "");
         await CacheHelper.setSecuerString(
             key: StorageKeys.refreshToken, value: "");
-        // PageRoutes.router.go(PagesKeys.loginPage);
+
+        PageRoutes.router.go(PagesKeys.onBoardingScreen);
         return "";
       }
     } on Exception catch (e) {

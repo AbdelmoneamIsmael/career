@@ -4,10 +4,12 @@ import 'package:career/core/const/app_const.dart';
 import 'package:career/core/const/enums.dart';
 import 'package:career/core/errors/error_class.dart';
 import 'package:career/core/utils/cache_helper.dart';
+import 'package:career/features/business_login/data/models/login_response_model.dart';
 import 'package:career/features/otp_screen/data/models/otp_responce_model.dart';
 import 'package:career/features/otp_screen/domain/entities/conform_parameters.dart';
 import 'package:career/features/otp_screen/domain/repositories/confirm_otp_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:hive/hive.dart';
 
 class ConfirmOtpUseCases {
   ConfirmOtpUseCases({required this.confirmOtpRepo});
@@ -21,7 +23,7 @@ class ConfirmOtpUseCases {
     return result.fold(
       Left.new,
       (r) async {
-        if (r.data!.roles.isEmpty) {
+        if (r.data!.roles.isNotEmpty) {
           if (r.data!.roles.contains("Admin")) {
             appBloc.add(
               VistorEvent(
@@ -52,6 +54,9 @@ class ConfirmOtpUseCases {
             key: StorageKeys.accessToken, value: r.data!.token ?? "");
         await CacheHelper.setSecuerString(
             key: StorageKeys.refreshToken, value: r.data!.refreshToken ?? "");
+        var box = Hive.box<LoginInfo>(StorageKeys.loginInfo);
+        await box.clear();
+        await box.add(r.data!);
         return Right(r);
       },
     );

@@ -49,7 +49,11 @@ class BusinessLoginCubit extends Cubit<BusinessLoginState> {
         bloc: appBloc,
       );
       result.fold((l) => emit(ErrorLogin(message: l.message)), (r) {
-        emit(SuccessLogin(loginResponseModel: r));
+        emit(
+          SuccessLogin(
+            loginResponseModel: r,
+          ),
+        );
       });
     } on Exception catch (e) {
       emit(ErrorLogin(message: e.toString()));

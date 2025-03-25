@@ -1,8 +1,10 @@
+import 'package:hive/hive.dart';
+part  "otp_responce_model.g.dart";
 class OtpResponseModel {
   factory OtpResponseModel.fromJson(Map<String, dynamic> json) {
     return OtpResponseModel(
       success: json["success"],
-      data: json["data"] == null ? null : Data.fromJson(json["data"]),
+      data: json["data"] == null ? null : LoginInfo.fromJson(json["data"]),
       message: json["message"],
     );
   }
@@ -13,12 +15,12 @@ class OtpResponseModel {
   });
 
   final bool? success;
-  final Data? data;
+  final LoginInfo? data;
   final dynamic message;
 
   OtpResponseModel copyWith({
     bool? success,
-    Data? data,
+    LoginInfo? data,
     dynamic message,
   }) {
     return OtpResponseModel(
@@ -39,10 +41,10 @@ class OtpResponseModel {
     return "$success, $data, $message, ";
   }
 }
-
-class Data {
-  factory Data.fromJson(Map<String, dynamic> json) {
-    return Data(
+  @HiveType(typeId: 1)
+class LoginInfo {
+  factory LoginInfo.fromJson(Map<String, dynamic> json) {
+    return LoginInfo(
       message: json["message"],
       isAuthenticated: json["isAuthenticated"],
       id: json["id"],
@@ -63,7 +65,7 @@ class Data {
           DateTime.tryParse(json["refreshTokenExpiration"] ?? ""),
     );
   }
-  Data({
+  LoginInfo({
     required this.message,
     required this.isAuthenticated,
     required this.id,
@@ -80,24 +82,38 @@ class Data {
     required this.refreshToken,
     required this.refreshTokenExpiration,
   });
-
+  @HiveField(0)
   final String? message;
+  @HiveField(1)
   final bool? isAuthenticated;
+  @HiveField(2)
   final int? id;
+  @HiveField(3)
   final dynamic personId;
+  @HiveField(4)
   final num? buisnessId;
+    @HiveField(5)
   final String? username;
+  @HiveField(6)
   final String? email;
+  @HiveField(7)
   final String? deviceToken;
+  @HiveField(8)
   final dynamic imageUrl;
+  @HiveField(9)
   final String? phoneNumber;
+  @HiveField(10)
   final List<String> roles;
+  @HiveField(11)
   final String? token;
+  @HiveField(12)
   final DateTime? expiresOn;
+  @HiveField(13)
   final String? refreshToken;
+  @HiveField(14)
   final DateTime? refreshTokenExpiration;
 
-  Data copyWith({
+  LoginInfo copyWith({
     String? message,
     bool? isAuthenticated,
     int? id,
@@ -114,7 +130,7 @@ class Data {
     String? refreshToken,
     DateTime? refreshTokenExpiration,
   }) {
-    return Data(
+    return LoginInfo(
       message: message ?? this.message,
       isAuthenticated: isAuthenticated ?? this.isAuthenticated,
       id: id ?? this.id,
