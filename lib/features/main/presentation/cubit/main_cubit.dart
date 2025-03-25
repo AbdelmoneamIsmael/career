@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:career/core/bloc/app_bloc.dart';
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 part 'main_state.dart';
@@ -29,7 +31,8 @@ class MainCubit extends Cubit<MainState> {
           getIndex(pagePath: path);
           break;
         case 1:
-          path = "/${PagesKeys.mainScreen}/${PagesKeys.profileScreen}";
+          path =
+              "/${PagesKeys.mainScreen}/${PagesKeys.profileScreen}?id=${BlocProvider.of<AppBloc>(context).loginInfo!.personId}";
           // js.context
           //       .callMethod('open', ['https://stackoverflow.com/questions/ask']);
           context.go(

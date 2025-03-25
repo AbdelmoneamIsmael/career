@@ -16,6 +16,7 @@ import 'package:career/features/otp_screen/presentation/cubit/otp_screen_cubit.d
 import 'package:career/features/otp_screen/presentation/pages/otp_screen.dart';
 import 'package:career/features/person_login/presentation/pages/login_as_person.dart';
 import 'package:career/features/post_details/presentation/pages/post_details.dart';
+import 'package:career/features/profile_screen/presentation/cubit/profile_screen_cubit.dart';
 import 'package:career/features/profile_screen/presentation/pages/profile_screen.dart';
 import 'package:career/features/register_as_business/presentation/page/register_as_business.dart';
 import 'package:career/features/register_as_person/presentation/pages/register_as_person.dart';
@@ -105,10 +106,18 @@ class PageRoutes {
                 name: PagesKeys.profileScreen,
                 path: "/${PagesKeys.profileScreen}",
                 builder: (context, state) {
+                  final id = state.uri.queryParameters['id'];
                   context.read<MainCubit>().getIndex(pagePath: state.fullPath!);
                   switch (context.read<AppBloc>().visitorType) {
                     case VisitorType.person:
-                      return const ProfileScreen();
+                      return BlocProvider(
+                        create: (context) => ProfileScreenCubit(
+                          personId: id ?? "",
+                        ),
+                        child: ProfileScreen(
+                         
+                        ),
+                      );
                     case VisitorType.business:
                       return const CompanyPage();
                     case VisitorType.guest:

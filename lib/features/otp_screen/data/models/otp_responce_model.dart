@@ -89,7 +89,7 @@ class LoginInfo {
   @HiveField(2)
   final int? id;
   @HiveField(3)
-  final dynamic personId;
+  final int? personId;
   @HiveField(4)
   final num? buisnessId;
     @HiveField(5)
@@ -99,7 +99,7 @@ class LoginInfo {
   @HiveField(7)
   final String? deviceToken;
   @HiveField(8)
-  final dynamic imageUrl;
+  final String? imageUrl;
   @HiveField(9)
   final String? phoneNumber;
   @HiveField(10)
