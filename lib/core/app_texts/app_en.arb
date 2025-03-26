@@ -218,7 +218,13 @@
     "governorate": "governorate/city/section",
     "area": "area",
     "companySized": "Company sized",
-    "resendOtp":"Resend OTP"
+    "resendOtp":"Resend OTP",
+    "signoutDescription": "Are you sure you want to sign out?",
+    "signout": "Sign Out",
+    "enterPhoneNumber" :"Enter Phone Number",
+    "enterPassword" :"Enter Password",
+    "enterNewPassword" :"Enter New Password",
+    "passwordChangedSuccessfully":"Password Changed Successfully"
     
     
 

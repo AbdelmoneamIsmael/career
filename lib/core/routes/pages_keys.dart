@@ -16,4 +16,5 @@ class PagesKeys {
   static const candidatesPage="candidatesPage";
   static const registerAsBusiness="RegisterAsBusiness";
   static const otpScreen="otpScreen";
+  static const resetPassword ="resetPassword";
 }

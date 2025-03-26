@@ -7,6 +7,7 @@ import 'package:career/core/model/app_model/app_model.dart';
 import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/themes/theme/custom_theme.dart';
+import 'package:career/core/widgets/ui_function.dart';
 import 'package:career/features/setting_screen/presentation/views/setting_page_item.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
@@ -106,9 +107,18 @@ class SettingPageBody extends StatelessWidget {
                 SettingPageItem(
                   path: Assets.images.logout.path,
                   title: AppLocalizations.of(context).logOut,
-                  onTab: () => GoRouter.of(context).goNamed(
-                    PagesKeys.onBoardingScreen,
-                  ),
+                  onTab: () async {
+                    bool result = await UiHelper.showDialog(
+                      message: AppLocalizations.of(context).signoutDescription,
+                      context: context,
+                      title: AppLocalizations.of(context).signout,
+                    );
+                    if (result) {
+                      cubit.add(
+                        LogOutEvent(),
+                      );
+                    }
+                  },
                 ),
                 200.verticalSpace,
               ],

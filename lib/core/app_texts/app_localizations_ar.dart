@@ -656,4 +656,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get resendOtp => 'اعادة ارسال الكود';
+
+  @override
+  String get signoutDescription => 'هل تريد تسجيل الخروج؟';
+
+  @override
+  String get signout => 'تسجيل الخروج';
+
+  @override
+  String get enterPhoneNumber => 'ادخل رقم الهاتف';
+
+  @override
+  String get enterPassword => 'ادخل كلمة المرور';
+
+  @override
+  String get enterNewPassword => 'ادخل كلمة المرور الجديدة';
+
+  @override
+  String get passwordChangedSuccessfully => 'تم تغيير كلمة المرور بنجاح';
 }

@@ -16,3 +16,4 @@ class VistorEvent extends AppEvent {
   VistorEvent({required this.vistor});
   final VisitorType vistor;
 }
+class LogOutEvent extends AppEvent {}

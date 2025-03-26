@@ -656,4 +656,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resendOtp => 'Resend OTP';
+
+  @override
+  String get signoutDescription => 'Are you sure you want to sign out?';
+
+  @override
+  String get signout => 'Sign Out';
+
+  @override
+  String get enterPhoneNumber => 'Enter Phone Number';
+
+  @override
+  String get enterPassword => 'Enter Password';
+
+  @override
+  String get enterNewPassword => 'Enter New Password';
+
+  @override
+  String get passwordChangedSuccessfully => 'Password Changed Successfully';
 }

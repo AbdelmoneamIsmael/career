@@ -13,6 +13,10 @@ import 'package:career/features/register_as_business/domain/repo/reister_busines
 import 'package:career/features/register_as_person/data/datasources/remote_persone_register.dart';
 import 'package:career/features/register_as_person/data/repositories/register_person_repo_imple.dart';
 import 'package:career/features/register_as_person/domain/repositories/register_person_repo.dart';
+import 'package:career/features/reset_password/data/datasources/remote/remote_confirm_reset_by_phone.dart';
+import 'package:career/features/reset_password/data/datasources/remote/remote_resete_password.dart';
+import 'package:career/features/reset_password/data/repositories/reset_password_repo_imple.dart';
+import 'package:career/features/reset_password/domain/repositories/reset_password_repo.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -50,6 +54,12 @@ void initializeGetIt() {
   getIt.registerSingleton<ConfirmOtpUseCases>(
     ConfirmOtpUseCases(
       confirmOtpRepo: getIt.get<ConfirmOtpRepo>(),
+    ),
+  );
+  getIt.registerSingleton<ResetPasswordRepo>(
+    ResetPasswordRepoImple(
+      remoteConfirmResetByPhone: RemoteConfirmResetByPhone(),
+      remoteResetePassword: RemoteResetePassword(),
     ),
   );
 }

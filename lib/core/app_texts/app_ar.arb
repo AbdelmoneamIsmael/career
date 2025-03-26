@@ -217,7 +217,14 @@
      "governorate": "المحافظة/المدينة/القسم",
      "area": "المنطقة",
      "companySized": "حجم الشركة",
-     "resendOtp":"اعادة ارسال الكود"
+     "resendOtp":"اعادة ارسال الكود",
+     "signoutDescription": "هل تريد تسجيل الخروج؟",
+     "signout": "تسجيل الخروج",
+     "enterPhoneNumber" :"ادخل رقم الهاتف",
+     "enterPassword" :"ادخل كلمة المرور",
+     "enterNewPassword" :"ادخل كلمة المرور الجديدة",
+     "passwordChangedSuccessfully":"تم تغيير كلمة المرور بنجاح"
+     
     
 
      }

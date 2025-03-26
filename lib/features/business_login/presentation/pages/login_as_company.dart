@@ -123,11 +123,18 @@ class LoginAsBusiness extends StatelessWidget {
                                       ),
                                     ),
                                     const SizedBox(),
-                                    Text(
-                                      AppLocalizations.of(context)
-                                          .forgetPassword,
-                                      style: AppTextStyle.regular14(context)
-                                          .copyWith(),
+                                    GestureDetector(
+                                      onTap: () {
+                                        GoRouter.of(context).pushNamed(
+                                          PagesKeys.resetPassword,
+                                        );
+                                      },
+                                      child: Text(
+                                        AppLocalizations.of(context)
+                                            .forgetPassword,
+                                        style: AppTextStyle.regular14(context)
+                                            .copyWith(),
+                                      ),
                                     ),
                                     const SizedBox(),
                                     Center(
@@ -162,8 +169,8 @@ class LoginAsBusiness extends StatelessWidget {
                                             recognizer: TapGestureRecognizer()
                                               ..onTap = () {
                                                 GoRouter.of(context).pushNamed(
-                                                    PagesKeys
-                                                        .registerAsBusiness);
+                                                  PagesKeys.registerAsBusiness,
+                                                );
                                               },
                                             text: AppLocalizations.of(context)
                                                 .register,

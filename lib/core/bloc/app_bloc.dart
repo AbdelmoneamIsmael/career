@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:bloc/bloc.dart';
 import 'package:career/core/bloc/app_event.dart';
 import 'package:career/core/const/enums.dart';
+import 'package:career/core/routes/page_routes.dart';
+import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/features/otp_screen/data/models/otp_responce_model.dart';
 import 'package:flutter/material.dart';
 import 'package:career/core/bloc/app_state.dart';
@@ -14,7 +16,7 @@ import 'package:hive/hive.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(AppInitial()) {
-    on<AppEvent>((event, emit) {
+    on<AppEvent>((event, emit) async {
       if (event is ChangeThemeEvent) {
         changeTheme();
         emit(ChangeThemeState());
@@ -27,6 +29,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       if (event is VistorEvent) {
         visitorType = event.vistor;
         emit(ChangeIngVisitorType());
+      }
+      if (event is LogOutEvent) {
+        await logOut();
       }
     });
     onInit();
@@ -55,6 +60,13 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           );
 
     var box = Hive.box<LoginInfo>(StorageKeys.loginInfo);
+    if (box.isNotEmpty) {
+      getLoginType(box);
+
+    }
+  }
+
+  void getLoginType(Box<LoginInfo> box) {
     loginInfo = box.values.first;
     if (loginInfo != null) {
       if (loginInfo!.roles.contains("Admin")) {
@@ -125,5 +137,12 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       case ApplicationTheme.dark:
         return darkTheme;
     }
+  }
+
+  Future<void> logOut() async {
+    await Hive.box<LoginInfo>(StorageKeys.loginInfo).clear();
+    await CacheHelper.setSecuerString(key: StorageKeys.accessToken, value: "");
+    await CacheHelper.setSecuerString(key: StorageKeys.refreshToken, value: "");
+    PageRoutes.router.goNamed(PagesKeys.onBoardingScreen);
   }
 }

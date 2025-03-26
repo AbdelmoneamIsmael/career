@@ -147,7 +147,7 @@ abstract class AppTextStyle {
       );
   static TextStyle bold24h27(BuildContext context) => TextStyle(
         fontFamily: Theme.of(context).textTheme.bodyMedium!.fontFamily,
-        fontSize: 30.sp,
+        fontSize: 24.sp,
         fontWeight: FontWeight.w700,
         height: getTextHeight(24, 27),
         color: Theme.of(context).textTheme.bodyMedium!.color,

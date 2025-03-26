@@ -20,6 +20,9 @@ import 'package:career/features/profile_screen/presentation/cubit/profile_screen
 import 'package:career/features/profile_screen/presentation/pages/profile_screen.dart';
 import 'package:career/features/register_as_business/presentation/page/register_as_business.dart';
 import 'package:career/features/register_as_person/presentation/pages/register_as_person.dart';
+import 'package:career/features/reset_password/domain/repositories/reset_password_repo.dart';
+import 'package:career/features/reset_password/presentation/cubit/reset_password_cubit.dart';
+import 'package:career/features/reset_password/presentation/pages/reset_password.dart';
 import 'package:career/features/setting_screen/presentation/pages/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -114,9 +117,7 @@ class PageRoutes {
                         create: (context) => ProfileScreenCubit(
                           personId: id ?? "",
                         ),
-                        child: ProfileScreen(
-                         
-                        ),
+                        child: const ProfileScreen(),
                       );
                     case VisitorType.business:
                       return const CompanyPage();
@@ -207,6 +208,18 @@ class PageRoutes {
               phoneNumber: state.extra as String,
             ),
             child: const OtpScreen(),
+          );
+        },
+      ),
+      GoRoute(
+        name: PagesKeys.resetPassword,
+        path: "/${PagesKeys.resetPassword}",
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => ResetPasswordCubit(
+              resetPasswordRepo: getIt.get<ResetPasswordRepo>(), 
+            ),
+            child: const ResetPassMobileScreen(),
           );
         },
       ),
