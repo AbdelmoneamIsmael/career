@@ -54,6 +54,7 @@ class ConfirmOtpUseCases {
         await CacheHelper.setSecuerString(
             key: StorageKeys.refreshToken, value: r.data!.refreshToken ?? "");
         var box = Hive.box<LoginInfo>(StorageKeys.loginInfo);
+        appBloc.loginInfo = r.data!;
         await box.clear();
         await box.add(r.data!);
         return Right(r);

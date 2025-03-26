@@ -13,14 +13,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key, });
-
+  const ProfileScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileScreenCubit, ProfileScreenState>(
       builder: (context, state) {
-        final cubit = context.read<ProfileScreenCubit>();
         return ScreenWrapper(
           backgroundImage: DecorationImage(
             image: AssetImage(

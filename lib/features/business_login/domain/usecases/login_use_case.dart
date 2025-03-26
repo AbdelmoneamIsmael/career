@@ -17,38 +17,6 @@ class LoginUseCase {
       loginPrameters: loginPrameters,
     );
     return results;
-    // return results.fold(
-    //   Left.new,
-    //   (r) {
-    //     if (r.roles.isEmpty) {
-    //       if (r.roles.contains("Admin")) {
-    //         bloc.add(
-    //           VistorEvent(
-    //             vistor: VisitorType.admin,
-    //           ),
-    //         );
-    //       } else if (r.roles.contains("Business")) {
-    //         bloc.add(
-    //           VistorEvent(
-    //             vistor: VisitorType.business,
-    //           ),
-    //         );
-    //       } else if (r.roles.contains("Person")) {
-    //         bloc.add(
-    //           VistorEvent(
-    //             vistor: VisitorType.person,
-    //           ),
-    //         );
-    //       } else {
-    //         bloc.add(
-    //           VistorEvent(
-    //             vistor: VisitorType.guest,
-    //           ),
-    //         );
-    //       }
-    //     }
-    //     return Right(r);
-    //   },
-    // );
+   
   }
 }
