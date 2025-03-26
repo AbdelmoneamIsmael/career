@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:career/core/const/enums.dart';
 import 'package:career/core/global_views/skills/cubit/skills_state.dart';
 import 'package:career/core/global_views/skills/model/skills_responce.dart';
 import 'package:career/core/global_views/skills/repo/skills_repo.dart';

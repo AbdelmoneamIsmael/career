@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:career/core/global_views/all_areas/model/all_area_responce.dart';
 import 'package:career/core/global_views/all_governorates/model/all_governorates_responce.dart';
@@ -7,7 +6,6 @@ import 'package:career/features/register_as_business/domain/entity/register_comp
 import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/register_company_input_model.dart';
 import 'package:career/features/register_as_business/domain/repo/reister_business_repo.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

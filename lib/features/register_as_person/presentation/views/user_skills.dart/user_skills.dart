@@ -1,5 +1,4 @@
 import 'package:career/core/app_texts/app_localizations.dart';
-import 'package:career/core/global_views/all_areas/model/all_area_responce.dart';
 import 'package:career/core/global_views/skills/model/skills_responce.dart';
 import 'package:career/core/global_views/skills/view/get_all_skills.dart';
 import 'package:career/core/src/language.dart';

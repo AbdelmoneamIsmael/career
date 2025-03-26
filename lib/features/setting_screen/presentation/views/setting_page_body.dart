@@ -4,7 +4,6 @@ import 'package:career/core/bloc/app_bloc.dart';
 import 'package:career/core/bloc/app_event.dart';
 import 'package:career/core/bloc/app_state.dart';
 import 'package:career/core/model/app_model/app_model.dart';
-import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/themes/theme/custom_theme.dart';
 import 'package:career/core/widgets/ui_function.dart';
@@ -14,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:go_router/go_router.dart';
 
 class SettingPageBody extends StatelessWidget {
   const SettingPageBody({super.key});

@@ -3,7 +3,6 @@ import 'package:career/core/bloc/app_bloc.dart';
 import 'package:career/features/otp_screen/domain/entities/conform_parameters.dart';
 import 'package:career/features/otp_screen/domain/usecases/confirm_otp_use_cases.dart';
 import 'package:career/features/otp_screen/presentation/cubit/otp_screen_state.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class OtpScreenCubit extends Cubit<OtpScreenState> {
   OtpScreenCubit({

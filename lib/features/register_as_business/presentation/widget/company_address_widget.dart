@@ -1,7 +1,5 @@
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/company_adress_info_model.dart';
-import 'package:career/features/register_as_business/domain/entity/register_company_input_model.dart/register_company_input_model.dart';
-import 'package:career/features/register_as_person/domain/entities/register_input_model.dart';
 import 'package:flutter/material.dart';
 
 class CompanyADressInfoWidget extends StatelessWidget {

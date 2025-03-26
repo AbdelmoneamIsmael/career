@@ -5,7 +5,6 @@ import 'package:career/core/const/regs.dart';
 import 'package:career/core/global_views/all_nationality/view/all_nationality_view.dart';
 import 'package:career/core/model/app_model/app_model.dart';
 import 'package:career/core/src/countries.dart';
-import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/widgets/app_contry_code_picker.dart';
 import 'package:career/core/widgets/app_drop_down.dart';
 import 'package:career/core/widgets/app_text_field.dart';
@@ -14,7 +13,6 @@ import 'package:career/features/register_as_person/presentation/cubit/register_a
 import 'package:career/core/widgets/forward_widget.dart';
 import 'package:career/core/widgets/title_widget.dart';
 import 'package:career/features/register_as_person/presentation/cubit/register_as_person_state.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

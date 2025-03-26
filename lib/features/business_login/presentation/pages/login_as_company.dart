@@ -4,7 +4,6 @@ import 'package:career/core/routes/pages_keys.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
 import 'package:career/core/utils/functions/initialize_getit/initialize_getit.dart';
 import 'package:career/core/widgets/app_text_field.dart';
-import 'package:career/core/widgets/loading.dart';
 import 'package:career/core/widgets/loading_over_lay.dart';
 import 'package:career/core/widgets/primary_button.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';

@@ -1,5 +1,4 @@
 import 'package:career/core/app_texts/app_localizations.dart';
-import 'package:career/core/widgets/app_drop_down.dart';
 import 'package:career/core/widgets/app_svg.dart';
 import 'package:career/core/widgets/app_text_field.dart';
 import 'package:career/core/widgets/forward_widget.dart';

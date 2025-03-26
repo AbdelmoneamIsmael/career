@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:career/core/const/enums.dart';
 import 'package:career/core/global_views/all_areas/cubit/all_area_state.dart';
 import 'package:career/core/global_views/all_areas/model/all_area_responce.dart';
 import 'package:career/core/global_views/all_areas/repo/all_area_repo.dart';

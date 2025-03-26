@@ -1,7 +1,6 @@
 import 'package:career/core/const/app_const.dart';
 import 'package:career/core/routes/page_routes.dart';
 import 'package:career/core/routes/pages_keys.dart';
-import 'package:career/core/utils/api/api_server.dart';
 import 'package:career/core/utils/cache_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';

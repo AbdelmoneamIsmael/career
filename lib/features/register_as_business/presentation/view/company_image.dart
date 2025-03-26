@@ -4,7 +4,6 @@ import 'package:career/core/widgets/primary_container.dart';
 import 'package:career/core/widgets/title_widget.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_cubit.dart';
 import 'package:career/features/register_as_business/presentation/manager/business_state.dart';
-import 'package:career/features/register_as_business/presentation/page/register_as_business.dart';
 import 'package:career/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

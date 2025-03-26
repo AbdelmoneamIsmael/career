@@ -4,7 +4,6 @@ import 'package:career/core/const/app_const.dart';
 import 'package:career/core/const/enums.dart';
 import 'package:career/core/errors/error_class.dart';
 import 'package:career/core/utils/cache_helper.dart';
-import 'package:career/features/business_login/data/models/login_response_model.dart';
 import 'package:career/features/otp_screen/data/models/otp_responce_model.dart';
 import 'package:career/features/otp_screen/domain/entities/conform_parameters.dart';
 import 'package:career/features/otp_screen/domain/repositories/confirm_otp_repo.dart';
