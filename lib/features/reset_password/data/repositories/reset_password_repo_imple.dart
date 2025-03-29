@@ -46,7 +46,7 @@ class ResetPasswordRepoImple extends ResetPasswordRepo {
       return Right(result);
     } catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure.fromDioError(e));
+        return Left(ServerFailure. fromDioError(e));
       } else {
         return Left(ServerFailure(e.toString()));
       }

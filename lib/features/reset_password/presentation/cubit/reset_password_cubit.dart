@@ -9,6 +9,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   }) : super(ResetPasswordInitial());
   final ResetPasswordRepo resetPasswordRepo;
   final pageController = PageController(initialPage: 0);
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
@@ -45,22 +46,23 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   }
 
   Future<void> passWordValidate() async {
-    if (phoneController.text.isNotEmpty) {
-      emit(LoadingChangePasswordState());
-      try {
-        var result = await resetPasswordRepo.confirmUpdate(
-            phone: countryCode + phoneController.text,
-            otp: otp,
-            newPassword: passwordController.text);
-        result.fold((f) {
-          emit(ErrorChangePasswordState(message: f.message));
-        }, (r) {
-         
-          emit(SuccessChangePasswordState());
-
-        });
-      } catch (e) {
-        emit(ErrorChangePasswordState(message: e.toString()));
+    if (formKey.currentState!.validate() &&
+        passwordController.text == confirmPasswordController.text) {
+      if (phoneController.text.isNotEmpty) {
+        emit(LoadingChangePasswordState());
+        try {
+          var result = await resetPasswordRepo.confirmUpdate(
+              phone: countryCode + phoneController.text,
+              otp: otp,
+              newPassword: passwordController.text);
+          result.fold((f) {
+            emit(ErrorChangePasswordState(message: f.message));
+          }, (r) {
+            emit(SuccessChangePasswordState());
+          });
+        } catch (e) {
+          emit(ErrorChangePasswordState(message: e.toString()));
+        }
       }
     }
   }

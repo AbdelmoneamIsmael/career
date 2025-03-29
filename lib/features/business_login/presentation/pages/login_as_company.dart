@@ -38,11 +38,19 @@ class LoginAsBusiness extends StatelessWidget {
                   context: context,
                   type: MotionToastType.error);
             } else if (state is SuccessLogin) {
-              String phoneNumber = state.loginResponseModel.data!.phoneNumber!;
-              GoRouter.of(context).pushNamed(
-                PagesKeys.otpScreen,
-                extra: phoneNumber,
-              );
+              if (state.loginResponseModel.data!.phoneNumber != null) {
+                String phoneNumber =
+                    state.loginResponseModel.data!.phoneNumber!;
+                GoRouter.of(context).pushNamed(
+                  PagesKeys.otpScreen,
+                  extra: phoneNumber,
+                );
+              } else {
+                UiHelper.showSnakBar(
+                    message: state.loginResponseModel.data!.message!,
+                    context: context,
+                    type: MotionToastType.info);
+              }
             }
           },
           builder: (context, state) {

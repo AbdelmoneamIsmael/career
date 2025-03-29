@@ -22,78 +22,81 @@ class OtpAndPassowrdView extends StatelessWidget {
       builder: (context, state) {
         final cubit = BlocProvider.of<ResetPasswordCubit>(context);
         return PrimaryContainer(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                AppLocalizations.of(context).otpVerification,
-                style: AppTextStyle.medium16(context),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              OtpTextField(
-                numberOfFields: 6,
-                borderColor: LightColors.buttonColor,
-                //set to true to show as box or false to show as dash
-                showFieldAsBox: true,
-                //runs when a code is typed in
-                onCodeChanged: (String code) {
-                  //handle validation or checks here
-                },
-
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                //runs when every textfield is filled
-                onSubmit: cubit.submitOtp, // end onSubmit
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              AppTextField(
-                hint: AppLocalizations.of(context).password,
-                autofillHints: [AutofillHints.password],
-                scure: true,
-                prefixIcon: const Icon(
-                  Icons.lock,
+          child: Form(
+            key: cubit.formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  AppLocalizations.of(context).otpVerification,
+                  style: AppTextStyle.medium16(context),
                 ),
-                controller: cubit.passwordController,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return AppLocalizations.of(context).enterPassword;
-                  } else if (value.length < 6) {
-                    return AppLocalizations.of(context).passwordNotVailid;
-                  }
-                  return null;
-                },
-              ),
-              AppTextField(
-                hint: AppLocalizations.of(context).confirmPassword,
-                autofillHints: [AutofillHints.password],
-                scure: true,
-                prefixIcon: const Icon(
-                  Icons.lock,
+                const SizedBox(
+                  height: 30,
                 ),
-                controller: cubit.confirmPasswordController,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return AppLocalizations.of(context).enterPassword;
-                  } else if (value != cubit.passwordController.text) {
-                    return AppLocalizations.of(context).passwordNotMatch;
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: PrimaryButton(
-                  text: AppLocalizations.of(context).next,
-                  onPressed: cubit.passWordValidate,
+                OtpTextField(
+                  numberOfFields: 6,
+                  borderColor: LightColors.buttonColor,
+                  //set to true to show as box or false to show as dash
+                  showFieldAsBox: true,
+                  //runs when a code is typed in
+                  onCodeChanged: (String code) {
+                    //handle validation or checks here
+                  },
+            
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  //runs when every textfield is filled
+                  onSubmit: cubit.submitOtp, // end onSubmit
                 ),
-              )
-            ],
+                const SizedBox(
+                  height: 30,
+                ),
+                AppTextField(
+                  hint: AppLocalizations.of(context).password,
+                  autofillHints: [AutofillHints.password],
+                  scure: true,
+                  prefixIcon: const Icon(
+                    Icons.lock,
+                  ),
+                  controller: cubit.passwordController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return AppLocalizations.of(context).enterPassword;
+                    } else if (value.length < 6) {
+                      return AppLocalizations.of(context).passwordNotVailid;
+                    }
+                    return null;
+                  },
+                ),
+                AppTextField(
+                  hint: AppLocalizations.of(context).confirmPassword,
+                  autofillHints: [AutofillHints.password],
+                  scure: true,
+                  prefixIcon: const Icon(
+                    Icons.lock,
+                  ),
+                  controller: cubit.confirmPasswordController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return AppLocalizations.of(context).enterPassword;
+                    } else if (value != cubit.passwordController.text) {
+                      return AppLocalizations.of(context).passwordNotMatch;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: PrimaryButton(
+                    text: AppLocalizations.of(context).next,
+                    onPressed: cubit.passWordValidate,
+                  ),
+                )
+              ],
+            ),
           ),
         );
       },

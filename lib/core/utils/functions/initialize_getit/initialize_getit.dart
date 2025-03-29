@@ -7,6 +7,9 @@ import 'package:career/features/otp_screen/data/datasources/confirm_otp_remote.d
 import 'package:career/features/otp_screen/data/repositories/confirm_otp_repo_imple.dart';
 import 'package:career/features/otp_screen/domain/repositories/confirm_otp_repo.dart';
 import 'package:career/features/otp_screen/domain/usecases/confirm_otp_use_cases.dart';
+import 'package:career/features/profile_screen/data/data/get_profile_repo_imple.dart';
+import 'package:career/features/profile_screen/data/remote/remote_profile.dart';
+import 'package:career/features/profile_screen/domain/repo/get_person_details_repo.dart';
 import 'package:career/features/register_as_business/data/remote_data/regester_company_remote.dart';
 import 'package:career/features/register_as_business/data/repo/register_company_repo_imple.dart';
 import 'package:career/features/register_as_business/domain/repo/reister_business_repo.dart';
@@ -60,6 +63,11 @@ void initializeGetIt() {
     ResetPasswordRepoImple(
       remoteConfirmResetByPhone: RemoteConfirmResetByPhone(),
       remoteResetePassword: RemoteResetePassword(),
+    ),
+  );
+  getIt.registerSingleton<GetPersonDetailsRepo>(
+    GetProfileRepoImple(
+      remoteProfile: RemoteProfile(),
     ),
   );
 }

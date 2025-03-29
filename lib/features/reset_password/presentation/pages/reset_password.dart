@@ -28,9 +28,10 @@ class ResetPassMobileScreen extends StatelessWidget {
               type: MotionToastType.error);
         } else if (state is ErrorChangePasswordState) {
           UiHelper.showSnakBar(
-              message: state.message,
-              context: context,
-              type: MotionToastType.error);
+            message: state.message,
+            context: context,
+            type: MotionToastType.error,
+          );
         } else if (state is SuccessChangePasswordState) {
           UiHelper.showSnakBar(
               message: AppLocalizations.of(context).passwordChangedSuccessfully,
@@ -79,5 +80,3 @@ class ResetPassMobileScreen extends StatelessWidget {
     );
   }
 }
-
-

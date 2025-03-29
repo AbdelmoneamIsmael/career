@@ -32,12 +32,11 @@ class ServerFailure extends Failure {
     if (response.statusCode == 404) {
       return ServerFailure('Not Found');
     } else if (response.statusCode == 500) {
-      return ServerFailure(
-          'Internal Server Error,\n ${response.data["message"]}');
+      return ServerFailure('${response.data}');
     } else if (response.statusCode == 400) {
       return ServerFailure('${response.data}');
     } else if (response.statusCode == 401 || response.statusCode == 403) {
-      return ServerFailure(response.statusMessage!);
+      return ServerFailure(response.toString());
     } else {
       return ServerFailure('Unexpected Error, please try again!');
     }

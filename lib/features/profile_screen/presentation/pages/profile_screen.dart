@@ -1,6 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:career/core/app_texts/app_localizations.dart';
 import 'package:career/core/app_texts/text_extentions.dart';
+import 'package:career/core/const/app_const.dart';
 import 'package:career/core/themes/styles/app_text_style.dart';
+import 'package:career/core/widgets/cashed_images.dart';
 import 'package:career/core/widgets/screen_wrapper.dart';
 import 'package:career/features/profile_screen/presentation/cubit/profile_screen_cubit.dart';
 import 'package:career/features/profile_screen/presentation/cubit/profile_screen_state.dart';
@@ -21,17 +24,27 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileScreenCubit, ProfileScreenState>(
       builder: (context, state) {
+        final cubit = context.read<ProfileScreenCubit>();
         return ScreenWrapper(
           backgroundImage: DecorationImage(
-            image: AssetImage(
-              Assets.images.profile.path,
-            ),
+            image: state is ProfileScreenSuccess
+                ? CachedNetworkImageProvider(
+                    baseUrl + state.profilePersonModel.imageUrl!,
+                    errorListener: (p0) => AssetImage(
+                      Assets.images.profile.path,
+                    ),
+                  )
+                : AssetImage(
+                    Assets.images.profile.path,
+                  ),
             fit: BoxFit.cover,
           ),
           body: CustomScrollView(
             slivers: [
-              const SliverAppBar(
-                title: Text("Abdelmoneam Ismael"),
+              SliverAppBar(
+                title: state is ProfileScreenSuccess
+                    ? Text(state.profilePersonModel.name!)
+                    : const Text("Profile Not Found"),
                 pinned: false,
                 floating: true,
                 scrolledUnderElevation: 0,
@@ -46,12 +59,20 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(40.r),
-                        child: Image.asset(
-                          Assets.images.profile.path,
-                          height: 80.w,
-                          width: 80.w,
-                          fit: BoxFit.cover,
-                        ),
+                        child: state is ProfileScreenSuccess
+                            ? CachedImage(
+                                url: baseUrl +
+                                    state.profilePersonModel.imageUrl!,
+                                height: 80.w,
+                                width: 80.w,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.asset(
+                                Assets.images.profile.path,
+                                height: 80.w,
+                                width: 80.w,
+                                fit: BoxFit.cover,
+                              ),
                       ),
                       SizedBox(
                         width: 20.w,
@@ -60,7 +81,7 @@ class ProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Abdelmoneam Ismael",
+                          Text(cubit.profilePersonModel!.name!,
                               style: AppTextStyle.bold16(context)),
                           SizedBox(
                             height: 5.h,
